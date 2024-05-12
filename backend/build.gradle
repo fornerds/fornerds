@@ -28,6 +28,15 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+	// Spring Security
+	implementation 'org.springframework.security:spring-security-core:5.7.1'
+	implementation 'org.springframework.security:spring-security-web:5.7.1'
+	implementation 'org.springframework.security:spring-security-config:5.7.1'
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5'
+
+	// Servlet
+	compileOnly 'javax.servlet:javax.servlet-api:4.0.1'
 }
 
 tasks.named('test') {
