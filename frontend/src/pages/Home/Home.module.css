@@ -1,0 +1,13 @@
+.title {
+  font-family: 'Pixellari';
+  font-size: 90px;
+}
+
+.tag {
+  font-size:12px;
+  display: flex;
+  align-items: center;
+  width: fit-content;
+  gap: 8px;
+  padding: 6px 14px;
+}
