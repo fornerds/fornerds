@@ -1,0 +1,30 @@
+@font-face {
+  font-family: 'Pixellari';
+  src: url(/public/asset/font/Pixellari.woff2) format('woff2');
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url(/public/asset/font/Roboto-Regular.woff) format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url(/public/asset/font/Roboto-Medium.woff) format('woff');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto", sans-serif;
+  src: url(/public/asset/font/Roboto-Bold.woff) format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+#root{
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+}

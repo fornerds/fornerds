@@ -1,0 +1,29 @@
+.tag {
+}
+
+.ongoing {
+  color: #00c4b4;
+  background-color: #ffffff15;
+  border: 1px solid #00c4b4;
+  border-radius: 999px;
+}
+
+.finished {
+  color: #fff;
+  background-color: #dc3545;
+}
+
+.disabled {
+  color: #fff;
+  background-color: #28a745;
+}
+
+.info {
+  color: black;
+  background-color: #e5e5e5;
+}
+
+.default {
+  color: #212529;
+  background-color: #ffc107;
+}
