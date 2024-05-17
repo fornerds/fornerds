@@ -1,3 +1,5 @@
+@import './colors.css';
+
 @font-face {
   font-family: 'Pixellari';
   src: url(/public/asset/font/Pixellari.woff2) format('woff2');
