@@ -1,0 +1,65 @@
+:root {
+    /* Brand Colors */
+    --Color-primary-900: #005457;
+    --Color-primary-800: #017374;
+    --Color-primary-700: #018786;
+    --Color-primary-600: #019592;
+    --Color-primary-500: #01A299;
+    --Color-primary-400: #00B3A6;
+    --Color-primary-300: #00C4B4;
+    --Color-primary-200: #03DAC5;
+    --Color-primary-100: #70EFDE;
+    --Color-primary-050: #C8FFF4 ;
+  
+    --Color-secondary-900: #23036A;
+    --Color-secondary-800: #30009C;
+    --Color-secondary-700: #3700B3;
+    --Color-secondary-600: #5600E8;
+    --Color-secondary-500: #6200EE;
+    --Color-secondary-400: #7F39FB;
+    --Color-secondary-300: #985EFF;
+    --Color-secondary-200: #BB86FC;
+    --Color-secondary-100: #DBB2FF;
+    --Color-secondary-050: #F2E7FE;
+  
+    /* On Primary */
+    --Color-primaryoverlay-high-emphasis: #000000;
+    --Color-primaryoverlay-medium-emphasis: rgba(0, 0, 0, 0.74);
+    --Color-primaryoverlay-disabled: rgba(0, 0, 0, 0.38);
+  
+    /* On Surface */
+    --Color-on-surface-high-emphasis: #FFFFFF;
+    --Color-on-surface-medium-emphasis: rgba(255, 255, 255, 0.87);
+    --Color-on-surface-disabled: rgba(255, 255, 255, 0.38);
+  
+    /* Outline */
+    --Color-stroke-outline: rgba(255, 255, 255, 0.12);
+  
+    /* Outline Status Colors */
+    --Color-purpose-link: #1890FF;
+    --Color-purpose-success: #52C41A;
+    --Color-purpose-warning: #FAAD14;
+    --Color-purpose-error: #FF4D4F;
+  
+    /* Background Shades */
+    --Color-background-00: #121212;
+    --Color-background-01: rgba(18, 18, 18, 0.80);
+    --Color-background-02: rgba(255, 255, 255, 0.07);
+    --Color-background-04: rgba(255, 255, 255, 0.09);
+    --Color-background-08: rgba(255, 255, 255, 0.12);
+    --Color-background-16: rgba(255, 255, 255, 0.15);
+  
+    /* Overlays */
+    --Color-on-surface-disabled: rgba(255, 255, 255, 0.38);
+    --Color-on-surface-medium-emphasis: rgba(255, 255, 255, 0.60);
+    --Color-on-surface-high-emphasis: rgba(255, 255, 255, 0.87);
+    --Color-status_overlay-hover: rgba(255, 255, 255, 0.04);
+    --Color-status_overlay-pressed: rgba(255, 255, 255, 0.10);
+    --Color-status_overlay-selected: rgba(255, 255, 255, 0.08);
+    --Color-status_overlay-dragged: rgba(255, 255, 255, 0.12);
+  
+    /* Text */
+    --Color-text-default: rgba(255, 255, 255, 0.65);
+    --Color-text-lighten: rgba(255, 255, 255, 0.85);
+    --Color-text-disabled: rgba(255, 255, 255, 0.25);
+  }
