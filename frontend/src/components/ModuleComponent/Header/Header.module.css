@@ -52,7 +52,7 @@
 .searchBar {
   display: flex;
   width: 220px;
-  height: 36px;
+  /* height: 36px; */
   padding: 8px 16px;
   align-items: center;
   gap: 16px;
@@ -92,17 +92,4 @@
   display: flex;
   align-items: flex-start;
   gap: 12px;
-}
-
-.button {
-  /* font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
-  display: flex;
-  padding: 6px 16px;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-} */
 }

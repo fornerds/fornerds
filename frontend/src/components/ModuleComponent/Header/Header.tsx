@@ -1,6 +1,6 @@
 import React from 'react'
 import styles from './Header.module.css'
-import { Button } from '../../AtomComponent'
+import { Button, Input, Link } from '../../AtomComponent'
 // png 파일 import 위해서 아래 블로그 참고
 // https://velog.io/@98soonrok/Cannot-find-module-..imagespattern.png-or-its-corresponding-type-declarations.-ts2307
 
@@ -11,15 +11,26 @@ import { Button } from '../../AtomComponent'
  */
 
 function LeftBox() {
+  const categoryId = 2
   return (
     <div className={styles.leftBox}>
       <div className={styles.logo}></div>
       <div className={styles.nav}>
-        <text className={styles.text}>Home</text>
-        <text className={styles.text}>Explore Project</text>
-        <text className={styles.text}>Ranking</text>
-        <text className={styles.text}>Contact</text>
-        <text className={styles.text}>Community</text>
+        <Link to="/" className={styles.text}>
+          Home
+        </Link>
+        <Link to={`/projects/${categoryId}`} className={styles.text}>
+          Explore Project
+        </Link>
+        <Link to="/ranking" className={styles.text}>
+          Ranking
+        </Link>
+        <Link to="/contact" className={styles.text}>
+          Contact
+        </Link>
+        <Link to="/community" className={styles.text}>
+          Community
+        </Link>
       </div>
     </div>
   )
@@ -32,15 +43,20 @@ function RightBox() {
           <SearchIcon />
         </div>
         <div className={styles.searchInput}>
-          <text className={styles.searchText}>Search</text>
+          {/* <input type='text' className={styles.searchText}>Search</input> */}
+          <Input variant="secondary" type="text"></Input>
         </div>
       </div>
       <div className={styles.member}>
-        <Button className={styles.button} variant="default" size="small">
-          Log in
+        <Button variant="default" size="small">
+          <Link to="/login" className={styles.text}>
+            Log In
+          </Link>
         </Button>
-        <Button className={styles.button} variant="default" size="small">
-          Sign Up
+        <Button variant="lessEmphasize" size="small">
+          <Link to="/signup" className={styles.text}>
+            Sign Up
+          </Link>
         </Button>
       </div>
     </div>
