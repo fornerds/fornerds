@@ -1,6 +1,17 @@
 import React from 'react'
 import styles from './Footer.module.css'
 
+export function Footer() {
+  return (
+    <>
+      <div className={styles.footer}>
+        <UpperBox />
+        <DownBox />
+      </div>
+    </>
+  )
+}
+
 function UpperBox() {
   return (
     <div className={styles.upperBox}>
@@ -65,16 +76,5 @@ function DownBox() {
         </text>
       </div>
     </div>
-  )
-}
-
-export function Footer() {
-  return (
-    <>
-      <div className={styles.footer}>
-        <UpperBox />
-        <DownBox />
-      </div>
-    </>
   )
 }
