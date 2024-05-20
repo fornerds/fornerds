@@ -10,6 +10,19 @@ import { Button, Input, Link } from '../../AtomComponent'
  * 피그마 링크: https://www.figma.com/design/C8ak7mvyvyabez8CGRqEqX/Fornerds?node-id=500-10649&t=WnY63VjITSqhoELB-4
  */
 
+export function Header() {
+  return (
+    <>
+      <div className={styles.background}>
+        <div className={styles.header}>
+          <LeftBox />
+          <RightBox />
+        </div>
+      </div>
+    </>
+  )
+}
+
 function LeftBox() {
   const categoryId = 2
   return (
@@ -35,29 +48,42 @@ function LeftBox() {
     </div>
   )
 }
+
 function RightBox() {
   return (
     <div className={styles.rightBox}>
-      <div className={styles.searchBar}>
-        <div className={styles.searchIcon}>
-          <SearchIcon />
-        </div>
-        <div className={styles.searchInput}>
-          {/* <input type='text' className={styles.searchText}>Search</input> */}
-          <Input variant="secondary" type="text"></Input>
-        </div>
+      {/* <SearchBar /> */}
+      <Member />
+    </div>
+  )
+}
+
+function Member() {
+  return (
+    <div className={styles.member}>
+      <Button variant="default" size="small">
+        <Link to="/login" className={styles.text}>
+          Log In
+        </Link>
+      </Button>
+      <Button variant="lessEmphasize" size="small">
+        <Link to="/signup" className={styles.text}>
+          Sign Up
+        </Link>
+      </Button>
+    </div>
+  )
+}
+
+function SearchBar() {
+  return (
+    <div className={styles.searchBar}>
+      <div className={styles.searchIcon}>
+        <SearchIcon />
       </div>
-      <div className={styles.member}>
-        <Button variant="default" size="small">
-          <Link to="/login" className={styles.text}>
-            Log In
-          </Link>
-        </Button>
-        <Button variant="lessEmphasize" size="small">
-          <Link to="/signup" className={styles.text}>
-            Sign Up
-          </Link>
-        </Button>
+      <div className={styles.searchInput}>
+        {/* <input type='text' className={styles.searchText}>Search</input> */}
+        <Input variant="secondary" type="text"></Input>
       </div>
     </div>
   )
@@ -80,18 +106,5 @@ function SearchIcon() {
         fillOpacity="0.65"
       />
     </svg>
-  )
-}
-
-export function Header() {
-  return (
-    <>
-      <div className={styles.background}>
-        <div className={styles.header}>
-          <LeftBox />
-          <RightBox />
-        </div>
-      </div>
-    </>
   )
 }
