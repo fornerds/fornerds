@@ -3,14 +3,14 @@ import styles from './Tag.module.css'
 
 interface TagProps {
   children: ReactNode
-  variant?: 'active' | 'default' | 'disabled'
+  variant?: 'lighten' | 'active' | 'default' | 'disabled' | ''
   className?: string
   rounded?: boolean
 }
 
 export function Tag({
   children,
-  variant = 'default',
+  variant = '',
   className = '',
   rounded
 }: TagProps) {
