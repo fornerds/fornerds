@@ -32,7 +32,7 @@ function LeftBox() {
         <Link to="/" className={styles.text}>
           Home
         </Link>
-        <Link to={`/projects/${categoryId}`} className={styles.text}>
+        <Link to={`/worldmap`} className={styles.text}>
           Explore Project
         </Link>
         <Link to="/ranking" className={styles.text}>
