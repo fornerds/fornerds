@@ -2,26 +2,26 @@
 
 @font-face {
   font-family: 'Pixellari';
-  src: url(/public/asset/font/Pixellari.woff2) format('woff2');
+  src: url(./assets/fonts/Pixellari.woff2) format('woff2');
 }
 
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url(/public/asset/font/Roboto-Regular.woff) format('woff');
+  src: url(./assets/fonts/Roboto-Regular.woff) format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url(/public/asset/font/Roboto-Medium.woff) format('woff');
+  src: url(./assets/fonts/Roboto-Medium.woff) format('woff');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Roboto", sans-serif;
-  src: url(/public/asset/font/Roboto-Bold.woff) format('woff');
+  src: url(./assets/fonts/Roboto-Bold.woff) format('woff');
   font-weight: 700;
   font-style: normal;
 }
@@ -29,4 +29,111 @@
 #root{
   font-family: "Roboto", sans-serif;
   font-weight: 400;
+}
+
+/* typography */
+
+.font-pixellari-hero {
+  font-family: 'Pixellari';
+  font-size: 80px;
+  font-weight: 500;
+  line-height: 96px;
+}
+
+.font-pixellari-header-1 {
+  font-family: 'Pixellari';
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 62.4px;
+}
+
+.font-pixellari-header-2 {
+  font-family: 'Pixellari';
+  font-size: 40px;
+  font-weight: 500;
+  line-height: 48px;
+}
+
+.font-pixellari-header-3 {
+  font-family: 'Pixellari';
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 38.4px;
+}
+
+.font-pixellari-sub-header {
+  font-family: 'Pixellari';
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 30px;
+}
+
+.font-roboto-header-1 {
+  font-family: "Roboto";
+  font-size: 52px;
+  font-weight: 500;
+  line-height: 62.4px;
+}
+
+.font-roboto-header-2 {
+  font-family: "Roboto";
+  font-size: 30px;
+  font-weight: 700;
+  line-height: 36px;
+}
+
+.font-roboto-header-3 {
+  font-family: "Roboto";
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 28.8px;
+}
+
+.font-roboto-sub-header {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+}
+
+.font-roboto-body-1 {
+  font-family: "Roboto";
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.font-roboto-body-2 {
+  font-family: "Roboto";
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 21px;
+}
+
+.font-roboto-body-3 {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
+}
+
+.font-roboto-card-title {
+  font-family: "Roboto";
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 27px;
+}
+
+.font-roboto-button {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.font-roboto-tag {
+  font-family: "Roboto";
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 18px;
 }

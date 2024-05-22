@@ -22,6 +22,12 @@
   border: 1px solid var(--Color-stroke-outline);
 }
 
+.lighten{
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+  background-color: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+  border: 1px solid var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
 .rounded{
   border-radius: 999px;
 }
