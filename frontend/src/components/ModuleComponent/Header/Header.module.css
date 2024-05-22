@@ -1,0 +1,97 @@
+.header {
+  background: var(--Color-background-01, rgba(18, 18, 18, 0.8));
+  display: flex;
+  /* width: 1920px; */
+  padding: 10px 120px;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.leftBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.logo {
+  display: flex;
+  width: 60px;
+  height: 50px;
+  background-image: url('../../../../public/asset/image/fornerds.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.nav {
+  display: flex;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.text {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  transition: color 0.3s ease-out;
+  text-align: center;
+
+  /* text/CTA small */
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%; /* 24px */
+}
+
+.text:hover {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.rightBox {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.searchBar {
+  display: flex;
+  width: 220px;
+  /* height: 36px; */
+  padding: 8px 16px;
+  align-items: center;
+  gap: 16px;
+
+  border-radius: 999px;
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+}
+
+.searchIcon {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+}
+
+.searchInput {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.searchText {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+
+  /* text/body 2 */
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%; /* 21px */
+}
+
+.member {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
