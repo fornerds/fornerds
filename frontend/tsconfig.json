@@ -13,7 +13,8 @@
     "moduleResolution": "node", // Node.js 모듈 해석 사용
     "resolveJsonModule": true, // JSON 모듈을 가져올 수 있도록 함
     "isolatedModules": true, // 각 파일을 독립된 모듈로 트리트
-    "jsx": "react-jsx" // JSX를 React로 변환
+    "jsx": "react-jsx", // JSX를 React로 변환
+    "typeRoots": ["./node_modules/@types", "src/images.d.ts"]
   },
   "include": ["src", "**/*.d.ts"], // 컴파일에서 포함할 파일 경로
   "exclude": ["node_modules"] // 컴파일에서 제외할 파일 경로
