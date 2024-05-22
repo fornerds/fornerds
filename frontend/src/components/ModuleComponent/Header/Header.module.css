@@ -13,15 +13,6 @@
   gap: 40px;
 }
 
-.logo {
-  display: flex;
-  width: 60px;
-  height: 50px;
-  background-image: url('../../../../public/asset/image/fornerds.png');
-  background-size: cover;
-  background-position: center;
-}
-
 .nav {
   display: flex;
   align-items: flex-start;
