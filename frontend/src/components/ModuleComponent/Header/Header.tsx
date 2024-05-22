@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './Header.module.css'
 import { Button, Input, Link } from '../../AtomComponent'
+import logo from '../../../assets/images/fornerds.png'
 // png 파일 import 위해서 아래 블로그 참고
 // https://velog.io/@98soonrok/Cannot-find-module-..imagespattern.png-or-its-corresponding-type-declarations.-ts2307
 
@@ -27,12 +28,12 @@ function LeftBox() {
   const categoryId = 2
   return (
     <div className={styles.leftBox}>
-      <div className={styles.logo}></div>
+      <img src={logo} alt="포너즈 로고" width="60px" height="50px" />
       <div className={styles.nav}>
         <Link to="/" className={styles.text}>
           Home
         </Link>
-        <Link to={`/worldmap`} className={styles.text}>
+        <Link to={'/worldmap'} className={styles.text}>
           Explore Project
         </Link>
         <Link to="/ranking" className={styles.text}>
