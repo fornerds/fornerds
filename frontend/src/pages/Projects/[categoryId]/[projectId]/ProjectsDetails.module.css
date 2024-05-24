@@ -43,6 +43,79 @@
   height: 194px;
   border-radius: 10px;
   background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+
+  position: relative;
+}
+
+.card_upperLeftBox {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+
+  position: absolute;
+  top: 16px;
+  left: 20px;
+}
+
+.card_icon {
+  position: absolute;
+  bottom: 22px;
+  left: 21px;
+}
+
+.reward {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.money {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.icon_money_small {
+  display: flex;
+  width: 27px;
+  height: 18px;
+}
+
+.exp {
+  display: flex;
+  padding-left: 4px;
+  align-items: center;
+  gap: 11px;
+}
+
+.icon_cup_small {
+  display: flex;
+  width: 20px;
+  height: 20px;
+}
+
+.card_numberBox {
+  display: inline-flex;
+  align-items: flex-end;
+  gap: 8px;
+
+  position: absolute;
+  bottom: 16px;
+  right: 20px;
+}
+
+.card_numberBox_text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card_numberBox_unit {
+  display: flex;
+  padding: 6px 0px;
+  align-items: flex-end;
+  gap: 10px;
 }
 
 .text_field {
@@ -58,8 +131,4 @@
   flex-direction: column;
   align-items: flex-start;
   gap: 16px;
-}
-
-.textColor {
-  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
 }
