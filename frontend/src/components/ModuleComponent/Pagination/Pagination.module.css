@@ -1,0 +1,23 @@
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.button, .pageNumber {
+    background-color: transparent;
+    border: 0;
+}
+
+.pageNumber {
+    color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+}
+
+.pageNumber:disabled {
+    color: var(--Color-text-disabled, rgba(255, 255, 255, 0.25));
+}
+
+.currentPage{
+    color: var(--Color-primary-300, #00C4B4);
+}
