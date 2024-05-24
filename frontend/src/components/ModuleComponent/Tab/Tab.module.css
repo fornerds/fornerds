@@ -1,0 +1,51 @@
+/* Tabs.module.css */
+
+.tabs {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.tabListWrap{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+}
+
+.tabList {
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+    justify-content: start;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.tab {
+    display: flex;
+    padding: 16px 20px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background-color: transparent;
+    border-bottom: 2px solid transparent;
+}
+
+.tab.active {
+    border-bottom: 2px solid #00C4B4;
+    color: #00C4B4;
+}
+
+.tabContent {
+    padding: 20px;
+    background-color: transparent;
+}
+
+.label {
+    color: var(--Color-on-surface-disabled, rgba(255, 255, 255, 0.38));
+}
+
+.active .label {
+    color: #00C4B4;
+}
