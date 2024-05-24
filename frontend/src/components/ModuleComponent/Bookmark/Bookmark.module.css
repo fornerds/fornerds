@@ -1,0 +1,25 @@
+.bookmark {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+    text-align: center;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    transition: color 0.3 ease-out;
+}
+
+.bookmarkIcon {
+    transition: fill 0.3s ease-out, stroke 0.3s ease-out;
+}
+
+.bookmarked {
+    fill: #00C4B4;
+    stroke: #00C4B4;
+}
+
+.notBookmarked {
+    fill: none;
+    stroke: white;
+}
