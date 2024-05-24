@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import styles from './ProjectsDetails.module.css'
-import { Footer, Header } from '../../../../components/ModuleComponent'
+import { Footer, Header, Tab } from '../../../../components/ModuleComponent'
 import { NavLink, useParams } from 'react-router-dom'
 import { Bookmark } from '../../../../components/ModuleComponent/Bookmark'
 import { ReactComponent as Users } from '../../../../assets/icons/users.svg'
@@ -9,6 +9,9 @@ import { ReactComponent as Calendar } from '../../../../assets/icons/calendar.sv
 import { ReactComponent as Easy_active } from '../../../../assets/icons/easy_active.svg'
 import { ReactComponent as Medium_active } from '../../../../assets/icons/medium_active.svg'
 import { ReactComponent as Hard_active } from '../../../../assets/icons/hard_active.svg'
+import { ReactComponent as OverviewIcon } from '../../../../assets/icons/eye.svg'
+import { ReactComponent as QuestBoardIcon } from '../../../../assets/icons/rectangle_stack.svg'
+import { ReactComponent as QuestBoardAtiveIcon } from '../../../../assets/icons/lightbulb.svg'
 import { Tag } from '../../../../components/AtomComponent'
 import money from '../../../../assets/images/pixel/money.webp'
 import cup from '../../../../assets/images/pixel/cup.webp'
@@ -46,6 +49,37 @@ export function ProjectsDetails() {
   const handleBookmarkClick = () => {
     setIsBookmarked(!isBookmarked)
   }
+
+  const tabs = [
+    {
+      icon: <OverviewIcon stroke="white" strokeOpacity="0.38" />,
+      activeIcon: <OverviewIcon stroke="#00C4B4" strokeOpacity="1" />,
+      label: 'Overview',
+      content: (
+        <>
+          <div className={styles.tabBackground}>
+            <section className={styles.tabSection}>
+              <h3 className={styles.text}>Overview...</h3>
+            </section>
+          </div>
+        </>
+      )
+    },
+    {
+      icon: <QuestBoardIcon strokeOpacity="0.65" />,
+      activeIcon: <QuestBoardAtiveIcon stroke="#00C4B4" strokeOpacity="1" />,
+      label: 'Quest Board',
+      content: (
+        <>
+          <div className={styles.tabBackground}>
+            <section className={styles.tabSection}>
+              <h3 className={styles.text}>Quests card...</h3>
+            </section>
+          </div>
+        </>
+      )
+    }
+  ]
 
   return (
     <div className={styles.background}>
@@ -158,6 +192,7 @@ export function ProjectsDetails() {
             </div>
           </section>
         </header>
+        <Tab tabs={tabs} />
       </main>
       <Footer />
     </div>
