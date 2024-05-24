@@ -1,10 +1,87 @@
-.pageLayout {
-  display: flex;
-  flex-direction: column;
-  /* height: 100%; */
-  height: 100vh;
+.background {
+  background: url(../../../assets/images/background/background1.webp) lightgray 50% / cover no-repeat;
+  background-color: var(--Color-background-00, #121212);
+  background-size: 100vw auto;
+  background-position: left top;
 }
 
-.content {
-  flex: 1;
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.hero {
+  display: flex;
+  padding: 140px 0px 80px 0px;
+  flex-direction: column;
+  align-items: center;
+  gap: 55px;
+}
+
+.title {
+  color: #FFF;
+  text-align: center;
+}
+
+.searchBar {
+  display: flex;
+  width: 80%;
+  max-width: 480px;
+  height: 54px;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 24px;
+  border-radius: 999px;
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  box-sizing: border-box;
+}
+
+.searchBar:hover, .searchBar.focused {
+  border-radius: 999px;
+  border: 1px solid var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+}
+
+.searchBarInput {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  background-color: transparent;
+  border: 0;
+  width: 100%;
+  outline: none;
+}
+
+.searchBarInput:focus {
+  outline: none;
+}
+
+.flex {
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+}
+
+.cardList {
+  max-width: 996px;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: center;
+  gap: 24px;
+}
+
+.pagination {
+  margin-top: 40px;
+  margin-bottom: 275px;
+}
+
+.card {
+  align-self: flex-start;
+}
+
+.filters {
+  display: flex;
+  justify-content: end;
+  margin-right: 20px;
+  margin-bottom: 20px;
 }
