@@ -1,0 +1,14 @@
+.contents_box {
+  display: flex;
+  padding: 60px 360px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contents {
+  display: flex;
+  width: 1200px;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
