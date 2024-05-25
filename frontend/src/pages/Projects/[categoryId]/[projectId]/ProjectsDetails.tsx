@@ -35,6 +35,7 @@ import { ReactComponent as QuestBoardAtiveIcon } from '../../../../assets/icons/
 import { Tag } from '../../../../components/AtomComponent'
 import money from '../../../../assets/images/pixel/money.webp'
 import cup from '../../../../assets/images/pixel/cup.webp'
+import { ProjectBodyTab } from './Tab/Overview/ProjectBodyTab'
 
 export function ProjectsDetails() {
   let { categoryId, projectId } = useParams()
@@ -79,7 +80,7 @@ export function ProjectsDetails() {
         <>
           <div className={styles.tabBackground}>
             <section className={styles.tabSection}>
-              <h3 className={styles.text}>Overview...</h3>
+              <ProjectBodyTab />
             </section>
           </div>
         </>
