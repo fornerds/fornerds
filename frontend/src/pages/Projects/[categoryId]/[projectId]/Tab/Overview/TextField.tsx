@@ -19,11 +19,11 @@ export function TextField() {
 function TextBox({ title, description, list }: TextBoxProps) {
   return (
     <div className={styles.textBox}>
-      <text className={`text-color-lighten font-roboto-header-3`}>{title}</text>
+      <p className={`text-color-lighten font-roboto-header-3`}>{title}</p>
       {description ? (
-        <text className={`text-color-lighten font-roboto-body-1`}>
+        <p className={`text-color-lighten font-roboto-body-1`}>
           {description}
-        </text>
+        </p>
       ) : null}
       {list
         ? list?.map((str, index) => (
