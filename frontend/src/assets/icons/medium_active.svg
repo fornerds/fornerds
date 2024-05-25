@@ -1,0 +1,11 @@
+<svg
+  width="current"
+  height="current"
+  viewBox="0 0 16 16"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <rect y="11" width="4" height="5" fill="var(--Color-primary-300, #00C4B4)" />
+  <rect x="6" y="6" width="4" height="10" fill="var(--Color-primary-300, #00C4B4)" />
+  <rect x="12" width="4" height="16" fill="var(--Color-primary-050, #C8FFF4)" />
+</svg>

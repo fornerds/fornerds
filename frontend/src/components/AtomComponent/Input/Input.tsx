@@ -3,14 +3,21 @@ import styles from './Input.module.css'
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string
-  variant?: 'primary' | 'secondary' | 'danger' | 'success' | 'warning' | 'info'
+  variant?:
+    | 'primary'
+    | 'secondary'
+    | 'danger'
+    | 'success'
+    | 'warning'
+    | 'info'
+    | ''
   className?: string
   type?: string
 }
 
 export function Input({
   error,
-  variant = 'primary',
+  variant = '',
   className = '',
   type = 'text',
   ...props
