@@ -43,9 +43,9 @@ function ProjectDetailCard({
   return (
     <div className={styles.project_detail_card}>
       <div className={styles.card_upperLeftBox}>
-        <text className={`text-color-lighten font-roboto-cta-small`}>
+        <p className={`text-color-lighten font-roboto-cta-small`}>
           {title}
-        </text>
+        </p>
 
         {title == 'Total reward' ? (
           <div className={styles.reward}>
@@ -53,17 +53,17 @@ function ProjectDetailCard({
               <div className={styles.icon_money_small}>
                 <img src={MoneyPixelIcon} alt="money_small"></img>
               </div>
-              <text className={`text-color-default font-roboto-body-2`}>
+              <p className={`text-color-default font-roboto-body-2`}>
                 {rewardMoney ? rewardMoney.toLocaleString() : null}
-              </text>
+              </p>
             </div>
             <div className={styles.exp}>
               <div className={styles.icon_cup_small}>
                 <img src={CupPixelIcon} alt="money_small"></img>
               </div>
-              <text className={`text-color-default font-roboto-body-2`}>
+              <p className={`text-color-default font-roboto-body-2`}>
                 {rewardExp ? rewardExp.toLocaleString() : null}
-              </text>
+              </p>
             </div>
           </div>
         ) : null}
@@ -72,15 +72,15 @@ function ProjectDetailCard({
         <CodeBracket width="24" height="24" />
       </div>
       <div className={styles.card_numberBox}>
-        <text
+        <p
           className={`text-color-lighten ${styles.card_numberBox_text} font-roboto-header-1`}
         >
           {number.toLocaleString()}
-        </text>
+        </p>
         <div className={styles.card_numberBox_unit}>
-          <text className={`text-color-lighten font-roboto-body-2`}>
+          <p className={`text-color-lighten font-roboto-body-2`}>
             {unit}
-          </text>
+          </p>
         </div>
       </div>
     </div>
