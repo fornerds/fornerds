@@ -6,28 +6,28 @@
 }
 
 @font-face {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   src: url(./assets/fonts/Roboto-Regular.woff) format('woff');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   src: url(./assets/fonts/Roboto-Medium.woff) format('woff');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto", sans-serif;
+  font-family: 'Roboto', sans-serif;
   src: url(./assets/fonts/Roboto-Bold.woff) format('woff');
   font-weight: 700;
   font-style: normal;
 }
 
-#root{
-  font-family: "Roboto", sans-serif;
+#root {
+  font-family: 'Roboto', sans-serif;
   font-weight: 400;
 }
 
@@ -69,56 +69,63 @@
 }
 
 .font-roboto-header-1 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 52px;
   font-weight: 500;
   line-height: 62.4px;
 }
 
 .font-roboto-header-2 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 30px;
   font-weight: 700;
   line-height: 36px;
 }
 
 .font-roboto-header-3 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 24px;
   font-weight: 700;
   line-height: 28.8px;
 }
 
 .font-roboto-sub-header {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
 }
 
+.font-roboto-cta-small {
+  font-family: 'Roboto';
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+}
+
 .font-roboto-body-1 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
 
 .font-roboto-body-2 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 14px;
   font-weight: 400;
   line-height: 21px;
 }
 
 .font-roboto-body-3 {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
 }
 
 .font-roboto-card-title {
-  font-family: "Roboto";
+  font-family: 'Roboto';
   font-size: 18px;
   font-weight: 500;
   line-height: 27px;
@@ -136,4 +143,16 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 18px;
+}
+
+.text-color-default {
+  color: var(--Color-text-default);
+}
+
+.text-color-lighten {
+  color: var(--Color-text-lighten);
+}
+
+.text-color-disabled {
+  color: var(--Color-text-disabled);
 }
