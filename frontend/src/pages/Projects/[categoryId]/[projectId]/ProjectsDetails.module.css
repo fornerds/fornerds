@@ -167,13 +167,14 @@
     width: 100%;
     display: flex;
     justify-content: center;
-    padding: 60px 20px 280px;
+    padding: 30px 0px 196px;
 }
 
 .tabSection {
     max-width: 1200px;
     width: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: start;
     align-items: flex-start;
     align-self: center;
@@ -183,3 +184,77 @@
     color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
 }
 
+.flex {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 0px 20px;
+    align-items: center;
+    align-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+  
+.cardList {
+    max-width: 1200px;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    gap: 20px;
+}
+  
+.pagination {
+    align-self: center;
+    margin-top: 40px;
+}
+  
+.card {
+    align-self: flex-start;
+}
+  
+.filters {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.positions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.tagFilters {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+}
+
+.tagFilter {
+    display: flex;
+    padding: 6px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    border-radius: 999px;
+}
+
+.activeTag {
+    border: 1px solid var(--Color-primary-300, #00C4B4);
+    color: var(--Color-primary-300, #00C4B4);
+}
+
+.verticalLine {
+    width: 1px;
+    height: 24px;
+    background-color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.sortFilters {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
