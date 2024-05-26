@@ -8,6 +8,7 @@
     background-color: transparent;
     border: none;
     transition: color 0.3 ease-out;
+    padding: 0;
 }
 
 .bookmarkIcon {
