@@ -43,9 +43,7 @@ function ProjectDetailCard({
   return (
     <div className={styles.project_detail_card}>
       <div className={styles.card_upperLeftBox}>
-        <p className={`text-color-lighten font-roboto-cta-small`}>
-          {title}
-        </p>
+        <p className={`text-color-lighten font-roboto-cta-small`}>{title}</p>
 
         {title == 'Total reward' ? (
           <div className={styles.reward}>
@@ -78,9 +76,7 @@ function ProjectDetailCard({
           {number.toLocaleString()}
         </p>
         <div className={styles.card_numberBox_unit}>
-          <p className={`text-color-lighten font-roboto-body-2`}>
-            {unit}
-          </p>
+          <p className={`text-color-lighten font-roboto-body-2`}>{unit}</p>
         </div>
       </div>
     </div>
