@@ -36,7 +36,11 @@ export function Card(props: CardProps) {
       <div>
         <header className={styles.header}>
           {props.status === 'inProgress' ? (
-            <Tag className={styles.difficulty} variant="lighten" rounded>
+            <Tag
+              className={`${styles.difficulty} font-roboto-body-3`}
+              variant="lighten"
+              rounded
+            >
               {props.difficulty === 'Hard' ? (
                 <Hard_white width="16" height="16" />
               ) : props.difficulty === 'Medium' ? (
@@ -49,7 +53,11 @@ export function Card(props: CardProps) {
               {props.difficulty}
             </Tag>
           ) : (
-            <Tag className={styles.difficulty} variant="default" rounded>
+            <Tag
+              className={`${styles.difficulty} font-roboto-body-3`}
+              variant="lighten"
+              rounded
+            >
               {props.difficulty === 'Hard' ? (
                 <Hard_disabled width="16" height="16" />
               ) : props.difficulty === 'Medium' ? (
@@ -82,7 +90,7 @@ export function Card(props: CardProps) {
               props.skills.map((skill, index) => (
                 <Tag
                   key={index}
-                  className={`${styles.skill} font-roboto-button`}
+                  className={`${styles.skill} font-roboto-button text-color-lighten`}
                   variant="default"
                 >
                   {skill}
