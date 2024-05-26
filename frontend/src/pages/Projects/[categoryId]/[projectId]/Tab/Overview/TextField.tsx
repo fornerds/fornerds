@@ -21,9 +21,7 @@ function TextBox({ title, description, list }: TextBoxProps) {
     <div className={styles.textBox}>
       <p className={`text-color-lighten font-roboto-header-3`}>{title}</p>
       {description ? (
-        <p className={`text-color-lighten font-roboto-body-1`}>
-          {description}
-        </p>
+        <p className={`text-color-lighten font-roboto-body-1`}>{description}</p>
       ) : null}
       {list
         ? list?.map((str, index) => (
