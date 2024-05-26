@@ -1,4 +1,4 @@
-export { Card } from './Card'
+export { Card, QuestCard } from './Card'
 export { Comment } from './Comment'
 export { Filter, SortFilter } from './Filter'
 export { Footer } from './Footer'
