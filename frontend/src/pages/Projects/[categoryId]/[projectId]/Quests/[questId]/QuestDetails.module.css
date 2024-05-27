@@ -241,3 +241,44 @@
     align-items: flex-start;
     gap: 10px;
 }
+
+.tabSection {
+    max-width: 1200px;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: flex-start;
+    align-self: center;
+}
+
+.flex {
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    padding: 0px 20px;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.filters {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    align-self: stretch;
+    margin: 20px 0;
+}
+
+.solutionTableHeader {
+    display: grid;
+    width: 1160px;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
+    height: 72px;
+    align-items: center;
+}
+
+.pagination {
+    margin: 40px auto 240px;
+}

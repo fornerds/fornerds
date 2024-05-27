@@ -5,9 +5,13 @@ import { Button } from '../../../AtomComponent'
 
 interface SortDropdownProps {
   onSortChange: (sortType: string) => void
+  isSolutionSort?: boolean
 }
 
-export function SortFilter({ onSortChange }: SortDropdownProps) {
+export function SortFilter({
+  onSortChange,
+  isSolutionSort
+}: SortDropdownProps) {
   const [isOpen, setIsOpen] = useState(false)
 
   const handleDropdownClick = () => {
@@ -41,18 +45,22 @@ export function SortFilter({ onSortChange }: SortDropdownProps) {
           >
             Recent
           </Button>
-          <Button
-            className={`${styles.dropdownItem} font-roboto-body-2`}
-            onClick={() => handleOptionClick('Expire')}
-          >
-            Expire soon
-          </Button>
-          <Button
-            className={`${styles.dropdownItem} font-roboto-body-2`}
-            onClick={() => handleOptionClick('Reward')}
-          >
-            Highest reward
-          </Button>
+          {!isSolutionSort && (
+            <>
+              <Button
+                className={`${styles.dropdownItem} font-roboto-body-2`}
+                onClick={() => handleOptionClick('Expire')}
+              >
+                Expire soon
+              </Button>
+              <Button
+                className={`${styles.dropdownItem} font-roboto-body-2`}
+                onClick={() => handleOptionClick('Reward')}
+              >
+                Highest reward
+              </Button>
+            </>
+          )}
         </div>
       )}
     </div>

@@ -40,6 +40,8 @@
 .tabContent {
     padding: 20px;
     background-color: transparent;
+    display: flex;
+    justify-content: center;
 }
 
 .label {
