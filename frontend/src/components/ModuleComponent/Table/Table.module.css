@@ -1,0 +1,15 @@
+.solutionTableList {
+    display: grid;
+    width: 1160px;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+.solutionTableItem {
+    display: flex;
+    align-items: center;
+    height: 72px;
+}
+
+.userInfo {
+    gap: 16px;
+}

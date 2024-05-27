@@ -4,7 +4,10 @@ import {
   Footer,
   Header,
   BookmarkButton,
-  Tab
+  Tab,
+  SortFilter,
+  Pagination,
+  SolutionTable
 } from '../../../../../../components/ModuleComponent'
 import { NavLink, useParams } from 'react-router-dom'
 import { Button, Tag } from '../../../../../../components/AtomComponent'
@@ -14,8 +17,9 @@ import { ReactComponent as Hard_white } from '../../../../../../assets/icons/har
 import { ReactComponent as Medium_white } from '../../../../../../assets/icons/medium_white.svg'
 import { ReactComponent as Easy_white } from '../../../../../../assets/icons/easy_white.svg'
 import { ReactComponent as OverviewIcon } from '../../../../../../assets/icons/eye.svg'
-import { ReactComponent as DiscussionIcon } from '../../../../../../assets/icons/chat_bubble.svg'
+import { DiscussionIcon } from '../../../../../../assets/icons/DiscussionIcon'
 import { ReactComponent as SolutionIcon } from '../../../../../../assets/icons/lightbulb.svg'
+import { ReactComponent as Heart } from '../../../../../../assets/icons/heart.svg'
 import open from '../../../../../../assets/images/pixel/open.webp'
 import half_open from '../../../../../../assets/images/pixel/half_open.webp'
 import closed from '../../../../../../assets/images/pixel/closed.webp'
@@ -24,6 +28,59 @@ import money from '../../../../../../assets/images/pixel/money.webp'
 
 export function QuestDetails() {
   let { categoryId, projectId, questId } = useParams()
+  const [currentPage, setCurrentPage] = useState(1)
+  const [onlyActive, setOnlyActive] = useState(false)
+  const [sortType, setSortType] = useState('default')
+  const itemsPerPage = 10
+
+  const handlePageChange = (page: number) => {
+    setCurrentPage(page)
+  }
+
+  const handleToggleChange = (checked: boolean) => {
+    setOnlyActive(checked)
+    setCurrentPage(1)
+  }
+
+  const handleSortChange = (sortType: string) => {
+    setSortType(sortType)
+  }
+
+  const solutionList = useRef(
+    Array.from({ length: 53 }, (_, i) => {
+      const randomDate = new Date()
+      randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365))
+      return {
+        id: i + 1,
+        likeCount: Math.floor(Math.random() * 500),
+        createdAt: randomDate.toISOString(),
+        user_id: Math.floor(Math.random() * 500),
+        user_name: `user name ${i + 1}`,
+        user_image: Math.floor(Math.random() * 10),
+        codeLength: Math.floor(Math.random() * 2000),
+        executionTime: Math.floor(Math.random() * 1000),
+        memoryUsage: Math.floor(Math.random() * 2000)
+      }
+    })
+  ).current
+
+  const sortedsolutionList = solutionList.sort((a, b) => {
+    switch (sortType) {
+      case 'Popular':
+        return b.likeCount - a.likeCount
+      case 'Recent':
+        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+      default:
+        return 0
+    }
+  })
+
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = sortedsolutionList.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  )
 
   const status = ['inProgress', 'completed'][Math.floor(Math.random() * 2)] as
     | 'inProgress'
@@ -141,7 +198,51 @@ export function QuestDetails() {
       icon: <SolutionIcon stroke="white" strokeOpacity="0.38" />,
       activeIcon: <SolutionIcon stroke="#00C4B4" strokeOpacity="1" />,
       label: 'Solutions',
-      content: <div className="text-color-lighten">Solutions...</div>
+      content: (
+        <section className={styles.tabSection}>
+          <div className={styles.flex}>
+            <article className={styles.filters}>
+              <SortFilter
+                onSortChange={handleSortChange}
+                isSolutionSort={true}
+              />
+            </article>
+            <div className={styles.solutionTableHeader}>
+              <div className="font-roboto-cta-small text-color-lighten">
+                No.
+              </div>
+              <div>
+                <Heart width="24" height="24" fill="none" stroke="white" />
+              </div>
+              <div className="font-roboto-cta-small text-color-lighten">ID</div>
+              <div className="font-roboto-cta-small text-color-lighten">
+                Code Length
+              </div>
+              <div className="font-roboto-cta-small text-color-lighten">
+                Time spent
+              </div>
+              <div className="font-roboto-cta-small text-color-lighten">
+                Memory
+              </div>
+              <div className="font-roboto-cta-small text-color-lighten">
+                Date
+              </div>
+            </div>
+            <ol className={styles.solutionTableList}>
+              {currentItems.map((solution) => (
+                <SolutionTable key={solution.id} {...solution} />
+              ))}
+            </ol>
+            <Pagination
+              className={styles.pagination}
+              currentPage={currentPage}
+              totalItems={sortedsolutionList.length}
+              itemsPerPage={itemsPerPage}
+              onPageChange={handlePageChange}
+            />
+          </div>
+        </section>
+      )
     }
   ]
 
