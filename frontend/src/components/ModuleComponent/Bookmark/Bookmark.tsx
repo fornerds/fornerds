@@ -1,5 +1,6 @@
 import styles from './Bookmark.module.css'
 import { ReactComponent as BookmarkIcon } from '../../../assets/icons/bookmark.svg'
+import { Button } from '../../AtomComponent'
 
 interface BookmarkProps {
   width?: string
@@ -28,5 +29,27 @@ export function Bookmark({
       />
       {bookmarkCount ? bookmarkCount : ''}
     </button>
+  )
+}
+
+export function BookmarkButton({
+  width,
+  height,
+  isBookmarked,
+  onBookmarkClick
+}: BookmarkProps) {
+  return (
+    <Button
+      className={`${styles.bookmarkButton} font-roboto-cta-small`}
+      onClick={onBookmarkClick}
+      variant="default"
+    >
+      <BookmarkIcon
+        className={`${styles.bookmarkIcon} ${isBookmarked ? styles.bookmarked : styles.notBookmarked}`}
+        width={width || '24'}
+        height={height || '24'}
+      />{' '}
+      Save
+    </Button>
   )
 }
