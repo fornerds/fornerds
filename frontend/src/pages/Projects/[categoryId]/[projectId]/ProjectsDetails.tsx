@@ -84,7 +84,8 @@ export function ProjectsDetails() {
         positionName: ['Front-end', 'Back-end', 'Full Stack', 'Designer'][
           Math.floor(Math.random() * 4)
         ],
-        opened: [true, false][Math.floor(Math.random() * 2)]
+        opened: [true, false][Math.floor(Math.random() * 2)],
+        link: `/projects/${categoryId}/${projectId}/quests/${i + 1}`
       }
     })
   ).current

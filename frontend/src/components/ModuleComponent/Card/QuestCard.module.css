@@ -12,6 +12,7 @@
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    position: relative;
 }
 
 .card:hover {
@@ -24,6 +25,13 @@
 
 .completedCard:hover {
     opacity: 0.65;
+}
+
+.bookmarkContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
 }
 
 .header {

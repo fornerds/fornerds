@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import styles from './QuestCard.module.css'
 import { QuestCardProps } from './CardProps'
-import { Tag } from '../../AtomComponent'
+import { Link, Tag } from '../../AtomComponent'
 import { ReactComponent as Hard_white } from '../../../assets/icons/hard_white.svg'
 import { ReactComponent as Medium_white } from '../../../assets/icons/medium_white.svg'
 import { ReactComponent as Easy_white } from '../../../assets/icons/easy_white.svg'
@@ -43,7 +43,13 @@ export function QuestCard(props: QuestCardProps) {
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div>
+      <div className={styles.bookmarkContainer}>
+        <Bookmark
+          isBookmarked={isBookmarked}
+          onBookmarkClick={handleBookmarkClick}
+        />
+      </div>
+      <Link to={props.link}>
         <header className={styles.header}>
           <div className={styles.tagContainer}>
             {props.status === 'inProgress' ? (
@@ -98,10 +104,6 @@ export function QuestCard(props: QuestCardProps) {
               </>
             )}
           </div>
-          <Bookmark
-            isBookmarked={isBookmarked}
-            onBookmarkClick={handleBookmarkClick}
-          />
         </header>
         <main className={styles.content}>
           <h2
@@ -163,7 +165,7 @@ export function QuestCard(props: QuestCardProps) {
             </span>
           </div>
         </footer>
-      </div>
+      </Link>
     </li>
   )
 }
