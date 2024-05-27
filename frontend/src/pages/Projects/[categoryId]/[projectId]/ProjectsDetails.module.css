@@ -180,10 +180,6 @@
     align-self: center;
 }
 
-.text {
-    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
-}
-
 .flex {
     width: fit-content;
     display: flex;
