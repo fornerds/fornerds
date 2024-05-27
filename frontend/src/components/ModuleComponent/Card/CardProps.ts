@@ -38,4 +38,5 @@ export interface QuestCardProps {
   createdAt?: string
   positionName?: string
   opened?: boolean
+  link: string
 }
