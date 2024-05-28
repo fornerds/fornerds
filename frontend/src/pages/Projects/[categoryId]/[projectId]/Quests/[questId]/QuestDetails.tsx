@@ -25,6 +25,7 @@ import half_open from '../../../../../../assets/images/pixel/half_open.webp'
 import closed from '../../../../../../assets/images/pixel/closed.webp'
 import cup from '../../../../../../assets/images/pixel/cup.webp'
 import money from '../../../../../../assets/images/pixel/money.webp'
+import { Discussion } from './Discussion/Discussion'
 
 export function QuestDetails() {
   let { categoryId, projectId, questId } = useParams()
@@ -192,7 +193,7 @@ export function QuestDetails() {
       icon: <DiscussionIcon stroke="white" strokeOpacity="0.38" />,
       activeIcon: <DiscussionIcon stroke="#00C4B4" strokeOpacity="1" />,
       label: 'Discussion',
-      content: <div className="text-color-lighten">Discussion...</div>
+      content: <Discussion />
     },
     {
       icon: <SolutionIcon stroke="white" strokeOpacity="0.38" />,
