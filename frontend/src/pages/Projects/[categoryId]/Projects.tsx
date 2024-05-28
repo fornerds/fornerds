@@ -5,7 +5,8 @@ import {
   Footer,
   Header,
   Pagination,
-  SortFilter
+  SortFilter,
+  CategoryFilter
 } from '../../../components/ModuleComponent'
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
@@ -129,11 +130,26 @@ export function Projects() {
             <SortFilter onSortChange={handleSortChange} />
             <Toggle label="Ongoing" onChange={handleToggleChange} />
           </article>
-          <ul className={styles.cardList}>
-            {currentItems.map((card) => (
-              <Card className={styles.card} key={card.projectId} {...card} />
-            ))}
-          </ul>
+          <div className={styles.cardBox}>
+            <div className={styles.asideFilter}>
+              <div className={styles.category}>
+                <p className={`text-color-white font-pixellari-sub-header`}>
+                  Category
+                </p>
+                <CategoryFilter />
+              </div>
+              <div className={styles.filter}>
+                <p className={`text-color-white font-pixellari-sub-header`}>
+                  Filter
+                </p>
+              </div>
+            </div>
+            <ul className={styles.cardList}>
+              {currentItems.map((card) => (
+                <Card className={styles.card} key={card.projectId} {...card} />
+              ))}
+            </ul>
+          </div>
         </section>
         <Pagination
           className={styles.pagination}
