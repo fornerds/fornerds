@@ -1,0 +1,33 @@
+.tag {
+  width: fit-content;
+  height: fit-content;
+  border-radius: 6px;
+}
+
+.active {
+  color: var(--Color-primary-300);
+  background-color: #ffffff15;
+  border: 1px solid var(--Color-primary-300);
+}
+
+.default {
+  color: var(--Color-text-default);
+  background-color: var(--Color-background-02);
+  border: 1px solid var(--Color-stroke-outline);
+}
+
+.disabled{
+  color: var(--Color-text-disabled);
+  background-color: var(--Color-background-02);
+  border: 1px solid var(--Color-stroke-outline);
+}
+
+.lighten{
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+  background-color: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+  border: 1px solid var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.rounded{
+  border-radius: 999px;
+}

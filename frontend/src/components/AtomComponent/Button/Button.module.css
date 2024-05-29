@@ -1,0 +1,50 @@
+.button {
+  border: none;
+  box-shadow: none;
+  overflow: visible;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  display: flex;
+}
+
+.small {
+  border-radius: 5px;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.big {
+  width: 160px;
+  padding: 10px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 6px;
+}
+
+.lessEmphasize {
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background-color: transparent;
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.default {
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background-color: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.disable {
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background-color: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+  color: var(--Color-text-disabled, rgba(255, 255, 255, 0.25));
+}
+
+.active {
+  border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background-color: var(--Color-primary-400, #00B3A6);
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
