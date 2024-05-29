@@ -1,0 +1,152 @@
+.card {
+    width: 275px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+    box-shadow: 0px 8px 10px 0px rgba(0, 0, 0, 0.14), 0px 3px 14px 0px rgba(0, 0, 0, 0.12), 0px 5px 5px 0px rgba(0, 0, 0, 0.20);
+    padding: 20px;
+    cursor: pointer;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+}
+
+.card:hover {
+    background: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+}
+
+.completedCard {
+    opacity: 0.58;
+}
+
+.completedCard:hover {
+    opacity: 0.65;
+}
+
+.bookmarkContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    z-index: 1;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-self: stretch;
+}
+
+.tagContainer {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.difficulty {
+    display: flex;
+    padding: 3px 14px;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.position {
+    display: flex;
+    padding: 3px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.skillTag {
+    background: #00c4b4;
+}
+
+.bookmark {
+    cursor: pointer;
+    padding: 0;
+}
+
+.content {
+    margin: 14px auto 12px;
+}
+
+.title {
+    width: 235px;
+    height: 53px;
+    display: -webkit-box;
+    flex-direction: column;
+    text-align: left;
+    overflow: hidden;
+    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+    text-overflow: ellipsis;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    word-break: break-word;
+}
+
+.rewardImage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 24px auto 20px;
+}
+
+.rewardInfo {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 12px;
+}
+
+.footer {
+    max-width: 229px;
+    border-top: 1px solid rgba(255, 255, 255, 0.20);
+    padding-top: 12px;
+}
+
+.rewardItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.footerDetails {
+    display: flex;
+    align-items: flex-start;
+    align-content: flex-start;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.footerItem {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.users {
+    display: -webkit-box;
+    width: 73px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+
+.date {
+    display: -webkit-box;
+    width: 80px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    word-break: break-all;
+}
+

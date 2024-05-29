@@ -1,0 +1,40 @@
+.background {
+  background: var(--Color-background-00, #121212);
+}
+
+.title {
+  font-family: 'Pixellari';
+  font-size: 90px;
+  color: white;
+}
+
+.tag {
+  font-size:12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+}
+
+.button {
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 150%;
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.defaultButton:hover {
+  background: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+}
+
+.activeButton:hover svg {
+  fill: var(--Color-primary-400, #00B3A6);
+}
+.activeButton:hover svg g path {
+  stroke: var(--Color-primary-400, #00B3A6);
+}

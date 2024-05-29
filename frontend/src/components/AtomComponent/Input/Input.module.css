@@ -1,0 +1,43 @@
+.inputContainer {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.input {
+  padding: 5px;
+  font-size: 14px;
+  line-height: 14px;
+  border-radius: 10px;
+  transition:
+    border-color 0.15s ease-in-out,
+    box-shadow 0.15s ease-in-out;
+}
+
+.primary {
+  border-color: #007bff;
+}
+
+.secondary {
+  border-color: #6c757d;
+}
+
+.danger {
+  border-color: #dc3545;
+}
+
+.success {
+  border-color: #28a745;
+}
+
+.warning {
+  border-color: #ffc107;
+}
+
+.info {
+  border-color: #17a2b8;
+}
+
+.error {
+  border-color: #dc3545;
+}
