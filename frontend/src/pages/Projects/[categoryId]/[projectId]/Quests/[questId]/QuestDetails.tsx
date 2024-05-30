@@ -208,23 +208,37 @@ export function QuestDetails() {
               />
             </article>
             <div className={styles.solutionTableHeader}>
-              <div className="font-roboto-cta-small text-color-lighten">
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
                 No.
               </div>
               <div>
                 <Heart width="24" height="24" fill="none" stroke="white" />
               </div>
-              <div className="font-roboto-cta-small text-color-lighten">ID</div>
-              <div className="font-roboto-cta-small text-color-lighten">
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
+                ID
+              </div>
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
                 Code Length
               </div>
-              <div className="font-roboto-cta-small text-color-lighten">
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
                 Time spent
               </div>
-              <div className="font-roboto-cta-small text-color-lighten">
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
                 Memory
               </div>
-              <div className="font-roboto-cta-small text-color-lighten">
+              <div
+                className={`${styles.solutionTableHeaderItem} font-roboto-cta-small text-color-lighten`}
+              >
                 Date
               </div>
             </div>
