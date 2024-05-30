@@ -156,3 +156,7 @@
 .text-color-disabled {
   color: var(--Color-text-disabled);
 }
+
+.text-color-white {
+  color: white;
+}
