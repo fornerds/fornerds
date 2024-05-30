@@ -1,5 +1,5 @@
 .background {
-    background: url(../../../../../../assets/images/background/background2.webp) lightgray 50% / cover no-repeat;
+    background: url(../../../../../../assets/images/background/background02.webp) lightgray 50% / cover no-repeat;
     background-color: var(--Color-background-00, #121212);
     background-size: 100vw auto;
     background-position: left top;
@@ -277,6 +277,10 @@
     grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
     height: 72px;
     align-items: center;
+}
+
+.solutionTableHeaderItem {
+    padding: 0 20px;
 }
 
 .pagination {
