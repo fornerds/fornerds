@@ -1,0 +1,108 @@
+.background {
+    position: relative;
+    background-color: var(--Color-background-00, #121212);
+    min-height: 100vh;
+}
+
+.backgroundImage {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    max-height: calc(100vh - 387px);
+    background-position: top center;
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.backgroundImageBottom {
+    position: absolute;
+    /* footer 높이 고려 */
+    bottom: 358px; 
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: bottom center;
+    background-size: 100vw auto;
+    background-repeat: no-repeat;
+    opacity: 0.2;
+    z-index: 0;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+.main {
+    margin: 60px auto 270px;
+    display: flex;
+    justify-content: center;
+    min-height: calc(100vh - 457px);
+}
+
+.contentBox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+}
+
+.ranking {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rankingHeaderWrap, .rankingList {
+    max-width: 1160px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.rankingHeader, .rankingListItem {
+    width: 100%;
+    padding: 0px 20px;
+    align-items: flex-start;
+    display: grid;
+    grid-template-columns: 1fr 0.75fr 4.8fr 3.2fr 2fr 2.25fr;
+    height: 64px;
+    align-items: center;
+}
+
+.rankingIndex {
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    gap: 10px;
+}
+
+.rankingchangeIndex {
+    padding: 20px 10px;
+}
+
+.loadMore {
+    display: flex;
+    padding: 0px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.loadMoreButton {
+    display: flex;
+    width: 160px;
+    padding: 10px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 6px;
+    background: transparent;
+    border: 1px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+}
