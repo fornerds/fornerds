@@ -6,7 +6,8 @@ import {
   Header,
   Pagination,
   SortFilter,
-  CategoryFilter
+  CategoryFilter,
+  ProjectFilter
 } from '../../../components/ModuleComponent'
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
@@ -142,6 +143,7 @@ export function Projects() {
                 <p className={`text-color-white font-pixellari-sub-header`}>
                   Filter
                 </p>
+                <ProjectFilter />
               </div>
             </div>
             <ul className={styles.cardList}>

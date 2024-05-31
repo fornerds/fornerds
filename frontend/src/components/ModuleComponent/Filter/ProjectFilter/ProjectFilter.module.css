@@ -1,0 +1,43 @@
+.projectFilter {
+  display: flex;
+  padding: 10px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  border-radius: 12px;
+  background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+}
+
+.dropdown {
+  display: inline-flex;
+  padding: 0px 14px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.dropdownButton {
+  display: flex;
+  width: 152px;
+  padding: 8px 0px;
+  justify-content: space-between;
+  align-items: flex-start;
+  background: none;
+}
+
+.dropdownMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  opacity: 0;
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+  transform: translateY(-10%);
+  gap: 8px;
+}
+
+.dropdownMenu.show {
+  opacity: 1;
+  transform: translateY(0);
+}

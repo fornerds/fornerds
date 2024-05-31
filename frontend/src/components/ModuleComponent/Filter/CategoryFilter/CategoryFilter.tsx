@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import styles from './CategoryFilter.module.css'
 import { Button } from '../../../AtomComponent'
 import { ReactComponent as DownSmall } from '../../../../assets/icons/down_small.svg'
