@@ -7,29 +7,61 @@ import { ReactComponent as UpSmall } from '../../../../assets/icons/up_small.svg
 import { ReactComponent as Check } from '../../../../assets/icons/check.svg'
 
 export function ProjectFilter() {
-  const [isOpen, setIsOpen] = useState(false)
-  const handleDownClick = () => {
-    setIsOpen(!isOpen)
+  const [isLanguageOpen, setLanguageOpen] = useState(false)
+  const languageHandleDownClick = () => {
+    setLanguageOpen(!isLanguageOpen)
+  }
+  const [isDifficultyOpen, setDifficultyOpen] = useState(false)
+  const difficultyHandleDownClick = () => {
+    setDifficultyOpen(!isDifficultyOpen)
   }
   return (
     <div className={styles.projectFilter}>
       <div className={styles.dropdown}>
         <Button
           className={`${styles.dropdownButton}  text-color-white font-roboto-body-2`}
-          onClick={handleDownClick}
+          onClick={languageHandleDownClick}
         >
           Language
-          {isOpen ? <DownSmall stroke="white" /> : <UpSmall stroke="white" />}
+          {isLanguageOpen ? (
+            <DownSmall stroke="white" />
+          ) : (
+            <UpSmall stroke="white" />
+          )}
         </Button>
         <div
-          className={`${styles.dropdownMenu} ${isOpen ? `${styles.show}` : null}`}
+          className={`${styles.dropdownMenu} ${isLanguageOpen ? `${styles.show}` : null}`}
         >
-          {isOpen && (
+          {isLanguageOpen && (
             <>
               <CheckBox label="Java" />
               <CheckBox label="text" />
               <CheckBox label="text" />
               <CheckBox label="text" />
+            </>
+          )}
+        </div>
+      </div>
+      <div className={styles.dropdown}>
+        <Button
+          className={`${styles.dropdownButton}  text-color-white font-roboto-body-2`}
+          onClick={difficultyHandleDownClick}
+        >
+          Difficulty
+          {isDifficultyOpen ? (
+            <DownSmall stroke="white" />
+          ) : (
+            <UpSmall stroke="white" />
+          )}
+        </Button>
+        <div
+          className={`${styles.dropdownMenu} ${isDifficultyOpen ? `${styles.show}` : null}`}
+        >
+          {isDifficultyOpen && (
+            <>
+              <CheckBox label="Hard" />
+              <CheckBox label="Medium" />
+              <CheckBox label="Easy" />
             </>
           )}
         </div>

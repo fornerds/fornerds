@@ -27,3 +27,13 @@
 .checkBoxInput:checked + .checkBox .checked {
   display: inline-block;
 }
+
+.labelText {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  transition: color 0.3s ease-out;
+  text-align: center;
+}
+
+.labelText:hover {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}

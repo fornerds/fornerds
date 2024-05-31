@@ -17,7 +17,7 @@ export function CheckBox({ label }: CheckBoxProps) {
           <Check className={styles.checked} width="17" height="11.5" />
         </div>
       </span>
-      <span className={'text-color-lighten font-roboto-body-2'}>{label}</span>
+      <span className={`${styles.labelText} font-roboto-body-2`}>{label}</span>
     </label>
   )
 }
