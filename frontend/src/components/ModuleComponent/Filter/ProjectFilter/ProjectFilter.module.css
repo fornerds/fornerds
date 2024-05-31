@@ -31,8 +31,8 @@
   align-items: flex-start;
   opacity: 0;
   transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+    opacity 0.5s ease,
+    transform 0.5s ease;
   transform: translateY(-10%);
   gap: 8px;
 }
