@@ -32,6 +32,13 @@
     gap: 24px;
 }
 
+.bookmarkTabListWrap {
+    width: 100%;
+    display: flex;
+    padding-left: 20px;
+    margin-bottom: 20px;
+}
+
 .tabList {
     max-width: 1200px;
     width: 90%;
@@ -69,7 +76,7 @@
 }
 
 .tab.active {
-    border-bottom: 2px solid #00C4B4;
+    border-bottom: 1px solid #00C4B4;
     color: #00C4B4;
 }
 
@@ -90,6 +97,13 @@
     flex-direction: column;
     align-items: flex-start;
     gap: 16px;
+}
+
+.bookmarkTabContent {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
 }
 
 .label {
