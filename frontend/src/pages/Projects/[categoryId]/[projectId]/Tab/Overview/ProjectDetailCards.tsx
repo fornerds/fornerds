@@ -56,7 +56,7 @@ function ProjectDetailCard({
             </div>
             <div className={styles.exp}>
               <div className={styles.icon_cup_small}>
-                <img src={CupPixelIcon} alt="money_small"></img>
+                <img src={CupPixelIcon} alt="cup_small"></img>
               </div>
               <p className={`text-color-default font-roboto-body-2`}>
                 {rewardExp ? rewardExp.toLocaleString() : null}

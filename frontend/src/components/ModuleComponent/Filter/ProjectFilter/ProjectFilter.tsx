@@ -4,7 +4,8 @@ import { Button } from '../../../AtomComponent'
 import { Input, CheckBox } from '../../../AtomComponent'
 import { ReactComponent as DownSmall } from '../../../../assets/icons/down_small.svg'
 import { ReactComponent as UpSmall } from '../../../../assets/icons/up_small.svg'
-import { ReactComponent as Check } from '../../../../assets/icons/check.svg'
+import MoneyPixelIcon from '../../../../assets/images/pixel/money.webp'
+import CupPixelIcon from '../../../../assets/images/pixel/cup.webp'
 
 export function ProjectFilter() {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
@@ -14,6 +15,22 @@ export function ProjectFilter() {
   const [isDifficultyOpen, setDifficultyOpen] = useState(false)
   const difficultyHandleDownClick = () => {
     setDifficultyOpen(!isDifficultyOpen)
+  }
+  const [isRewardOpen, setRewardOpen] = useState(false)
+  const rewardHandleDownClick = () => {
+    setRewardOpen(!isRewardOpen)
+  }
+  const moneyImg = {
+    src: MoneyPixelIcon,
+    alt: 'MoneyPixel',
+    width: 27,
+    height: 18
+  }
+  const cupImg = {
+    src: CupPixelIcon,
+    alt: 'CupPixel',
+    width: 20,
+    height: 20
   }
   return (
     <div className={styles.projectFilter}>
@@ -62,6 +79,29 @@ export function ProjectFilter() {
               <CheckBox label="Hard" />
               <CheckBox label="Medium" />
               <CheckBox label="Easy" />
+            </>
+          )}
+        </div>
+      </div>
+      <div className={styles.dropdown}>
+        <Button
+          className={`${styles.dropdownButton}  text-color-white font-roboto-body-2`}
+          onClick={rewardHandleDownClick}
+        >
+          Reward
+          {isRewardOpen ? (
+            <DownSmall stroke="white" />
+          ) : (
+            <UpSmall stroke="white" />
+          )}
+        </Button>
+        <div
+          className={`${styles.dropdownMenu} ${isRewardOpen ? `${styles.show}` : null}`}
+        >
+          {isRewardOpen && (
+            <>
+              <CheckBox label="Only" iconImage={moneyImg} />
+              <CheckBox label="Only" iconImage={cupImg} />
             </>
           )}
         </div>
