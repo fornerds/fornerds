@@ -1,0 +1,311 @@
+.informationMain {
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: center;
+    gap: 60px;
+}
+
+.info, .proficiency {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    width: 100%;
+}
+
+.personalInfo, .accomplishment {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.pageIndex {
+    color: white;
+    display: flex;
+    padding: 0px 20px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.profileBox {
+    display: flex;
+    padding-left: 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.characterInfo {
+    display: flex;
+    align-items: center;
+    border-radius: 16px;
+    background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+}
+
+.characterImageWrap {
+    display: flex;
+    padding: 16px 20px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.expWrap {
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+}
+
+.level {
+    display: flex;
+    padding: 0px 10px;
+    justify-content: space-between;
+    align-items: flex-end;
+    align-self: stretch;
+}
+
+.expPercent {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.progressBar {
+    width: 268px;
+    -webkit-appearance: none
+}
+
+.progressBar::-webkit-progress-bar {
+    background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+    border-radius: 999px;
+    border: 0;
+    height: 16px;
+    width: 268px;
+    overflow: hidden;
+}
+
+.progressBar::-webkit-progress-value {
+    background-color: var(--Color-primary-300, #00C4B4);
+    border-radius: 999px;
+    height: 16px;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    gap: 12px;
+    align-self: stretch;
+}
+
+.userInfoList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    align-self: stretch;
+}
+
+.userInfoItem {
+    display: flex;
+    align-items: flex-start;
+}
+
+.userInfoItemLabel {
+    display: flex;
+    width: 80px;
+    height: 48px;
+    padding: 10px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.userInfoItemValue {
+    display: flex;
+    width: 326px;
+    height: 48px;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.input {
+    border-radius: 4px;
+    border: 0;
+    display: flex;
+    min-width: 338px;
+    width: 100%;
+    margin-left: 8px;
+    height: 33px;
+    padding: 6px 10px;
+    align-items: center;
+    gap: 10px;
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+    box-sizing: border-box;
+}
+
+.input::placeholder{
+    color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+}
+
+.editButtons {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.button {
+    display: flex;
+    padding: 6px 16px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    border-radius: 5px;
+}
+
+.editButton {
+    margin: 0 20px;
+    color: var(--Color-purpose-link, #1890FF);
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.accomplishmentList {
+    display: flex;
+    width: 430px;
+    height: 364px;
+    padding: 0px 20px;
+    gap: 20px;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+    overflow-y: auto;
+    cursor: grab;
+}
+
+.accomplishmentList:active {
+    cursor: grabbing;
+  }
+
+.accomplishmentList::-webkit-scrollbar {
+    width: 8px;
+}
+
+.accomplishmentList::-webkit-scrollbar-thumb {
+    background: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+}
+
+.accomplishmentList::-webkit-scrollbar-track {
+    background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+}
+
+.lockImage {
+    opacity: 0.5;
+    flex: 0 0 auto;
+    margin-bottom: 10px;
+}
+
+.lockImage:hover {
+    opacity: 1;
+}
+
+.hr {
+    width: 920px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.20);
+    box-sizing: border-box;
+    right: 0
+}
+
+.categoryProficiency, .languageProficiency {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.categoryList, .languageList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.categoryItem, .languageItem {
+    display: flex;
+    align-items: flex-start;
+}
+
+.categoryIndex, .categoryLabel {
+    display: flex;
+    width: 228px;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.languageLabel, .languageIndex {
+    display: flex;
+    width: 188px;
+    height: 41px;
+    padding: 0px 20px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.categoryProgress, .languageProgress {
+    height: 41px;
+    flex-shrink: 0;
+    width: 100%;
+    position: relative;
+}
+
+.categoryProgress {
+    max-width: 240px;
+}
+
+.languageProgress {
+    max-width: 280px;
+}
+
+.categoryprogressBar, .languageprogressBar{
+    flex-grow: 1;
+    height: 41px;
+    margin-bottom: 9px;
+    -webkit-appearance: none;
+    appearance: none;
+    background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+}
+
+.categoryprogressBar {
+    width: 240px;
+}
+
+.languageprogressBar {
+    width: 280px;
+}
+  
+.categoryprogressBar::-webkit-progress-bar, .languageprogressBar::-webkit-progress-bar {
+    background: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+}
+
+.categoryprogressBar::-webkit-progress-value, .languageprogressBar::-webkit-progress-value {
+    background: var(--Color-status_overlay-pressed, rgba(255, 255, 255, 0.10));
+}
+
+.categoryprogressBar::-moz-progress-bar, .languageprogressBar::-moz-progress-bar {
+    background: var(--Color-status_overlay-pressed, rgba(255, 255, 255, 0.10));
+}
+
+.progressBarNumber {
+    position: absolute;
+    right: 12px;
+    top: 10px;
+}

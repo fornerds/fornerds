@@ -42,6 +42,7 @@ export function QuestCard(props: QuestCardProps) {
       }
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
+      draggable={false}
     >
       <div className={styles.bookmarkContainer}>
         <Bookmark
@@ -49,7 +50,7 @@ export function QuestCard(props: QuestCardProps) {
           onBookmarkClick={handleBookmarkClick}
         />
       </div>
-      <Link to={props.link}>
+      <Link to={props.link} draggable={false}>
         <header className={styles.header}>
           <div className={styles.tagContainer}>
             {props.status === 'inProgress' ? (
@@ -123,11 +124,18 @@ export function QuestCard(props: QuestCardProps) {
             className={styles.rewardImage}
             width="60"
             height="60"
+            draggable="false"
           />
           <div className={styles.rewardInfo}>
             {props.rewardCash && (
               <div className={styles.rewardItem}>
-                <img src={money} alt="money" width="27" height="18" />
+                <img
+                  src={money}
+                  alt="money"
+                  width="27"
+                  height="18"
+                  draggable={false}
+                />
                 <span className="text-color-lighten  font-roboto-button">
                   {props.rewardCash.toLocaleString()}
                 </span>
@@ -135,7 +143,13 @@ export function QuestCard(props: QuestCardProps) {
             )}
             {props.rewardExp && (
               <div className={styles.rewardItem}>
-                <img src={cup} alt="experience" width="20" height="20" />
+                <img
+                  src={cup}
+                  alt="experience"
+                  width="20"
+                  height="20"
+                  draggable={false}
+                />
                 <span className="text-color-lighten  font-roboto-button">
                   {props.rewardExp.toLocaleString()}
                 </span>
