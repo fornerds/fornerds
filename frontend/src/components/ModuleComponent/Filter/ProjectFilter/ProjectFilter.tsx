@@ -7,7 +7,19 @@ import { ReactComponent as UpSmall } from '../../../../assets/icons/up_small.svg
 import MoneyPixelIcon from '../../../../assets/images/pixel/money.webp'
 import CupPixelIcon from '../../../../assets/images/pixel/cup.webp'
 
-export function ProjectFilter() {
+interface Filter {
+  [key: string]: boolean
+}
+
+interface ProjectFilterProps {
+  filters: Filter
+  onDifficultyChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export function ProjectFilter({
+  filters,
+  onDifficultyChange
+}: ProjectFilterProps) {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
   const languageHandleDownClick = () => {
     setLanguageOpen(!isLanguageOpen)
@@ -51,10 +63,10 @@ export function ProjectFilter() {
         >
           {isLanguageOpen && (
             <>
-              <CheckBox label="Java" />
-              <CheckBox label="text" />
-              <CheckBox label="text" />
-              <CheckBox label="text" />
+              <CheckBox label="JavaScript" />
+              <CheckBox label="Redux" />
+              <CheckBox label="HTML" />
+              <CheckBox label="CSS" />
             </>
           )}
         </div>
@@ -76,9 +88,21 @@ export function ProjectFilter() {
         >
           {isDifficultyOpen && (
             <>
-              <CheckBox label="Hard" />
-              <CheckBox label="Medium" />
-              <CheckBox label="Easy" />
+              <CheckBox
+                label="Hard"
+                onChange={onDifficultyChange}
+                checked={filters.Hard}
+              />
+              <CheckBox
+                label="Medium"
+                onChange={onDifficultyChange}
+                checked={filters.Medium}
+              />
+              <CheckBox
+                label="Easy"
+                onChange={onDifficultyChange}
+                checked={filters.Easy}
+              />
             </>
           )}
         </div>

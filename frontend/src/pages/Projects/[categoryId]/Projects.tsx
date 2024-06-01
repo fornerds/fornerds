@@ -12,6 +12,10 @@ import {
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
 
+interface Filter {
+  [key: string]: boolean
+}
+
 export function Projects() {
   // 카드 더미 데이터
   const cards = useRef(
@@ -46,6 +50,12 @@ export function Projects() {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortType, setSortType] = useState('default')
   const [onlyActive, setOnlyActive] = useState(false)
+  const [difficultyFilters, setDifficultyFilters] = useState<Filter>({
+    Hard: true,
+    Medium: true,
+    Easy: true
+  })
+
   const itemsPerPage = 10
 
   const handleFocus = () => {
@@ -78,11 +88,23 @@ export function Projects() {
     setCurrentPage(1)
   }
 
+  const handleDifficultyFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, checked } = e.target
+    setDifficultyFilters({
+      ...difficultyFilters,
+      [name]: checked
+    })
+    console.log(difficultyFilters)
+  }
+
   const filteredCards = cards
     .filter((card) =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((card) => (onlyActive ? card.deadline > 0 : true))
+    .filter((card) => difficultyFilters[card.difficulty])
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
@@ -143,7 +165,10 @@ export function Projects() {
                 <p className={`text-color-white font-pixellari-sub-header`}>
                   Filter
                 </p>
-                <ProjectFilter />
+                <ProjectFilter
+                  filters={difficultyFilters}
+                  onDifficultyChange={handleDifficultyFilterChange}
+                />
               </div>
             </div>
             <ul className={styles.cardList}>
