@@ -12,9 +12,14 @@ interface TabProps {
 interface TabsProps {
   tabs: TabProps[]
   isMyPageTab?: boolean
+  isBoomarkTab?: boolean
 }
 
-export function Tab({ tabs, isMyPageTab = false }: TabsProps) {
+export function Tab({
+  tabs,
+  isMyPageTab = false,
+  isBoomarkTab = false
+}: TabsProps) {
   const [activeTab, setActiveTab] = useState(0)
 
   const handleTabClick = (index: number) => {
@@ -24,7 +29,13 @@ export function Tab({ tabs, isMyPageTab = false }: TabsProps) {
   return (
     <div className={isMyPageTab ? styles.myPageTabs : styles.tabs}>
       <div
-        className={isMyPageTab ? styles.myPageTabListWrap : styles.tabListWrap}
+        className={
+          isMyPageTab
+            ? styles.myPageTabListWrap
+            : isBoomarkTab
+              ? styles.bookmarkTabListWrap
+              : styles.tabListWrap
+        }
       >
         {isMyPageTab && (
           <h2 className={`${styles.pageTitle} font-pixellari-sub-header`}>
@@ -53,7 +64,13 @@ export function Tab({ tabs, isMyPageTab = false }: TabsProps) {
         </div>
       </div>
       <div
-        className={isMyPageTab ? styles.myPageTabContent : styles.tabContent}
+        className={
+          isMyPageTab
+            ? styles.myPageTabContent
+            : isBoomarkTab
+              ? styles.bookmarkTabContent
+              : styles.tabContent
+        }
       >
         {tabs[activeTab].content}
       </div>
