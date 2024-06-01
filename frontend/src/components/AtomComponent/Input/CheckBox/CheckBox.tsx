@@ -3,11 +3,19 @@ import styles from './CheckBox.module.css'
 import { Input } from '../Input'
 import { ReactComponent as Check } from '../../../../assets/icons/check.svg'
 
-interface CheckBoxProps {
-  label: string
+interface iconImageProps {
+  src: string
+  alt: string
+  width: number
+  height: number
 }
 
-export function CheckBox({ label }: CheckBoxProps) {
+interface CheckBoxProps {
+  label: string
+  iconImage?: iconImageProps
+}
+
+export function CheckBox({ label, iconImage }: CheckBoxProps) {
   return (
     <label className={styles.checkBoxContainer}>
       <Input type="checkbox" className={styles.checkBoxInput} />
@@ -17,6 +25,16 @@ export function CheckBox({ label }: CheckBoxProps) {
           <Check className={styles.checked} width="17" height="11.5" />
         </div>
       </span>
+      {iconImage ? (
+        <div className={styles.iconImage}>
+          <img
+            src={iconImage.src}
+            alt={iconImage.alt}
+            width={iconImage.width}
+            height={iconImage.height}
+          ></img>
+        </div>
+      ) : null}
       <span className={`${styles.labelText} font-roboto-body-2`}>{label}</span>
     </label>
   )

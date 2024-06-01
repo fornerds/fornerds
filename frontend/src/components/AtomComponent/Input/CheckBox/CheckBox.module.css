@@ -37,3 +37,9 @@
 .labelText:hover {
   color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
 }
+
+.iconImage {
+  display: flex;
+  justify-content: center;
+  width: 24px;
+}
