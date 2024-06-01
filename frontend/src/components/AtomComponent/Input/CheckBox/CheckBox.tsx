@@ -12,13 +12,26 @@ interface iconImageProps {
 
 interface CheckBoxProps {
   label: string
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
+  checked?: boolean
   iconImage?: iconImageProps
 }
 
-export function CheckBox({ label, iconImage }: CheckBoxProps) {
+export function CheckBox({
+  label,
+  onChange,
+  checked,
+  iconImage
+}: CheckBoxProps) {
   return (
     <label className={styles.checkBoxContainer}>
-      <Input type="checkbox" className={styles.checkBoxInput} />
+      <Input
+        type="checkbox"
+        className={styles.checkBoxInput}
+        name={label}
+        onChange={onChange}
+        checked={checked}
+      />
       <span className={styles.checkBox}>
         <div className={styles.checked}>
           {/* <Check width="10.624" height="7.622" /> */}
