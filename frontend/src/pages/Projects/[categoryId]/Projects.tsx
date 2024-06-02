@@ -5,10 +5,33 @@ import {
   Footer,
   Header,
   Pagination,
-  SortFilter
+  SortFilter,
+  CategoryFilter,
+  ProjectFilter
 } from '../../../components/ModuleComponent'
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
+
+function getRandomElements(arr: string[], min: number, max: number) {
+  const result = []
+  const numElements = Math.floor(Math.random() * (max - min + 1)) + min
+  const usedIndices = new Set()
+
+  while (result.length < numElements) {
+    const randomIndex = Math.floor(Math.random() * arr.length)
+
+    if (!usedIndices.has(randomIndex)) {
+      result.push(arr[randomIndex])
+      usedIndices.add(randomIndex)
+    }
+  }
+
+  return result
+}
+
+interface Filter {
+  [key: string]: boolean
+}
 
 export function Projects() {
   // 카드 더미 데이터
@@ -27,7 +50,7 @@ export function Projects() {
         title: `Project name ${i + 1}`,
         description:
           'Lorem ipsum dolor sit amet consectetur. Facilisis fermentum cras ipsum et sit odio volutpat tristique. Facilisis fermentum cras ipsum et sit odio volutpat tristique. Facilisis fermentum cras ipsum et sit odio volutpat tristique.',
-        skills: ['JavaScript', 'Redux', 'HTML', 'CSS'],
+        skills: getRandomElements(['JavaScript', 'Redux', 'HTML', 'CSS'], 1, 4),
         developerCount: Math.floor(Math.random() * 500),
         remaining_quests: Math.floor(Math.random() * 5),
         deadline:
@@ -44,6 +67,16 @@ export function Projects() {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortType, setSortType] = useState('default')
   const [onlyActive, setOnlyActive] = useState(false)
+  const [filters, setfilters] = useState<Filter>({
+    Hard: true,
+    Medium: true,
+    Easy: true,
+    JavaScript: true,
+    Redux: true,
+    HTML: true,
+    CSS: true
+  })
+
   const itemsPerPage = 10
 
   const handleFocus = () => {
@@ -76,11 +109,22 @@ export function Projects() {
     setCurrentPage(1)
   }
 
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target
+    setfilters({
+      ...filters,
+      [name]: checked
+    })
+    // console.log(filteredCards)
+  }
+
   const filteredCards = cards
     .filter((card) =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((card) => (onlyActive ? card.deadline > 0 : true))
+    .filter((card) => card.skills.some((skill) => filters[skill]))
+    .filter((card) => filters[card.difficulty])
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
@@ -129,11 +173,30 @@ export function Projects() {
             <SortFilter onSortChange={handleSortChange} />
             <Toggle label="Ongoing" onChange={handleToggleChange} />
           </article>
-          <ul className={styles.cardList}>
-            {currentItems.map((card) => (
-              <Card className={styles.card} key={card.projectId} {...card} />
-            ))}
-          </ul>
+          <div className={styles.cardBox}>
+            <div className={styles.asideFilter}>
+              <div className={styles.category}>
+                <p className={`text-color-white font-pixellari-sub-header`}>
+                  Category
+                </p>
+                <CategoryFilter />
+              </div>
+              <div className={styles.filter}>
+                <p className={`text-color-white font-pixellari-sub-header`}>
+                  Filter
+                </p>
+                <ProjectFilter
+                  filters={filters}
+                  onFilterChange={handleFilterChange}
+                />
+              </div>
+            </div>
+            <ul className={styles.cardList}>
+              {currentItems.map((card) => (
+                <Card className={styles.card} key={card.projectId} {...card} />
+              ))}
+            </ul>
+          </div>
         </section>
         <Pagination
           className={styles.pagination}

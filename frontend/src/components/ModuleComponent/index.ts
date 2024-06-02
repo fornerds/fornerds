@@ -1,6 +1,6 @@
 export { Card, QuestCard } from './Card'
 export { Comment } from './Comment'
-export { Filter, SortFilter } from './Filter'
+export { Filter, SortFilter, CategoryFilter, ProjectFilter } from './Filter'
 export { Footer } from './Footer'
 export { Header } from './Header'
 export { Pagination } from './Pagination'
