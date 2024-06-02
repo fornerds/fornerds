@@ -1,6 +1,5 @@
 .background {
-  background: url(../../../assets/images/background/background1.webp) lightgray
-    50% / cover no-repeat;
+  background: url(../../../assets/images/background/background01.webp) lightgray 50% / cover no-repeat;
   background-color: var(--Color-background-00, #121212);
   background-size: 100vw auto;
   background-position: left top;

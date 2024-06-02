@@ -9,4 +9,5 @@ public class FornerdsApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(FornerdsApplication.class, args);
 	}
+
 }

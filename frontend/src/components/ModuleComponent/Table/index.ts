@@ -1,1 +1,6 @@
-export { Table } from './Table'
+export {
+  Table,
+  SolutionTable,
+  MySolutionTable,
+  SolutionsTabTable
+} from './Table'
