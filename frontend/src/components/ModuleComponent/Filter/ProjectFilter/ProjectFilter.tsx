@@ -13,13 +13,10 @@ interface Filter {
 
 interface ProjectFilterProps {
   filters: Filter
-  onDifficultyChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export function ProjectFilter({
-  filters,
-  onDifficultyChange
-}: ProjectFilterProps) {
+export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
   const languageHandleDownClick = () => {
     setLanguageOpen(!isLanguageOpen)
@@ -63,10 +60,26 @@ export function ProjectFilter({
         >
           {isLanguageOpen && (
             <>
-              <CheckBox label="JavaScript" />
-              <CheckBox label="Redux" />
-              <CheckBox label="HTML" />
-              <CheckBox label="CSS" />
+              <CheckBox
+                label="JavaScript"
+                onChange={onFilterChange}
+                checked={filters.JavaScript}
+              />
+              <CheckBox
+                label="Redux"
+                onChange={onFilterChange}
+                checked={filters.Redux}
+              />
+              <CheckBox
+                label="HTML"
+                onChange={onFilterChange}
+                checked={filters.HTML}
+              />
+              <CheckBox
+                label="CSS"
+                onChange={onFilterChange}
+                checked={filters.CSS}
+              />
             </>
           )}
         </div>
@@ -90,17 +103,17 @@ export function ProjectFilter({
             <>
               <CheckBox
                 label="Hard"
-                onChange={onDifficultyChange}
+                onChange={onFilterChange}
                 checked={filters.Hard}
               />
               <CheckBox
                 label="Medium"
-                onChange={onDifficultyChange}
+                onChange={onFilterChange}
                 checked={filters.Medium}
               />
               <CheckBox
                 label="Easy"
-                onChange={onDifficultyChange}
+                onChange={onFilterChange}
                 checked={filters.Easy}
               />
             </>
