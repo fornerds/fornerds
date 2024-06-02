@@ -12,6 +12,23 @@ import {
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
 
+function getRandomElements(arr: string[], min: number, max: number) {
+  const result = []
+  const numElements = Math.floor(Math.random() * (max - min + 1)) + min
+  const usedIndices = new Set()
+
+  while (result.length < numElements) {
+    const randomIndex = Math.floor(Math.random() * arr.length)
+
+    if (!usedIndices.has(randomIndex)) {
+      result.push(arr[randomIndex])
+      usedIndices.add(randomIndex)
+    }
+  }
+
+  return result
+}
+
 interface Filter {
   [key: string]: boolean
 }
@@ -33,7 +50,7 @@ export function Projects() {
         title: `Project name ${i + 1}`,
         description:
           'Lorem ipsum dolor sit amet consectetur. Facilisis fermentum cras ipsum et sit odio volutpat tristique. Facilisis fermentum cras ipsum et sit odio volutpat tristique. Facilisis fermentum cras ipsum et sit odio volutpat tristique.',
-        skills: ['JavaScript', 'Redux', 'HTML', 'CSS'],
+        skills: getRandomElements(['JavaScript', 'Redux', 'HTML', 'CSS'], 1, 4),
         developerCount: Math.floor(Math.random() * 500),
         remaining_quests: Math.floor(Math.random() * 5),
         deadline:
@@ -50,10 +67,14 @@ export function Projects() {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortType, setSortType] = useState('default')
   const [onlyActive, setOnlyActive] = useState(false)
-  const [difficultyFilters, setDifficultyFilters] = useState<Filter>({
+  const [filters, setfilters] = useState<Filter>({
     Hard: true,
     Medium: true,
-    Easy: true
+    Easy: true,
+    JavaScript: true,
+    Redux: true,
+    HTML: true,
+    CSS: true
   })
 
   const itemsPerPage = 10
@@ -88,15 +109,13 @@ export function Projects() {
     setCurrentPage(1)
   }
 
-  const handleDifficultyFilterChange = (
-    e: React.ChangeEvent<HTMLInputElement>
-  ) => {
+  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, checked } = e.target
-    setDifficultyFilters({
-      ...difficultyFilters,
+    setfilters({
+      ...filters,
       [name]: checked
     })
-    console.log(difficultyFilters)
+    // console.log(filteredCards)
   }
 
   const filteredCards = cards
@@ -104,7 +123,8 @@ export function Projects() {
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((card) => (onlyActive ? card.deadline > 0 : true))
-    .filter((card) => difficultyFilters[card.difficulty])
+    .filter((card) => card.skills.some((skill) => filters[skill]))
+    .filter((card) => filters[card.difficulty])
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
@@ -166,8 +186,8 @@ export function Projects() {
                   Filter
                 </p>
                 <ProjectFilter
-                  filters={difficultyFilters}
-                  onDifficultyChange={handleDifficultyFilterChange}
+                  filters={filters}
+                  onFilterChange={handleFilterChange}
                 />
               </div>
             </div>
