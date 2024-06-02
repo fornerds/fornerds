@@ -7,7 +7,8 @@ import {
   Tab,
   SortFilter,
   Pagination,
-  SolutionTable
+  SolutionTable,
+  TextContent
 } from '../../../../../../components/ModuleComponent'
 import { NavLink, useParams } from 'react-router-dom'
 import { Button, Tag } from '../../../../../../components/AtomComponent'
@@ -181,12 +182,39 @@ export function QuestDetails() {
     return null
   }
 
+  const lipsum_sample_text_list = [
+    'Lorem ipsum dolor sit amet consectetur',
+    'Volutpat sit purus posuere laoreet dolor gravida curabitur',
+    'Sapien tristique curabitur risus neque vulputate',
+    'Maecenas proin est nisi auctor vel eget tortor sagittis'
+  ]
+
+  function TextField() {
+    return (
+      <div className={styles.text_field}>
+        <TextContent
+          title="About quest"
+          description="Lorem ipsum dolor sit amet consectetur. Volutpat sit purus posuere laoreet dolor gravida curabitur. Sapien tristique curabitur risus neque vulputate. Id pellentesque nunc leo proin tortor. Maecenas proin est nisi auctor vel eget tortor sagittis. Tortor at ullamcorper purus ut nulla posuere eget tincidunt ipsum. Semper egestas ullamcorper convallis mi quis suspendisse mauris. Et arcu nunc ante nunc ut gravida dolor faucibus. Curabitur id id eros donec morbi. Lacus rutrum lorem magna tellus."
+        />
+        <TextContent title="Task description" list={lipsum_sample_text_list} />
+        <TextContent
+          title="Basic Requirements"
+          list={lipsum_sample_text_list}
+        />
+      </div>
+    )
+  }
+
   const tabs = [
     {
       icon: <OverviewIcon stroke="white" strokeOpacity="0.38" />,
       activeIcon: <OverviewIcon stroke="#00C4B4" strokeOpacity="1" />,
       label: 'Overview',
-      content: <div className="text-color-lighten">Overview...</div>
+      content: (
+        <section className={styles.tabSection}>
+          <TextField />
+        </section>
+      )
     },
     {
       icon: <DiscussionIcon stroke="white" strokeOpacity="0.38" />,
