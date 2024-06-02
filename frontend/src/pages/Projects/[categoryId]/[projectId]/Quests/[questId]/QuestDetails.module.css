@@ -1,288 +1,297 @@
 .background {
-    background: url(../../../../../../assets/images/background/background02.webp) lightgray 50% / cover no-repeat;
-    background-color: var(--Color-background-00, #121212);
-    background-size: 100vw auto;
-    background-position: left top;
+  background: url(../../../../../../assets/images/background/background02.webp) lightgray 50% / cover no-repeat;
+  background-color: var(--Color-background-00, #121212);
+  background-size: 100vw auto;
+  background-position: left top;
 }
 
 .projectHeader {
-    display: flex;
-    width: 100vw;
-    flex-direction: column;
-    align-items: flex-start;
-    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
-    z-index: 2;
+  display: flex;
+  width: 100vw;
+  flex-direction: column;
+  align-items: flex-start;
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  z-index: 2;
 }
 
 .projectHeaderInfo {
-    max-width: 1200px;
-    width: 90%;
-    display: flex;
-    padding: 40px 20px 0px 20px;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 20px;
-    align-self: center;
+  max-width: 1200px;
+  width: 90%;
+  display: flex;
+  padding: 40px 20px 0px 20px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px;
+  align-self: center;
 }
 
 .contentsBox {
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 24px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .leftBox {
-    width: 100%;
-    display: flex;
-    padding: 10px 0px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 24px;
+  width: 100%;
+  display: flex;
+  padding: 10px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
 }
 
 .leftBoxHeader {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    align-self: stretch;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
 }
 
 .navList {
-    display: flex;
-    align-items: flex-start;
-    gap: 8px;
-    color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
 }
 
 .prevPage {
-    color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
-    transition: color ease-out 300ms;
-    text-decoration: none;
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  transition: color ease-out 300ms;
+  text-decoration: none;
 }
 
-.prevPage:hover{
-    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+.prevPage:hover {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
 }
 
 .currentPage {
-    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
 }
 
-.title{
-    width: 588px;
-    height: 72px;
-    display: -webkit-box;
-    flex-direction: column;
-    text-align: left;
-    overflow: hidden;
-    color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
-    text-overflow: ellipsis;
-    -webkit-line-clamp: 2;
-    -webkit-box-orient: vertical;
-    word-break: break-word;
+.title {
+  width: 588px;
+  height: 72px;
+  display: -webkit-box;
+  flex-direction: column;
+  text-align: left;
+  overflow: hidden;
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  word-break: break-word;
 }
 
 .position {
-    display: flex;
-    padding: 3px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  padding: 3px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .questInfo {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
 
-.questIndexs{
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 14px;
+.questIndexs {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 14px;
 }
 
 .questIndex {
-    display: flex;
-    align-items: flex-start;
-    gap: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
 }
 
 .questIndexItem {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .language {
-    display: flex;
-    width: 338px;
-    height: 24px;
-    align-items: flex-start;
-    align-content: flex-start;
-    gap: 7px;
-    flex-wrap: wrap;
+  display: flex;
+  width: 338px;
+  height: 24px;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 7px;
+  flex-wrap: wrap;
 }
 
 .skill {
-    display: flex;
-    padding: 3px 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
+  display: flex;
+  padding: 3px 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
 }
 
 .rightBox {
-    display: flex;
-    width: 588px;
-    justify-content: flex-end;
-    align-items: center;
-    gap: 16px;
+  display: flex;
+  width: 588px;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
 }
 
 .openQuest {
-    display: flex;
-    width: 275px;
-    padding: 20px;
-    flex-direction: column;
-    align-items: center;
-    gap: 24px;
-    flex-shrink: 0;
+  display: flex;
+  width: 275px;
+  padding: 20px;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  flex-shrink: 0;
 }
 
 .upperBox {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    gap: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
 }
 
 .difficulty {
-    display: flex;
-    padding: 3px 14px;
-    justify-content: center;
-    align-items: center;
-    gap: 8px;
+  display: flex;
+  padding: 3px 14px;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
 }
 
 .rewardImage {
-    display: flex;
-    width: 60px;
-    height: 60px;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
+  display: flex;
+  width: 60px;
+  height: 60px;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .rewardInfo {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
 }
 
 .rewardItem {
-    display: flex;
-    align-items: center;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .questButtons {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 }
 
 .Button {
-    display: flex;
-    padding: 6px 16px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 5px;
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
 }
 
 .bubble {
-    position: relative;
-    width: 289px;
-    min-width: 289px;
-    height: 240px;
-    border-radius: 10px;
-    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
-    box-sizing: border-box;
-    padding: 19px;
+  position: relative;
+  width: 289px;
+  min-width: 289px;
+  height: 240px;
+  border-radius: 10px;
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  box-sizing: border-box;
+  padding: 19px;
 }
 
 .bubble::after {
-    border-top: 10px solid transparent;
-    border-right: 0px solid transparent;
-    border-left: 14px solid var(--Color-background-08, rgba(255, 255, 255, 0.12));
-    border-bottom: 10px solid transparent;
-    content: "";
-    position: absolute;
-    top: 47%;
-    right: -14px;
+  border-top: 10px solid transparent;
+  border-right: 0px solid transparent;
+  border-left: 14px solid var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  border-bottom: 10px solid transparent;
+  content: '';
+  position: absolute;
+  top: 47%;
+  right: -14px;
 }
 
 .howto {
-    display: inline-flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
 }
 
 .process {
-    display: flex;
-    width: 250px;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 10px;
+  display: flex;
+  width: 250px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
 }
 
 .tabSection {
-    max-width: 1200px;
-    width: 90%;
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: flex-start;
-    align-self: center;
+  max-width: 1200px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+  align-self: center;
 }
 
 .flex {
-    width: fit-content;
-    display: flex;
-    flex-direction: column;
-    align-self: center;
-    padding: 0px 20px;
-    align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
+  width: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  padding: 20px 20px 0px 20px;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
 }
 
 .filters {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    align-self: stretch;
-    margin: 20px 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  align-self: stretch;
+  margin: 20px 0;
 }
 
 .solutionTableHeader {
-    display: grid;
-    width: 1160px;
-    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
-    height: 72px;
-    align-items: center;
+  display: grid;
+  width: 1160px;
+  grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
+  height: 72px;
+  align-items: center;
 }
 
 .solutionTableHeaderItem {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 .pagination {
-    margin: 40px auto 240px;
+  margin: 40px auto 240px;
+}
+
+.text_field {
+  display: flex;
+  padding: 60px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 40px;
+  align-self: stretch;
 }
