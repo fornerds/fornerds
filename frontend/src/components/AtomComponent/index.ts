@@ -1,4 +1,4 @@
 export { Button } from './Button'
-export { Input, Toggle } from './Input'
+export { Input, Toggle, CheckBox } from './Input'
 export { Link } from './Link'
 export { Tag } from './Tag'

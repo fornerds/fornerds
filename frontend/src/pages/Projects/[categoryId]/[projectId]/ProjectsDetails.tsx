@@ -165,7 +165,15 @@ export function ProjectsDetails() {
       icon: <OverviewIcon stroke="white" strokeOpacity="0.38" />,
       activeIcon: <OverviewIcon stroke="#00C4B4" strokeOpacity="1" />,
       label: 'Overview',
-      content: <ProjectBodyTab />
+      content: (
+        <>
+          <div className={styles.tabBackground}>
+            <section className={styles.tabSection}>
+              <ProjectBodyTab />
+            </section>
+          </div>
+        </>
+      )
     },
     {
       icon: <QuestBoardIcon strokeOpacity="0.65" />,
