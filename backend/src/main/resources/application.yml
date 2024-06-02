@@ -1,25 +1,36 @@
 spring:
-  mvc:
-    pathmatch:
-      matching-strategy: ant_path_matcher
   datasource:
-    url: jdbc:postgresql://localhost:5432/fornerds
+    url: jdbc:postgresql://ec2-13-125-211-219.ap-northeast-2.compute.amazonaws.com:5432/fornerds
     username: admin
-    password: 12345678
-    hikari:
-      maximum-pool-size: 10
+    password: fornerds#1
     driver-class-name: org.postgresql.Driver
+
   jpa:
-    generate-ddl: true
     hibernate:
       ddl-auto: update
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    show-sql: true
     properties:
       hibernate:
-        temp:
-          use_jdbc_metadata_defaults: false
-        jdbc:
-          lob:
-            non_contextual_creation: true
-    show-sql: true
-    open-in-view: false
+        format_sql: true
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        packagesToScan: com.fornerds.domain
+
+
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 8080
+
+logging:
+  level:
+    root: INFO
+    com.fornerds: DEBUG
+    org.springframework.web: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type: TRACE
+
+jwt:
+  secret: sfja9fWDSXy8sPThPmfbQSZVmTTgBxm4
+  expiration: 86400000 # 1 day in milliseconds

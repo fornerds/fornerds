@@ -1,0 +1,49 @@
+.solutionTableList {
+    display: grid;
+    width: 1160px;
+    grid-template-columns: 1fr 1fr 2fr 2fr 2fr 2fr 2fr;
+}
+
+.solutionTableList:hover {
+    background-color: var(--Color-background-02, rgba(255, 255, 255, 0.07));
+} 
+
+.solutionTableItem {
+    display: flex;
+    align-items: center;
+    height: 72px;
+    padding: 0 20px;
+    cursor: pointer;
+}
+
+.userInfo {
+    gap: 16px;
+}
+
+.mySolutionList {
+    display: grid;
+    width: 926px;
+    grid-template-columns: 1fr 3.3fr 1fr 1.3fr 1.2fr;
+    box-sizing: border-box;
+}
+
+.mySolutionCenterItem {
+    display: flex;
+    width: 100px;
+    height: 72px;
+    padding: 10px 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
+
+.mySolutionItem {
+    display: flex;
+    height: 72px;
+    padding: 10px 20px;
+    align-items: center;
+    gap: 10px;
+    box-sizing: border-box;
+}
