@@ -1,0 +1,45 @@
+.checkBoxContainer {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 8px;
+}
+
+.checkBoxInput {
+  display: none;
+}
+
+.checkBox {
+  width: 16px;
+  height: 16px;
+  border-radius: 2px;
+  background: var(--Color-on-surface-high-emphasis, rgba(255, 255, 255, 0.87));
+}
+
+.checked {
+  display: none;
+}
+
+.checkBoxInput:checked + .checkBox {
+  background: var(--Color-primary-300, #00c4b4);
+}
+
+.checkBoxInput:checked + .checkBox .checked {
+  display: inline-block;
+}
+
+.labelText {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+  transition: color 0.3s ease-out;
+  text-align: center;
+}
+
+.labelText:hover {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+}
+
+.iconImage {
+  display: flex;
+  justify-content: center;
+  width: 24px;
+}

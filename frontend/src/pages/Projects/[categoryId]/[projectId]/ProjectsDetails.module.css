@@ -20,7 +20,7 @@
 */
 
 .background {
-    background: url(../../../../assets/images/background/background2.webp) lightgray 50% / cover no-repeat;
+    background: url(../../../../assets/images/background/background02.webp) lightgray 50% / cover no-repeat;
     background-color: var(--Color-background-00, #121212);
     background-size: 100vw auto;
     background-position: left top;

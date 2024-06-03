@@ -1,0 +1,113 @@
+.pageIndex {
+    color: white;
+    display: flex;
+    padding: 0px 20px;
+    align-items: flex-start;
+    gap: 10px;
+}
+
+.myProjectMain {
+    display: flex;
+    padding: 0px 20px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.myProjectContent {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.myProjectList {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.filters {
+    max-width: 956px;
+    width: 100%;
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    justify-content: end;
+    gap: 8px;
+    box-sizing: border-box;
+}
+
+.projectList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+
+.project {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+}
+
+.projectHeaderWrap {
+    display: flex;
+    width: 956px;
+    height: 72px;
+    padding: 13.5px 14px;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.projectHeader {
+    display: flex;
+    box-sizing: border-box;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.projectIndex {
+    display: flex;
+    box-sizing: border-box;
+    align-items: center;
+    gap: 16px;
+    flex: 1 0 0;
+}
+
+.questListWrap {
+    display: flex;
+    max-width: 956px;
+    height: 312px;
+    padding-bottom: 9px;
+    overflow-x: hidden;
+    white-space: nowrap;
+}
+
+.questList {
+    display: flex;
+    box-sizing: border-box;
+    padding: 0px 20px;
+    gap: 20px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.procjectTitleWrap {
+    display: flex;
+    height: 45px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    flex: 1 0 0;
+}
+
+.pagination {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
