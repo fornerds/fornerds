@@ -1,0 +1,117 @@
+.discussion {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.comment {
+  display: flex;
+  /* width: 865px; */
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.nameBox {
+  display: flex;
+  /* width: 833px; */
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.character {
+  width: 40px;
+  height: 40px;
+  border-radius: 2497.5px;
+  border: 2.5px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background: var(--Color-background-04, rgba(255, 255, 255, 0.09));
+}
+
+.name {
+  display: flex;
+  max-width: 400px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFFD9;
+}
+
+.editBox {
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  color: #1890FF;
+}
+
+.edit {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+
+.editIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.editText {
+  color: var(--Color-purpose-link, #1890FF);
+  /* text/tag */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 18px */
+}
+
+.content {
+  flex: 1;
+}
+
+.text {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+
+  /* text/body 2 */
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+}
+
+.downBox {
+  display: flex;
+  /* width: 833px; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.interactions {
+  display: flex;
+  /* width: 833px; */
+  justify-content: space-between;
+  align-items: center;
+}
+
+.date {
+  display: flex;
+  padding: 0px 4px;
+  align-items: center;
+  gap: 1px;
+}
+
+.replyBox,
+.likeBox {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.likes,
+.reply {
+  margin-left: 40px;
+}
