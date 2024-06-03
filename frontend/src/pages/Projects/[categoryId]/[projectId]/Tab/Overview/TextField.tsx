@@ -1,46 +1,30 @@
 import React from 'react'
 import styles from './TextField.module.css'
+import { TextContent } from '../../../../../../components/ModuleComponent'
+import { TextContentProps } from '../../../../../../components/ModuleComponent/Details/Overview/TextContent/TextContentProps'
 
 export function TextField() {
   return (
     <div className={styles.text_field}>
-      <TextBox
+      <TextContent
         title={AboutProject.title}
         description={AboutProject.description}
       />
-      <TextBox title={WhatYouWillLearn.title} list={WhatYouWillLearn.list} />
-      <TextBox title={TaskDescription.title} list={TaskDescription.list} />
-      <TextBox title={BasicRequirements.title} list={BasicRequirements.list} />
-      <TextBox title={HowToApply.title} list={HowToApply.list} />
+      <TextContent
+        title={WhatYouWillLearn.title}
+        list={WhatYouWillLearn.list}
+      />
+      <TextContent title={TaskDescription.title} list={TaskDescription.list} />
+      <TextContent
+        title={BasicRequirements.title}
+        list={BasicRequirements.list}
+      />
+      <TextContent title={HowToApply.title} list={HowToApply.list} />
     </div>
   )
 }
 
-function TextBox({ title, description, list }: TextBoxProps) {
-  return (
-    <div className={styles.textBox}>
-      <p className={`text-color-lighten font-roboto-header-3`}>{title}</p>
-      {description ? (
-        <p className={`text-color-lighten font-roboto-body-1`}>{description}</p>
-      ) : null}
-      {list
-        ? list?.map((str, index) => (
-            <li key={index} className={`text-color-lighten font-roboto-body-1`}>
-              {str}
-            </li>
-          ))
-        : null}
-    </div>
-  )
-}
-
-interface TextBoxProps {
-  title: string
-  description?: string
-  list?: string[]
-}
-
-const AboutProject: TextBoxProps = {
+const AboutProject: TextContentProps = {
   title: 'What you will learn',
   description: `Lorem ipsum dolor sit amet consectetur. 
   Volutpat sit purus posuere laoreet dolor gravida curabitur. 
@@ -60,19 +44,19 @@ const lipsum_sample_text_list = [
   'Sapien tristique curabitur risus neque vulputate',
   'Maecenas proin est nisi auctor vel eget tortor sagittis'
 ]
-const WhatYouWillLearn: TextBoxProps = {
+const WhatYouWillLearn: TextContentProps = {
   title: 'What you will learn',
   list: lipsum_sample_text_list
 }
-const TaskDescription: TextBoxProps = {
+const TaskDescription: TextContentProps = {
   title: 'Task Description',
   list: lipsum_sample_text_list
 }
-const BasicRequirements: TextBoxProps = {
+const BasicRequirements: TextContentProps = {
   title: 'Basic Requirements',
   list: lipsum_sample_text_list
 }
-const HowToApply: TextBoxProps = {
+const HowToApply: TextContentProps = {
   title: 'How to Apply',
   list: lipsum_sample_text_list
 }
