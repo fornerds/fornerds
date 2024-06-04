@@ -340,6 +340,7 @@ export function Discussion() {
                 commentData={commentData}
                 updateComment={updateComment}
                 deleteComment={deleteComment}
+                hideEditDelete={false}
                 currentUser={dummyUserData[0]} />
             ))}
           </div>
@@ -354,8 +355,9 @@ export function Discussion() {
             <Comment
               key={commentData.id}
               commentData={commentData}
-              updateComment={updateComment}
-              deleteComment={deleteComment}
+              updateComment={() => {}}
+              deleteComment={() => {}}
+              hideEditDelete={true}
               currentUser={dummyUserData[0]} />
           ))}
         </div>
