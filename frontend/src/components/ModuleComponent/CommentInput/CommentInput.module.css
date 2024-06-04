@@ -22,13 +22,24 @@
 
 .textarea {
   display: flex;
-  width: 773px;
+  width: 740px;
   height: 100px;
   padding: 6px 12px;
   /* align-items: center; */
   gap: 10px;
   border-radius: 6px;
   background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+}
+
+.replyTextarea {
+    display: flex;
+    width: 700px;
+    height: 100px;
+    padding: 6px 12px;
+    /* align-items: center; */
+    gap: 10px;
+    border-radius: 6px;
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
 }
 
 .submitButton {
