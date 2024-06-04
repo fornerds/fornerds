@@ -54,11 +54,17 @@ interface Props {
   currentUser: UserProfile // 현재 로그인한 사용자의 정보를 prop으로 받음
   updateComment: (updatedComment: CommentProps) => void;
   deleteComment: (commentId: number) => void;
+  hideEditDelete: Boolean
 }
 
-export function Comment({ commentData, currentUser, updateComment, deleteComment }: Props) {
+export function Comment({ 
+  commentData, 
+  currentUser, 
+  updateComment, 
+  deleteComment,
+  hideEditDelete = false}: Props) {
   const [showReplies, setShowReplies] = useState(false) // 대댓글 표시 상태
-  const [editingCommentId, setEditingCommentId] = useState<number | null>(null); // 댓글 수정 상태
+  const [editingCommentId, setEditingCommentId] = useState<{ commentId: number | null; replyId: number | null }>({ commentId: null, replyId: null }); // 수정시 대상의 ID확인
   const [editedContent, setEditedContent] = useState<string>(''); // 댓글 수정 내용
 
   const toggleReplies = () => {
@@ -71,18 +77,25 @@ export function Comment({ commentData, currentUser, updateComment, deleteComment
   }
 
   // Edit버튼 클릭시 동작
-  const handleEditClick = (commentId: number) => {
-    console.log(`${commentId}의 Edit버튼 클릭!`)
-    setEditingCommentId(commentId);
-    setEditedContent(commentData.content);
+  const handleEditClick = (commentId: number, replyId: number | null = null) => {
+    setEditingCommentId({ commentId, replyId });
+    setEditedContent(replyId ? commentData.replyData.find(reply => reply.id === replyId)?.content || '' : commentData.content);
+    console.log(`현재 commentID는 ${commentId}의 Edit버튼 클릭!`)
+    console.log(`현재 replyID는 ${replyId}의 Edit버튼 클릭!`)
   };
 
   // Save버튼 클릭시 동작
   const handleSaveClick = () => {
     console.log(`Save 버튼 클릭!`)
-    const updatedComment = { ...commentData, content: editedContent };
-    updateComment(updatedComment);
-    setEditingCommentId(null);
+    if (editingCommentId.replyId) {
+      const updatedReplyData = commentData.replyData.map(reply =>
+        reply.id === editingCommentId.replyId ? { ...reply, content: editedContent } : reply
+      );
+      updateComment({ ...commentData, replyData: updatedReplyData });
+    } else {
+      updateComment({ ...commentData, content: editedContent });
+    }
+    setEditingCommentId({ commentId: null, replyId: null });
   };
 
   // Delete버튼 클릭시 동작
@@ -103,7 +116,7 @@ export function Comment({ commentData, currentUser, updateComment, deleteComment
             <img src={currentUser.profileImage} alt="User Profile" />
           </div>
           <div className={styles.name}> { } </div>
-          {isCurrentUser(commentData.user_id) && (
+          {!hideEditDelete && isCurrentUser(commentData.user_id) && (
             <div className={styles.editBox}>
               <div className={styles.edit} onClick={() => handleEditClick(commentData.id)}>
                 <div className={styles.editIcon}>
@@ -124,7 +137,7 @@ export function Comment({ commentData, currentUser, updateComment, deleteComment
             </div>
           )}
         </div>
-        {editingCommentId === commentData.id ? (
+        {editingCommentId.commentId === commentData.id && !editingCommentId.replyId ? (
           <div className={styles.comment}>
             <div className={styles.nameBox}>
               <div className={styles.character}>
@@ -184,9 +197,9 @@ export function Comment({ commentData, currentUser, updateComment, deleteComment
               <div className={styles.nameBox}>
                 <div className={styles.character}></div>
                 <div className={styles.name}> Name </div>
-                {isCurrentUser(reply.user_id) && (
+                {!hideEditDelete && isCurrentUser(reply.user_id) && (
                   <div className={styles.editBox}>
-                    <div className={styles.edit} onClick={() => handleEditClick(commentData.id)}>
+                    <div className={styles.edit} onClick={() => handleEditClick(commentData.id, reply.id)}>
                       <div className={styles.editIcon}>
                         <svg xmlns="http://www.w3.org/2000/svg" fill="none">
                           <path d="M13.9808 2.80618C14.1843 2.56552 14.4359 2.36964 14.7197 2.231C15.0035 2.09236 15.3132 2.01403 15.6291 2.00097C15.9451 1.98792 16.2603 2.04045 16.5546 2.1552C16.849 2.26995 17.1161 2.44441 17.3389 2.66747C17.5617 2.89052 17.7353 3.15727 17.8487 3.45071C17.9621 3.74416 18.0127 4.05786 17.9973 4.37183C17.982 4.6858 17.901 4.99314 17.7595 5.27427C17.6181 5.5554 17.4193 5.80416 17.1757 6.00468L6.39298 16.7996L2 17.999L3.19808 13.6011L13.9808 2.80618Z" stroke="#1890FF" stroke-width="1.152" stroke-linecap="round" stroke-linejoin="round" />
@@ -205,7 +218,7 @@ export function Comment({ commentData, currentUser, updateComment, deleteComment
                   </div>
                 )}
               </div>
-              {editingCommentId === commentData.id ? (
+              {editingCommentId.commentId === commentData.id && editingCommentId.replyId === reply.id ? (
                 <div className={styles.comment}>
                   <div className={styles.nameBox}>
                     <div className={styles.character}>
