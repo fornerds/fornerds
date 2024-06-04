@@ -309,6 +309,8 @@ const dummyUserData = [
 
 export function Discussion() {
   const [commentData, setCommentData] = useState<CommentProps[]>(dummyComments)
+  const [visibleComments, setVisibleComments] = useState(4)
+
   const updateComment = (updatedComment: CommentProps) => {
     const updatedComments = commentData.map((comment) =>
       comment.id === updatedComment.id ? updatedComment : comment
@@ -321,8 +323,25 @@ export function Discussion() {
     setCommentData(updatedComments);
   };
 
-  const submitComment = () => {
-    console.log("댓글을 달았다")
+  const submitComment = (content: string) => {
+    const newComment: CommentProps = {
+      id: commentData.length + 1,
+      content,
+      likeCount: 0,
+      createdAt: new Date().toISOString(),
+      updatedAt: null,
+      deletedAt: null,
+      quest_id: 1,
+      user_id: dummyUserData[0].id,
+      replyData: []
+    }
+    commentData.unshift(newComment)
+    setCommentData(commentData) // 업데이트된 commentData로 상태 업데이트
+    console.log("댓글리스트 이후 : ", commentData)
+  }
+
+  const loadMoreComments = () => {
+    setVisibleComments(visibleComments + 4)
   }
 
   // Like 숫자가 가장 많은 2개의 Comments 추출
@@ -332,9 +351,9 @@ export function Discussion() {
     <div className={styles.contents_box}>
       <div className={styles.left_box}>
         <div className={styles.discussion_box}>
-          <CommentInput buttonText="Submit" onSubmit={submitComment}/>
+          <CommentInput buttonText="Submit" onSubmit={submitComment} />
           <div className={styles.comments}>
-            {commentData.map((commentData) => (
+            {commentData.slice(0, visibleComments).map((commentData) => (
               <Comment
                 key={commentData.id}
                 commentData={commentData}
@@ -344,19 +363,24 @@ export function Discussion() {
                 currentUser={dummyUserData[0]} />
             ))}
           </div>
-          <div className={styles.load_more}></div>
+          {visibleComments < commentData.length && (
+            <div className={styles.load_more} onClick={loadMoreComments}>
+              Load More
+            </div>
+          )}
         </div>
       </div>
       <div className={styles.right_box}>
         <div className={styles.popular_discussion}>
-          <p>Popular discussion</p> </div>
+          <p>Popular discussion</p>
+        </div>
         <div className={styles.popularCommentsList}>
           {popularComments.map((commentData) => (
             <Comment
               key={commentData.id}
               commentData={commentData}
-              updateComment={() => {}}
-              deleteComment={() => {}}
+              updateComment={() => { }}
+              deleteComment={() => { }}
               hideEditDelete={true}
               currentUser={dummyUserData[0]} />
           ))}

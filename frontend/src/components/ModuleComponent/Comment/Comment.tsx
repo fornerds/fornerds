@@ -3,7 +3,6 @@ import styles from './Comment.module.css'
 import { CommentInput } from '../CommentInput'
 import { Input } from '../../AtomComponent'
 
-
 interface Reply {
   id: number
   content: string
@@ -104,9 +103,21 @@ export function Comment({
     deleteComment(commentId);
   };
 
-  const handleSubmitReply = () => {
-    console.log("대댓글을 달았다")
-  }
+ const handleSubmitReply = (content: string) => {
+    const newReply: Reply = {
+      id: commentData.replyData.length + 1,
+      content,
+      likeCount: 0,
+      createdAt: new Date().toISOString(),
+      updatedAt: null,
+      deletedAt: null,
+      quest_id: commentData.quest_id,
+      user_id: currentUser.id,
+    };
+
+    const updatedReplyData = [...commentData.replyData, newReply];
+    updateComment({ ...commentData, replyData: updatedReplyData });
+  };
 
   return (
     <div className={styles.discussion}>

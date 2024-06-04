@@ -29,6 +29,7 @@
   gap: 10px;
   border-radius: 6px;
   background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  color: whitesmoke;
 }
 
 .replyTextarea {
@@ -40,6 +41,7 @@
     gap: 10px;
     border-radius: 6px;
     background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+    color: whitesmoke;
 }
 
 .submitButton {
