@@ -5,6 +5,7 @@
   align-items: flex-start;
   gap: 20px;
   align-self: stretch;
+  max-width: 865px;
 }
 
 .left_box {
