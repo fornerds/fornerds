@@ -1,0 +1,192 @@
+.discussion {
+  display: flex;
+  flex-direction: column;
+  max-width: 865px;
+  width: 100%;
+}
+.comment {
+  display: flex;
+  /* max-width: 865px; */
+  padding: 16px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.nameBox {
+  display: flex;
+  /* width: 833px; */
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.character {
+  width: 40px;
+  height: 40px;
+  border-radius: 2497.5px;
+  /* border: 2.5px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background: var(--Color-background-04, rgba(255, 255, 255, 0.09)); */
+}
+
+.name {
+  display: flex;
+  max-width: 400px;
+  align-items: center;
+  gap: 10px;
+  color: #FFFFFFD9;
+  margin-right: auto;
+}
+
+.editBox {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #1890FF;
+}
+
+.edit {
+  display: flex;
+  gap: 5px;
+  flex-direction: row;
+}
+
+.editIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.editText {
+  color: var(--Color-purpose-link, #1890FF);
+  /* text/tag */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 18px */
+  align-items: center;
+}
+
+.content {
+  flex: 1;
+}
+
+.text {
+  color: var(--Color-text-lighten, rgba(255, 255, 255, 0.85));
+
+  /* text/body 2 */
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 21px */
+  align-items: center;
+
+  width: 100%;
+}
+
+.downBox {
+  display: flex;
+  justify-content: flex-start;
+  /* width: 833px; */
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+
+.interactions {
+  display: flex;
+  /* width: 833px; */
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+}
+
+.date {
+  display: flex;
+  padding: 0px 4px;
+  align-items: center;
+  gap: 1px;
+
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+
+  /* text/tag */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 18px */
+
+  margin-left: auto;
+}
+
+.replyBox,
+.likeBox {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 4px;
+}
+
+.likeText,
+.replyText {
+  color: var(--Color-text-default, rgba(255, 255, 255, 0.65));
+
+  /* text/tag */
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
+  /* 18px */
+}
+
+.likeIcon,
+.replyIcon {
+  width: 24px;
+  height: 24px;
+}
+
+.replys {
+  margin-left: 40px;
+  max-width: 825px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.saveButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: var(--Color-primary-400, #00B3A6);
+  width: 104px;
+  height: 48px;
+  color: white;
+}
+
+.textarea {
+  display: flex;
+  width: 740px;
+  height: 100px;
+  padding: 6px 12px;
+  /* align-items: center; */
+  gap: 10px;
+  border-radius: 6px;
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  color: white;
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+  color: white;
+}
