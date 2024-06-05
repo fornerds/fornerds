@@ -1,22 +1,43 @@
 .container {
     display: flex;
-    flex-direction: column;
-    height: 100vh;
     padding: 20px;
-  }
-  
-  .inputContainer {
+    background-color: gray;
+}
+
+.leftBox {
+    width: 300px;
+    padding-right: 10px;
     display: flex;
+    flex-direction: column;
+}
+
+.middleBox {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.rightBox {
+    width: 500px;
+    padding-left: 10px;
+}
+
+.solutionHeader {
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-bottom: 1px solid #ccc;
+}
+
+.inputContainer {
     margin-bottom: 20px;
-  }
-  
-  .input {
+}
+
+.input {
     flex: 1;
     padding: 10px;
     font-size: 16px;
-  }
-  
-  .button {
+}
+
+.button {
     padding: 10px 20px;
     font-size: 16px;
     background-color: #007bff;
@@ -24,41 +45,62 @@
     border: none;
     cursor: pointer;
     margin-left: 10px;
-  }
-  
-  .filesContainer {
-    margin-bottom: 20px;
-  }
-  
-  .fileList {
+}
+
+.filesContainer {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.fileList {
     list-style-type: none;
     padding: 0;
-  }
-  
-  .fileItem {
+}
+
+.fileItem {
     padding: 5px;
     cursor: pointer;
-  }
-  
-  .editorContainer {
+}
+
+.editorContainer {
     flex: 1;
     border: 1px solid #ccc;
     overflow: auto;
-  }
-  
-  .markdownContainer {
+}
+
+.markdownContainer {
     flex: 1;
     border: 1px solid #ccc;
     overflow: auto;
     padding: 10px;
-  }
+}
 
-  .folderIcon {
+.folderIcon {
     margin-right: 5px;
     color: #ffcc00;
-  }
-  
-  .fileIcon {
+}
+
+.fileIcon {
     margin-right: 5px;
     color: #007bff;
-  }
+}
+
+.solutionDescription {
+    margin-bottom: 20px;
+}
+
+.aiComments {
+    margin-bottom: 20px;
+}
+
+.solutionStrengths {
+    margin-bottom: 20px;
+}
+
+.commentInput {
+    margin-bottom: 20px;
+}
+
+.commentList {
+    margin-bottom: 20px;
+}

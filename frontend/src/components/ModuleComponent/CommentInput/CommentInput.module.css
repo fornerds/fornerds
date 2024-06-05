@@ -3,12 +3,14 @@
   padding: 16px;
   align-items: flex-start;
   gap: 20px;
+  width: 100%;
 }
 
 .character {
   width: 40px;
   height: 40px;
   border-radius: 2497.5px;
+  margin-right: 15px;
   /* border: 2.5px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
   background: var(--Color-background-04, rgba(255, 255, 255, 0.09)); */
 }
@@ -18,11 +20,13 @@
   flex-direction: column;
   align-items: flex-end;
   gap: 16px;
+  width: 100%;
 }
 
 .textarea {
   display: flex;
-  width: 740px;
+  max-width: 740px;
+  width: 100%;
   height: 100px;
   padding: 6px 12px;
   /* align-items: center; */
@@ -33,15 +37,16 @@
 }
 
 .replyTextarea {
-    display: flex;
-    width: 700px;
-    height: 100px;
-    padding: 6px 12px;
-    /* align-items: center; */
-    gap: 10px;
-    border-radius: 6px;
-    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
-    color: whitesmoke;
+  display: flex;
+  max-width: 700px;
+  width: 100%;
+  height: 100px;
+  padding: 6px 12px;
+  /* align-items: center; */
+  gap: 10px;
+  border-radius: 6px;
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  color: whitesmoke;
 }
 
 .submitButton {
