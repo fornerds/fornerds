@@ -3,10 +3,14 @@ import MonacoEditor from 'react-monaco-editor';
 import { Octokit } from '@octokit/rest';
 import { Converter } from 'showdown';
 import styles from './Solution.module.css';
+import { NavLink, useParams } from 'react-router-dom'
 
 import { Comment } from '../../../../../../../../components/ModuleComponent/Comment'
 import { CommentInput } from '../../../../../../../../components/ModuleComponent/CommentInput'
 import { CommentProps } from '../../../../../../../../components/ModuleComponent/Comment/Comment'
+
+import { Tag } from '../../../../../../../../components/AtomComponent'
+import { ReactComponent as Users } from '../../../../../../../../assets/icons/users.svg'
 
 const dummyComments = [
   {
@@ -44,10 +48,44 @@ const dummyUserData = [
     "deletedAt": null
   }]
 
+const dummySolutionData = {
+  "id": "123456",
+  "repositoryUrl": "https://github.com/user/repo",
+  "file": "index.js",
+  "status": "completed",
+  "feedback": "Great job! Well optimized.",
+  "memoryUsage": 512,
+  "executionTime": 120,
+  "likeCount": 42,
+  "viewCount": 1045,
+  "createdAt": "2023-06-01T10:00:00Z",
+  "updatedAt": "2023-06-02T12:00:00Z",
+  "deletedAt": null,
+  "quest_id": "quest123",
+  "user_id": "user456",
+  "skills": ['JavaScript', 'Redux', 'HTML', 'CSS']
+}
+
 const octokit = new Octokit();
 
 interface SolutionProps { }
-
+interface Solution {
+  id: string;
+  repositoryUrl: string;
+  file: string;
+  status: string;
+  feedback: string;
+  memoryUsage: number;
+  executionTime: number;
+  likeCount: number;
+  viewCount: number;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
+  quest_id: string;
+  user_id: string;
+  skills: string[];
+}
 interface GitHubContent {
   type: string;
   size: number;
@@ -67,11 +105,13 @@ interface GitHubContent {
 }
 
 export function Solution() {
+  let { categoryId, projectId, questId } = useParams()
   const [repoUrl, setRepoUrl] = React.useState('');
   const [files, setFiles] = React.useState<any[]>([]);
   const [currentFile, setCurrentFile] = React.useState('');
   const [currentPath, setCurrentPath] = React.useState('');
   const [fileContent, setFileContent] = React.useState('');
+  const [solution, setSolution] = React.useState<Solution>(dummySolutionData)
 
   // Comment 관련
   const [commentData, setCommentData] = React.useState<CommentProps[]>(dummyComments)
@@ -197,9 +237,73 @@ export function Solution() {
       </div>
       {/* right_box */}
       <div className={styles.middleBox}>
-        <div className={styles.solutionHeader}>
-          Title
-        </div>
+        <article className={styles.leftBox}>
+          <span className={styles.leftBoxHeader}>
+            <span className={`${styles.navList} font-roboto-body-2`}>
+              <NavLink to={'/'} className={styles.prevPage}>
+                Home
+              </NavLink>
+              /
+              <NavLink
+                to={`/projects/${categoryId}`}
+                className={styles.prevPage}
+              >
+                Project list
+              </NavLink>
+              /
+              <NavLink
+                to={`/projects/${categoryId}/${projectId}`}
+                className={styles.prevPage}
+              >
+                Project detail
+              </NavLink>
+              /
+              <NavLink
+                to={`/projects/${categoryId}/${questId}`}
+                className={styles.prevPage}
+              >
+                Quest detail
+              </NavLink>
+              /<span className={styles.currentPage}>Solution detail</span>
+            </span>
+          </span>
+          <div className={styles.questInfo}>
+            <h2 className={`${styles.title} font-roboto-header-2`}>
+              {solution.user_id}
+            </h2>
+            <div className={styles.questIndexs}>
+              <div className={styles.questIndex}>
+                <Tag
+                  className={`${styles.position} font-roboto-body-3`}
+                  variant="active"
+                >
+                  {solution.quest_id}
+                </Tag>
+                <span
+                  className={`${styles.questIndexItem} font-roboto-body-2`}
+                >
+                  <Users width="24" height="24" />
+                  <p
+                    className={`${styles.users} text-color-lighten  font-roboto-button`}
+                  >
+                    {solution.viewCount} Developers
+                  </p>
+                </span>
+              </div>
+              <div className={styles.language}>
+                {solution.skills.map((skill, index) => (
+                  <Tag
+                    key={index}
+                    className={`${styles.skill} font-roboto-button text-color-lighten`}
+                    variant="default"
+                  >
+                    {skill}
+                  </Tag>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
         {/* IDE 부분 */}
         {currentFile.endsWith('.md') ? (
           <div
