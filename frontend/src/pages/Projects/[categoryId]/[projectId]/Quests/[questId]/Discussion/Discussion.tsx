@@ -147,7 +147,7 @@ const dummyUserData = [
     "phoneNumber": "575-369-6607x2789",
     "language": "lb",
     "country": "Vanuatu",
-    "profileImage": "../../../../../../../assets/images/character/character01.webp",
+    "profileImage": 1,
     "bio": "Kid worker go off. Show cold dinner let public...",
     "role": "user",
     "level": 65,
@@ -168,7 +168,7 @@ const dummyUserData = [
     "phoneNumber": "(266)614-5356x882",
     "language": "pt",
     "country": "Belgium",
-    "profileImage": "https://github.com/fornerds/fornerds/blob/b5f990e5b05ad1669a592c3f4d65cbeada128687/frontend/src/assets/images/character/character01.webp",
+    "profileImage": 2,
     "bio": "Action campaign board. Standard close magazine...",
     "role": "moderator",
     "level": 37,
@@ -189,7 +189,7 @@ const dummyUserData = [
     "phoneNumber": "(840)095-3217x9914",
     "language": "nhn",
     "country": "Greenland",
-    "profileImage": "https://github.com/fornerds/fornerds/blob/b5f990e5b05ad1669a592c3f4d65cbeada128687/frontend/src/assets/images/character/character01.webp",
+    "profileImage": 3,
     "bio": "For edge cut great car. Professor raise people...",
     "role": "moderator",
     "level": 93,
@@ -210,7 +210,7 @@ const dummyUserData = [
     "phoneNumber": "558.392.3103",
     "language": "pl",
     "country": "Lithuania",
-    "profileImage": "https://placekitten.com/528/595",
+    "profileImage": 4,
     "bio": "Film generation town purpose interview already...",
     "role": "admin",
     "level": 31,
@@ -231,7 +231,7 @@ const dummyUserData = [
     "phoneNumber": "513-556-9373x90083",
     "language": "hak",
     "country": "Syrian Arab Republic",
-    "profileImage": "https://www.lorempixel.com/223/184",
+    "profileImage": 5,
     "bio": "Some laugh radio usually understand sense posi...",
     "role": "moderator",
     "level": 9,
@@ -252,7 +252,7 @@ const dummyUserData = [
     "phoneNumber": "001-267-185-3228x5552",
     "language": "ms",
     "country": "Portugal",
-    "profileImage": "https://placekitten.com/424/628",
+    "profileImage": 6,
     "bio": "International necessary traditional deal many...",
     "role": "admin",
     "level": 9,
@@ -273,7 +273,7 @@ const dummyUserData = [
     "phoneNumber": "(900)597-0230",
     "language": "ky",
     "country": "Bahrain",
-    "profileImage": "https://placeimg.com/196/859/any",
+    "profileImage": 7,
     "bio": "Scene its tonight try able focus. Describe sub...",
     "role": "moderator",
     "level": 87,
@@ -294,7 +294,7 @@ const dummyUserData = [
     "phoneNumber": "001-499-717-0074",
     "language": "ps",
     "country": "New Caledonia",
-    "profileImage": "https://www.lorempixel.com/477/103",
+    "profileImage": 8,
     "bio": "Walk provide age then send traditional however...",
     "role": "moderator",
     "level": 92,
@@ -347,11 +347,16 @@ export function Discussion() {
   // Like 숫자가 가장 많은 2개의 Comments 추출
   const popularComments = commentData.sort((a, b) => b.likeCount - a.likeCount).slice(0, 3)
 
+  const imgUrl = 'frontend/src/assets/images/character/character01.webp'
+
   return (
     <div className={styles.contents_box}>
       <div className={styles.left_box}>
         <div className={styles.discussion_box}>
-          <CommentInput buttonText="Submit" onSubmit={submitComment} />
+          <CommentInput
+            buttonText="Submit"
+            onSubmit={submitComment}
+            profileImage={dummyUserData[0].profileImage} />
           <div className={styles.comments}>
             {commentData.slice(0, visibleComments).map((commentData) => (
               <Comment
