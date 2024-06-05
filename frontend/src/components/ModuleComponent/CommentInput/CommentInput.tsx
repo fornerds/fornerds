@@ -2,16 +2,19 @@ import React from 'react'
 import styles from './CommentInput.module.css'
 import { Button } from '../../AtomComponent'
 import { Input } from '../../AtomComponent'
+import characters from '../../../assets/images/character'
 
 interface CommentInputProps {
   isReply?: boolean
   buttonText: string | null
   onSubmit: (content: string) => void
+  profileImage: number
 }
 
 export function CommentInput({
   isReply = false,
   buttonText = 'Submit',
+  profileImage,
   onSubmit }: CommentInputProps) {
 
   const [content, setContent] = React.useState('');
@@ -24,7 +27,7 @@ export function CommentInput({
 
   return (
     <div className={styles.commentInput}>
-      <div className={styles.character}></div>
+      <img src={characters[profileImage]} className={styles.character} alt="User Profile" />
       <div className={styles.inputBox}>
         <Input
           className={textareaClass}

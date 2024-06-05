@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styles from './Comment.module.css'
 import { CommentInput } from '../CommentInput'
 import { Input } from '../../AtomComponent'
+import characters from '../../../assets/images/character'
 
 interface Reply {
   id: number
@@ -12,6 +13,7 @@ interface Reply {
   deletedAt: string | null
   quest_id: number
   user_id: string
+  // user: UserProfile
 }
 
 export interface CommentProps {
@@ -23,6 +25,7 @@ export interface CommentProps {
   deletedAt: string | null
   quest_id: number
   user_id: string
+  // user: UserProfile
   replyData: Reply[]
 }
 
@@ -35,7 +38,7 @@ interface UserProfile {
   phoneNumber: string;
   language: string;
   country: string;
-  profileImage: string;
+  profileImage: number;
   bio: string;
   role: string;
   level: number;
@@ -56,12 +59,12 @@ interface Props {
   hideEditDelete: Boolean
 }
 
-export function Comment({ 
-  commentData, 
-  currentUser, 
-  updateComment, 
+export function Comment({
+  commentData,
+  currentUser,
+  updateComment,
   deleteComment,
-  hideEditDelete = false}: Props) {
+  hideEditDelete = false }: Props) {
   const [showReplies, setShowReplies] = useState(false) // 대댓글 표시 상태
   const [editingCommentId, setEditingCommentId] = useState<{ commentId: number | null; replyId: number | null }>({ commentId: null, replyId: null }); // 수정시 대상의 ID확인
   const [editedContent, setEditedContent] = useState<string>(''); // 댓글 수정 내용
@@ -103,7 +106,7 @@ export function Comment({
     deleteComment(commentId);
   };
 
- const handleSubmitReply = (content: string) => {
+  const handleSubmitReply = (content: string) => {
     const newReply: Reply = {
       id: commentData.replyData.length + 1,
       content,
@@ -123,10 +126,8 @@ export function Comment({
     <div className={styles.discussion}>
       <div className={styles.comment}>
         <div className={styles.nameBox}>
-          <div className={styles.character}>
-            <img src={currentUser.profileImage} alt="User Profile" />
-          </div>
-          <div className={styles.name}> { } </div>
+          <img src={characters[currentUser.profileImage]} className={styles.character} alt="User Profile" />
+          <div className={styles.name}> {currentUser.nickname} </div>
           {!hideEditDelete && isCurrentUser(commentData.user_id) && (
             <div className={styles.editBox}>
               <div className={styles.edit} onClick={() => handleEditClick(commentData.id)}>
@@ -151,9 +152,6 @@ export function Comment({
         {editingCommentId.commentId === commentData.id && !editingCommentId.replyId ? (
           <div className={styles.comment}>
             <div className={styles.nameBox}>
-              <div className={styles.character}>
-                <img src={currentUser.profileImage} alt="User Profile" />
-              </div>
               <div className={styles.inputBox}>
                 <Input
                   className={styles.textarea}
@@ -206,7 +204,7 @@ export function Comment({
           {commentData.replyData.map((reply) => (
             <div className={styles.comment}>
               <div className={styles.nameBox}>
-                <div className={styles.character}></div>
+                <img src={characters[currentUser.profileImage]} className={styles.character} alt="User Profile" />
                 <div className={styles.name}> Name </div>
                 {!hideEditDelete && isCurrentUser(reply.user_id) && (
                   <div className={styles.editBox}>
@@ -232,9 +230,7 @@ export function Comment({
               {editingCommentId.commentId === commentData.id && editingCommentId.replyId === reply.id ? (
                 <div className={styles.comment}>
                   <div className={styles.nameBox}>
-                    <div className={styles.character}>
-                      <img src={currentUser.profileImage} alt="User Profile" />
-                    </div>
+                    <img src={characters[currentUser.profileImage]} className={styles.character} alt="User Profile" />
                     <div className={styles.inputBox}>
                       <Input
                         className={styles.textarea}
@@ -266,7 +262,11 @@ export function Comment({
               </div>
             </div>
           ))}
-          <CommentInput isReply={true} buttonText="Submit" onSubmit={handleSubmitReply} />
+          <CommentInput
+            isReply={true}
+            buttonText="Submit"
+            profileImage={currentUser.profileImage}
+            onSubmit={handleSubmitReply} />
         </div>
       )}
     </div>
