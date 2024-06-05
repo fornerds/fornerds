@@ -320,6 +320,7 @@ export function Discussion() {
 
   const deleteComment = (commentId: number) => {
     const updatedComments = commentData.filter((comment) => comment.id !== commentId);
+    setVisibleComments(visibleComments - 1)
     setCommentData(updatedComments);
   };
 
@@ -337,6 +338,7 @@ export function Discussion() {
     }
     commentData.unshift(newComment)
     setCommentData(commentData) // 업데이트된 commentData로 상태 업데이트
+    setVisibleComments(visibleComments + 1)
     console.log("댓글리스트 이후 : ", commentData)
   }
 

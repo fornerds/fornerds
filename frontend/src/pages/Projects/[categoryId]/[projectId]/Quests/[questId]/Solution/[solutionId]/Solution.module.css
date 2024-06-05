@@ -1,0 +1,64 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding: 20px;
+  }
+  
+  .inputContainer {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .input {
+    flex: 1;
+    padding: 10px;
+    font-size: 16px;
+  }
+  
+  .button {
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  
+  .filesContainer {
+    margin-bottom: 20px;
+  }
+  
+  .fileList {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .fileItem {
+    padding: 5px;
+    cursor: pointer;
+  }
+  
+  .editorContainer {
+    flex: 1;
+    border: 1px solid #ccc;
+    overflow: auto;
+  }
+  
+  .markdownContainer {
+    flex: 1;
+    border: 1px solid #ccc;
+    overflow: auto;
+    padding: 10px;
+  }
+
+  .folderIcon {
+    margin-right: 5px;
+    color: #ffcc00;
+  }
+  
+  .fileIcon {
+    margin-right: 5px;
+    color: #007bff;
+  }
