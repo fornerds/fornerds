@@ -1,0 +1,58 @@
+.commentInput {
+  display: flex;
+  padding: 16px;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.character {
+  width: 40px;
+  height: 40px;
+  border-radius: 2497.5px;
+  /* border: 2.5px solid var(--Color-stroke-outline, rgba(255, 255, 255, 0.12));
+  background: var(--Color-background-04, rgba(255, 255, 255, 0.09)); */
+}
+
+.inputBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 16px;
+}
+
+.textarea {
+  display: flex;
+  width: 740px;
+  height: 100px;
+  padding: 6px 12px;
+  /* align-items: center; */
+  gap: 10px;
+  border-radius: 6px;
+  background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+  color: whitesmoke;
+}
+
+.replyTextarea {
+    display: flex;
+    width: 700px;
+    height: 100px;
+    padding: 6px 12px;
+    /* align-items: center; */
+    gap: 10px;
+    border-radius: 6px;
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
+    color: whitesmoke;
+}
+
+.submitButton {
+  display: flex;
+  padding: 6px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border-radius: 5px;
+  background: var(--Color-primary-400, #00B3A6);
+  width: 104px;
+  height: 48px;
+  color: aliceblue;
+}
