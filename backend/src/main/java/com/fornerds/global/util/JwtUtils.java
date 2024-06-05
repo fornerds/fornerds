@@ -10,31 +10,39 @@ import java.util.Date;
 
 @Component
 public class JwtUtils {
-    @Value("${jwt.secret}")
-    private String jwtSecret;
+    private final String jwtSecret;
+    private final long accessTokenExpiration;
+    private final long refreshTokenExpiration;
 
-    @Value("${jwt.expiration}")
-    private long jwtExpirationMs;
+    public JwtUtils(
+            @Value("${jwt.secret}") String jwtSecret,
+            @Value("${jwt.accessTokenExpiration}") long accessTokenExpiration,
+            @Value("${jwt.refreshTokenExpiration}") long refreshTokenExpiration) {
+        this.jwtSecret = jwtSecret;
+        this.accessTokenExpiration = accessTokenExpiration;
+        this.refreshTokenExpiration = refreshTokenExpiration;
+    }
 
-    public String generateToken(String username) {
-        Date now = new Date();
-        Date expiryDate = new Date(now.getTime() + jwtExpirationMs);
-
+    public String generateAccessToken(String username) {
         return Jwts.builder()
                 .setSubject(username)
-                .setIssuedAt(now)
-                .setExpiration(expiryDate)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + accessTokenExpiration))
+                .signWith(SignatureAlgorithm.HS512, jwtSecret)
+                .compact();
+    }
+
+    public String generateRefreshToken(String username) {
+        return Jwts.builder()
+                .setSubject(username)
+                .setIssuedAt(new Date())
+                .setExpiration(new Date(System.currentTimeMillis() + refreshTokenExpiration))
                 .signWith(SignatureAlgorithm.HS512, jwtSecret)
                 .compact();
     }
 
     public String getUsernameFromToken(String token) {
-        Claims claims = Jwts.parser()
-                .setSigningKey(jwtSecret)
-                .parseClaimsJws(token)
-                .getBody();
-
-        return claims.getSubject();
+        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
     }
 
     public boolean validateToken(String token) {
@@ -42,12 +50,11 @@ public class JwtUtils {
             Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
             return true;
         } catch (Exception ex) {
-            // Token validation failed
             return false;
         }
     }
 
     public String getEmailFromToken(String token) {
-        return Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token).getBody().getSubject();
+        return getUsernameFromToken(token);
     }
 }

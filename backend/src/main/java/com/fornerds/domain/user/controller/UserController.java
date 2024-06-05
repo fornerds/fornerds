@@ -1,5 +1,6 @@
 package com.fornerds.domain.user.controller;
 
+import com.fornerds.domain.auth.dto.SignupRequestDto;
 import com.fornerds.domain.user.dto.UserDto;
 import com.fornerds.domain.user.entity.User;
 import com.fornerds.domain.user.service.UserService;
@@ -16,12 +17,6 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping("/signup")
-    public ResponseEntity<UserDto> signup(@RequestBody UserDto userDto) {
-        User user = userService.signup(userDto);
-        UserDto responseUserDto = new UserDto(user);
-        return ResponseEntity.ok(responseUserDto);
-    }
 
     @PostMapping
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
@@ -52,3 +47,4 @@ public class UserController {
         return ResponseEntity.noContent().build();
     }
 }
+

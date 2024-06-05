@@ -15,11 +15,12 @@ public class UserDto {
     private String email;
     private String name;
     private String nickname;
-    private String password;
 
     public UserDto(User user) {
+        this.id = user.getId();
         this.email = user.getEmail();
         this.name = user.getName();
+        this.nickname = user.getNickname();
     }
 
     public User toEntity() {
@@ -27,7 +28,6 @@ public class UserDto {
         user.setEmail(email);
         user.setName(name);
         user.setNickname(nickname);
-        user.setPassword(password);
         return user;
     }
 }

@@ -34,7 +34,7 @@ public class User implements OAuth2User {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(nullable = false, unique = true)
     private String nickname;
 
     private String phoneNumber;
@@ -71,10 +71,11 @@ public class User implements OAuth2User {
 
     // 기타 연관관계 매핑
 
-    public User(String email, String password, String name, String profileImage, Role role) {
+    public User(String email, String password, String name, String nickname, String profileImage, Role role) {
         this.email = email;
         this.password = password;
         this.name = name;
+        this.nickname = nickname;
         this.profileImage = profileImage;
         this.role = role;
     }

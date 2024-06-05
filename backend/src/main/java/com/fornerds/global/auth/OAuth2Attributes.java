@@ -3,7 +3,9 @@ package com.fornerds.global.auth;
 import com.fornerds.domain.user.entity.Role;
 import com.fornerds.domain.user.entity.User;
 
+import java.util.Base64;
 import java.util.Map;
+import java.security.SecureRandom;
 
 public class OAuth2Attributes {
     private Map<String, Object> attributes;
@@ -23,6 +25,8 @@ public class OAuth2Attributes {
     public static OAuth2Attributes of(String registrationId, String userNameAttributeName, Map<String, Object> attributes) {
         if ("google".equals(registrationId)) {
             return ofGoogle(userNameAttributeName, attributes);
+        } else if ("github".equals(registrationId)) {
+            return ofGithub(userNameAttributeName, attributes);
         }
         return null;
     }
@@ -37,12 +41,29 @@ public class OAuth2Attributes {
         );
     }
 
-    public String getEmail() {
-        return email;
+    private static OAuth2Attributes ofGithub(String userNameAttributeName, Map<String, Object> attributes) {
+        return new OAuth2Attributes(
+                attributes,
+                userNameAttributeName,
+                (String) attributes.get("name"),
+                (String) attributes.get("email"),
+                (String) attributes.get("avatar_url")
+        );
+    }
+
+    public Map<String, Object> getAttributes() {
+        return attributes;    }
+
+    public String getNameAttributeKey() {
+        return nameAttributeKey;
     }
 
     public String getName() {
         return name;
+    }
+
+    public String getEmail() {
+        return email;
     }
 
     public String getProfileImage() {
@@ -50,6 +71,23 @@ public class OAuth2Attributes {
     }
 
     public User toEntity() {
-        return new User(email, null, name, Role.USER);
+        String nickname = extractNicknameFromEmail(email);
+        String password = generateRandomPassword();
+        return new User(email, password, name, nickname, profileImage, Role.USER);
+    }
+
+    private String generateRandomPassword() {
+        SecureRandom random = new SecureRandom();
+        byte[] bytes = new byte[16];
+        random.nextBytes(bytes);
+        return Base64.getEncoder().encodeToString(bytes);
+    }
+
+    private String extractNicknameFromEmail(String email) {
+        int atIndex = email.indexOf("@");
+        if (atIndex != -1) {
+            return email.substring(0, atIndex);
+        }
+        return email;
     }
 }

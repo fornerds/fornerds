@@ -35,3 +35,21 @@ out/
 
 ### VS Code ###
 .vscode/
+
+### docker ###
+Dockerfile
+
+### RestDocs ###
+src/main/resources/static/
+
+### Ignore .DS_Store ###
+**/.DS_Store
+
+### application*.yml ###
+src/main/resources/*.yml
+
+# Ignore result.txt file in any folder
+**/result.txt
+
+# Ignore code_extractor.exe file in any folder
+**/code_extractor.exe
