@@ -11,6 +11,7 @@ import {
 } from '../../../components/ModuleComponent'
 import { Input, Toggle } from '../../../components/AtomComponent'
 import { ReactComponent as SearchIcon } from '../../../assets/icons/magnifying_glass.svg'
+import { useParams } from 'react-router-dom'
 
 function getRandomElements(arr: string[], min: number, max: number) {
   const result = []
@@ -34,6 +35,21 @@ interface Filter {
 }
 
 export function Projects() {
+  const { categoryId } = useParams<{ categoryId: string }>()
+
+  // 카테고리 더미 데이터
+  const categories = [
+    { id: 1, name: 'Web development' },
+    { id: 2, name: 'iOS development' },
+    { id: 3, name: 'Android development' },
+    { id: 4, name: 'Game development' },
+    { id: 5, name: 'AI, ML & Data science' },
+    { id: 6, name: 'Cyber security' },
+    { id: 7, name: 'Embedded systems' },
+    { id: 8, name: 'Internet of things' },
+    { id: 9, name: 'Blockchain technology' }
+  ]
+
   // 카드 더미 데이터
   const cards = useRef(
     Array.from({ length: 53 }, (_, i) => {
@@ -145,13 +161,18 @@ export function Projects() {
   const indexOfFirstItem = indexOfLastItem - itemsPerPage
   const currentItems = sortedCards.slice(indexOfFirstItem, indexOfLastItem)
 
+  const category = categories.find(
+    (cat) => cat.id === parseInt(categoryId ?? '1')
+  )
+  const categoryName = category ? category.name : 'Category not found'
+
   return (
     <div className={styles.background}>
       <Header />
       <main className={styles.main}>
         <section className={styles.hero}>
           <h2 className={`${styles.title} font-pixellari-hero`}>
-            Blockchain Technology
+            {categoryName}
           </h2>
           <div className={styles.searchBar} ref={searchBarRef}>
             <span>
@@ -174,12 +195,12 @@ export function Projects() {
             <Toggle label="Ongoing" onChange={handleToggleChange} />
           </article>
           <div className={styles.cardBox}>
-            <div className={styles.asideFilter}>
+            <aside className={styles.asideFilter}>
               <div className={styles.category}>
                 <p className={`text-color-white font-pixellari-sub-header`}>
                   Category
                 </p>
-                <CategoryFilter />
+                <CategoryFilter categories={categories} />
               </div>
               <div className={styles.filter}>
                 <p className={`text-color-white font-pixellari-sub-header`}>
@@ -190,7 +211,7 @@ export function Projects() {
                   onFilterChange={handleFilterChange}
                 />
               </div>
-            </div>
+            </aside>
             <ul className={styles.cardList}>
               {currentItems.map((card) => (
                 <Card className={styles.card} key={card.projectId} {...card} />
