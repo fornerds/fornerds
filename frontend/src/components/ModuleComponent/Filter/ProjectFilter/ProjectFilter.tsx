@@ -12,11 +12,18 @@ interface Filter {
 }
 
 interface ProjectFilterProps {
-  filters: Filter
-  onFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  languageFilter: Filter
+  difficultyFilter: Filter
+  onLanguageFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onDifficultyFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
+export function ProjectFilter({
+  languageFilter,
+  difficultyFilter,
+  onLanguageFilterChange,
+  onDifficultyFilterChange
+}: ProjectFilterProps) {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
   const languageHandleDownClick = () => {
     setLanguageOpen(!isLanguageOpen)
@@ -62,23 +69,23 @@ export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
             <>
               <CheckBox
                 label="JavaScript"
-                onChange={onFilterChange}
-                checked={filters.JavaScript}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.JavaScript}
               />
               <CheckBox
                 label="Redux"
-                onChange={onFilterChange}
-                checked={filters.Redux}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.Redux}
               />
               <CheckBox
                 label="HTML"
-                onChange={onFilterChange}
-                checked={filters.HTML}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.HTML}
               />
               <CheckBox
                 label="CSS"
-                onChange={onFilterChange}
-                checked={filters.CSS}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.CSS}
               />
             </>
           )}
@@ -103,18 +110,18 @@ export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
             <>
               <CheckBox
                 label="Hard"
-                onChange={onFilterChange}
-                checked={filters.Hard}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Hard}
               />
               <CheckBox
                 label="Medium"
-                onChange={onFilterChange}
-                checked={filters.Medium}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Medium}
               />
               <CheckBox
                 label="Easy"
-                onChange={onFilterChange}
-                checked={filters.Easy}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Easy}
               />
             </>
           )}

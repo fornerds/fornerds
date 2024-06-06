@@ -24,7 +24,6 @@ export function CategoryFilter({ categories }: CategoryFilterProps) {
   }
   const navigate = useNavigate()
   const selectCategory = (event: React.MouseEvent<HTMLButtonElement>) => {
-    console.log(event.currentTarget.getAttribute('itemID'))
     const buttonText = event.currentTarget.textContent
     const buttonID = event.currentTarget.getAttribute('itemID')
     if (buttonText != null) setCategory(buttonText)

@@ -83,14 +83,16 @@ export function Projects() {
   const [currentPage, setCurrentPage] = useState(1)
   const [sortType, setSortType] = useState('default')
   const [onlyActive, setOnlyActive] = useState(false)
-  const [filters, setfilters] = useState<Filter>({
-    Hard: true,
-    Medium: true,
-    Easy: true,
+  const [languageFilter, setLanguageFilter] = useState<Filter>({
     JavaScript: true,
     Redux: true,
     HTML: true,
     CSS: true
+  })
+  const [difficultyFilter, setDifficultyFilter] = useState<Filter>({
+    Hard: true,
+    Medium: true,
+    Easy: true
   })
 
   const itemsPerPage = 10
@@ -125,13 +127,24 @@ export function Projects() {
     setCurrentPage(1)
   }
 
-  const handleFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleLanguageFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const { name, checked } = e.target
-    setfilters({
-      ...filters,
+    setLanguageFilter({
+      ...languageFilter,
       [name]: checked
     })
-    // console.log(filteredCards)
+  }
+
+  const handleDifficultyFilterChange = (
+    e: React.ChangeEvent<HTMLInputElement>
+  ) => {
+    const { name, checked } = e.target
+    setDifficultyFilter({
+      ...difficultyFilter,
+      [name]: checked
+    })
   }
 
   const filteredCards = cards
@@ -139,8 +152,8 @@ export function Projects() {
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((card) => (onlyActive ? card.deadline > 0 : true))
-    .filter((card) => card.skills.some((skill) => filters[skill]))
-    .filter((card) => filters[card.difficulty])
+    .filter((card) => card.skills.some((skill) => languageFilter[skill]))
+    .filter((card) => difficultyFilter[card.difficulty])
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
@@ -207,8 +220,10 @@ export function Projects() {
                   Filter
                 </p>
                 <ProjectFilter
-                  filters={filters}
-                  onFilterChange={handleFilterChange}
+                  languageFilter={languageFilter}
+                  difficultyFilter={difficultyFilter}
+                  onLanguageFilterChange={handleLanguageFilterChange}
+                  onDifficultyFilterChange={handleDifficultyFilterChange}
                 />
               </div>
             </aside>
