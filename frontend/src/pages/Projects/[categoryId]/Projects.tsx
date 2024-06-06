@@ -84,16 +84,20 @@ export function Projects() {
   const [sortType, setSortType] = useState('default')
   const [onlyActive, setOnlyActive] = useState(false)
   const [languageFilter, setLanguageFilter] = useState<Filter>({
-    JavaScript: true,
-    Redux: true,
-    HTML: true,
-    CSS: true
+    JavaScript: false,
+    Redux: false,
+    HTML: false,
+    CSS: false
   })
   const [difficultyFilter, setDifficultyFilter] = useState<Filter>({
-    Hard: true,
-    Medium: true,
-    Easy: true
+    Hard: false,
+    Medium: false,
+    Easy: false
   })
+
+  const isFilterAllNonCheck = (filter: Filter) => {
+    return !Object.values(filter).some((value) => value)
+  }
 
   const itemsPerPage = 10
 
@@ -152,8 +156,16 @@ export function Projects() {
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
     )
     .filter((card) => (onlyActive ? card.deadline > 0 : true))
-    .filter((card) => card.skills.some((skill) => languageFilter[skill]))
-    .filter((card) => difficultyFilter[card.difficulty])
+    .filter((card) =>
+      isFilterAllNonCheck(languageFilter)
+        ? true
+        : card.skills.some((skill) => languageFilter[skill])
+    )
+    .filter((card) =>
+      isFilterAllNonCheck(difficultyFilter)
+        ? true
+        : difficultyFilter[card.difficulty]
+    )
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
