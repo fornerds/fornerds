@@ -123,13 +123,17 @@ monaco.languages.typescript.typescriptDefaults.setCompilerOptions({
   moduleResolution: monaco.languages.typescript.ModuleResolutionKind.NodeJs,
   module: monaco.languages.typescript.ModuleKind.CommonJS,
   noEmit: true,
-  typeRoots: ['node_modules/@types'],
+  typeRoots: ["node_modules/@types"],
+  noWorker: true, // 워커 비활성화
 });
 
 (window as any).MonacoEnvironment = {
   getWorker: (workerId: string, label: string) => {
     if (label === 'typescript' || label === 'javascript') {
-      return monaco.languages.typescript.getTypeScriptWorker();
+      return monaco.editor.createWebWorker({
+        moduleId: 'vs/language/typescript/tsWorker',
+        label: label,
+      });
     }
     return null;
   },
