@@ -30,32 +30,32 @@ export interface CommentProps {
 }
 
 interface UserProfile {
-  id: string;
-  email: string;
-  password: string;
-  name: string;
-  nickname: string;
-  phoneNumber: string;
-  language: string;
-  country: string;
-  profileImage: number;
-  bio: string;
-  role: string;
-  level: number;
-  exp: number;
-  point: number;
-  cash: number;
-  isPublic: boolean;
-  createdAt: string;
-  updatedAt: string;
-  deletedAt: string | null;
+  id: string
+  email: string
+  password: string
+  name: string
+  nickname: string
+  phoneNumber: string
+  language: string
+  country: string
+  profileImage: number
+  bio: string
+  role: string
+  level: number
+  exp: number
+  point: number
+  cash: number
+  isPublic: boolean
+  createdAt: string
+  updatedAt: string
+  deletedAt: string | null
 }
 
 interface Props {
   commentData: CommentProps
   currentUser: UserProfile // 현재 로그인한 사용자의 정보를 prop으로 받음
-  updateComment: (updatedComment: CommentProps) => void;
-  deleteComment: (commentId: number) => void;
+  updateComment: (updatedComment: CommentProps) => void
+  deleteComment: (commentId: number) => void
   hideEditDelete: Boolean
 }
 
@@ -66,8 +66,8 @@ export function Comment({
   deleteComment,
   hideEditDelete = false }: Props) {
   const [showReplies, setShowReplies] = useState(false) // 대댓글 표시 상태
-  const [editingCommentId, setEditingCommentId] = useState<{ commentId: number | null; replyId: number | null }>({ commentId: null, replyId: null }); // 수정시 대상의 ID확인
-  const [editedContent, setEditedContent] = useState<string>(''); // 댓글 수정 내용
+  const [editingCommentId, setEditingCommentId] = useState<{ commentId: number | null; replyId: number | null }>({ commentId: null, replyId: null }) // 수정시 대상의 ID확인
+  const [editedContent, setEditedContent] = useState<string>('') // 댓글 수정 내용
 
   const toggleReplies = () => {
     setShowReplies(!showReplies)
@@ -80,11 +80,11 @@ export function Comment({
 
   // Edit버튼 클릭시 동작
   const handleEditClick = (commentId: number, replyId: number | null = null) => {
-    setEditingCommentId({ commentId, replyId });
-    setEditedContent(replyId ? commentData.replyData.find(reply => reply.id === replyId)?.content || '' : commentData.content);
+    setEditingCommentId({ commentId, replyId })
+    setEditedContent(replyId ? commentData.replyData.find(reply => reply.id === replyId)?.content || '' : commentData.content)
     console.log(`현재 commentID는 ${commentId}의 Edit버튼 클릭!`)
     console.log(`현재 replyID는 ${replyId}의 Edit버튼 클릭!`)
-  };
+  }
 
   // Save버튼 클릭시 동작
   const handleSaveClick = () => {
@@ -92,19 +92,19 @@ export function Comment({
     if (editingCommentId.replyId) {
       const updatedReplyData = commentData.replyData.map(reply =>
         reply.id === editingCommentId.replyId ? { ...reply, content: editedContent } : reply
-      );
-      updateComment({ ...commentData, replyData: updatedReplyData });
+      )
+      updateComment({ ...commentData, replyData: updatedReplyData })
     } else {
-      updateComment({ ...commentData, content: editedContent });
+      updateComment({ ...commentData, content: editedContent })
     }
-    setEditingCommentId({ commentId: null, replyId: null });
-  };
+    setEditingCommentId({ commentId: null, replyId: null })
+  }
 
   // Delete버튼 클릭시 동작
   const handleDeleteClick = (commentId: number) => {
     console.log(`${commentId}의 Delete버튼 클릭!`)
-    deleteComment(commentId);
-  };
+    deleteComment(commentId)
+  }
 
   const handleSubmitReply = (content: string) => {
     const newReply: Reply = {
@@ -116,11 +116,11 @@ export function Comment({
       deletedAt: null,
       quest_id: commentData.quest_id,
       user_id: currentUser.id,
-    };
+    }
 
-    const updatedReplyData = [...commentData.replyData, newReply];
-    updateComment({ ...commentData, replyData: updatedReplyData });
-  };
+    const updatedReplyData = [...commentData.replyData, newReply]
+    updateComment({ ...commentData, replyData: updatedReplyData })
+  }
 
   return (
     <div className={styles.discussion}>

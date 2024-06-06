@@ -314,14 +314,14 @@ export function Discussion() {
   const updateComment = (updatedComment: CommentProps) => {
     const updatedComments = commentData.map((comment) =>
       comment.id === updatedComment.id ? updatedComment : comment
-    );
-    setCommentData(updatedComments);
-  };
+    )
+    setCommentData(updatedComments)
+  }
 
   const deleteComment = (commentId: number) => {
-    const updatedComments = commentData.filter((comment) => comment.id !== commentId);
-    setCommentData(updatedComments);
-  };
+    const updatedComments = commentData.filter((comment) => comment.id !== commentId)
+    setCommentData(updatedComments)
+  }
 
   const submitComment = (content: string) => {
     const newComment: CommentProps = {

@@ -17,13 +17,13 @@ export function CommentInput({
   profileImage,
   onSubmit }: CommentInputProps) {
 
-  const [content, setContent] = React.useState('');
+  const [content, setContent] = React.useState('')
   const textareaClass = isReply ? styles.replyTextarea : styles.textarea
 
   const handleSubmit = () => {
-    onSubmit(content);
-    setContent('');
-  };
+    onSubmit(content)
+    setContent('')
+  }
 
   return (
     <div className={styles.commentInput}>

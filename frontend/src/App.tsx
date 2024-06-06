@@ -48,10 +48,10 @@ const router = createBrowserRouter([
     path: '/projects/:categoryId/:projectId/quests/:questId',
     element: <QuestDetails />
   },
-  {
-    path: '/projects/:categoryId/:projectId/quests/:questId/submit-solution',
-    element: <SubmitSolution />
-  },
+  // {
+  //   path: '/projects/:categoryId/:projectId/quests/:questId/submit-solution',
+  //   element: <SubmitSolution />
+  // },
   {
     path: '/projects/:categoryId/:projectId/quests/:questId/solution/:solutionId',
     element: <Solution />

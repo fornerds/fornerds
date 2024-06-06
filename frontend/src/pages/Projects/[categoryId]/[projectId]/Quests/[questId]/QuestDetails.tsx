@@ -1,5 +1,5 @@
-import React, { useState, useRef } from 'react'
-import styles from './QuestDetails.module.css'
+import React, { useState, useRef } from 'react';
+import styles from './QuestDetails.module.css';
 import {
   Footer,
   Header,
@@ -8,50 +8,56 @@ import {
   SortFilter,
   Pagination,
   SolutionTable,
-  TextContent
-} from '../../../../../../components/ModuleComponent'
-import { NavLink, useParams } from 'react-router-dom'
-import { Button, Tag } from '../../../../../../components/AtomComponent'
-import { ReactComponent as Users } from '../../../../../../assets/icons/users.svg'
-import { ReactComponent as Calendar } from '../../../../../../assets/icons/calendar.svg'
-import { ReactComponent as Hard_white } from '../../../../../../assets/icons/hard_white.svg'
-import { ReactComponent as Medium_white } from '../../../../../../assets/icons/medium_white.svg'
-import { ReactComponent as Easy_white } from '../../../../../../assets/icons/easy_white.svg'
-import { ReactComponent as OverviewIcon } from '../../../../../../assets/icons/eye.svg'
-import { DiscussionIcon } from '../../../../../../assets/icons/DiscussionIcon'
-import { ReactComponent as SolutionIcon } from '../../../../../../assets/icons/lightbulb.svg'
-import { ReactComponent as Heart } from '../../../../../../assets/icons/heart.svg'
-import open from '../../../../../../assets/images/pixel/open.webp'
-import half_open from '../../../../../../assets/images/pixel/half_open.webp'
-import closed from '../../../../../../assets/images/pixel/closed.webp'
-import cup from '../../../../../../assets/images/pixel/cup.webp'
-import money from '../../../../../../assets/images/pixel/money.webp'
-import { Discussion } from './Discussion/Discussion'
+  TextContent,
+} from '../../../../../../components/ModuleComponent';
+import { NavLink, useParams } from 'react-router-dom';
+import { Button, Tag } from '../../../../../../components/AtomComponent';
+import { ReactComponent as Users } from '../../../../../../assets/icons/users.svg';
+import { ReactComponent as Calendar } from '../../../../../../assets/icons/calendar.svg';
+import { ReactComponent as Hard_white } from '../../../../../../assets/icons/hard_white.svg';
+import { ReactComponent as Medium_white } from '../../../../../../assets/icons/medium_white.svg';
+import { ReactComponent as Easy_white } from '../../../../../../assets/icons/easy_white.svg';
+import { ReactComponent as OverviewIcon } from '../../../../../../assets/icons/eye.svg';
+import { DiscussionIcon } from '../../../../../../assets/icons/DiscussionIcon';
+import { ReactComponent as SolutionIcon } from '../../../../../../assets/icons/lightbulb.svg';
+import { ReactComponent as Heart } from '../../../../../../assets/icons/heart.svg';
+import open from '../../../../../../assets/images/pixel/open.webp';
+import half_open from '../../../../../../assets/images/pixel/half_open.webp';
+import closed from '../../../../../../assets/images/pixel/closed.webp';
+import cup from '../../../../../../assets/images/pixel/cup.webp';
+import money from '../../../../../../assets/images/pixel/money.webp';
+import { Discussion } from './Discussion/Discussion';
+import { SubmitSolution } from './SubmitSolution';
 
 export function QuestDetails() {
-  let { categoryId, projectId, questId } = useParams()
-  const [currentPage, setCurrentPage] = useState(1)
-  const [onlyActive, setOnlyActive] = useState(false)
-  const [sortType, setSortType] = useState('default')
-  const itemsPerPage = 10
+  let { categoryId, projectId, questId } = useParams();
+  const [currentPage, setCurrentPage] = useState(1);
+  const [onlyActive, setOnlyActive] = useState(false);
+  const [sortType, setSortType] = useState('default');
+  const itemsPerPage = 10;
+
+  const [showSubmitSolution, setShowSubmitSolution] = useState(false); // submit 모달 오픈
+  const [currentExp, setCurrentExp] = useState(0);
 
   const handlePageChange = (page: number) => {
-    setCurrentPage(page)
-  }
+    setCurrentPage(page);
+  };
 
   const handleToggleChange = (checked: boolean) => {
-    setOnlyActive(checked)
-    setCurrentPage(1)
-  }
+    setOnlyActive(checked);
+    setCurrentPage(1);
+  };
 
   const handleSortChange = (sortType: string) => {
-    setSortType(sortType)
-  }
+    setSortType(sortType);
+  };
 
   const solutionList = useRef(
     Array.from({ length: 53 }, (_, i) => {
-      const randomDate = new Date()
-      randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365))
+      const randomDate = new Date();
+      randomDate.setDate(
+        randomDate.getDate() - Math.floor(Math.random() * 365),
+      );
       return {
         id: i + 1,
         likeCount: Math.floor(Math.random() * 500),
@@ -61,34 +67,36 @@ export function QuestDetails() {
         user_image: Math.floor(Math.random() * 10),
         codeLength: Math.floor(Math.random() * 2000),
         executionTime: Math.floor(Math.random() * 1000),
-        memoryUsage: Math.floor(Math.random() * 2000)
-      }
-    })
-  ).current
+        memoryUsage: Math.floor(Math.random() * 2000),
+      };
+    }),
+  ).current;
 
   const sortedsolutionList = solutionList.sort((a, b) => {
     switch (sortType) {
       case 'Popular':
-        return b.likeCount - a.likeCount
+        return b.likeCount - a.likeCount;
       case 'Recent':
-        return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        return (
+          new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()
+        );
       default:
-        return 0
+        return 0;
     }
-  })
+  });
 
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = sortedsolutionList.slice(
     indexOfFirstItem,
-    indexOfLastItem
-  )
+    indexOfLastItem,
+  );
 
   const status = ['inProgress', 'completed'][Math.floor(Math.random() * 2)] as
     | 'inProgress'
-    | 'completed'
-  const randomDate = new Date()
-  randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365))
+    | 'completed';
+  const randomDate = new Date();
+  randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365));
 
   const initialQuest = useRef({
     userQuestId: questId,
@@ -110,35 +118,48 @@ export function QuestDetails() {
       Math.floor(Math.random() * 4)
     ],
     QuestStatus: ['closed', 'opened', 'solved'][Math.floor(Math.random() * 3)],
-    link: `/projects/${categoryId}/${projectId}/quests/${questId}`
-  }).current
+    link: `/projects/${categoryId}/${projectId}/quests/${questId}`,
+  }).current;
 
-  const [quest, setQuest] = useState(initialQuest)
-  const [isBookmarked, setIsBookmarked] = useState(quest.isBookmarked || false)
+  const [quest, setQuest] = useState(initialQuest);
+  const [isBookmarked, setIsBookmarked] = useState(quest.isBookmarked || false);
 
   const handleBookmarkClick = () => {
-    setIsBookmarked(!isBookmarked)
-  }
+    setIsBookmarked(!isBookmarked);
+  };
 
   const handleStatusChange = () => {
     setQuest((prevQuest) => {
-      let newStatus
+      let newStatus;
       switch (prevQuest.QuestStatus) {
         case 'closed':
-          newStatus = 'opened'
-          break
+          newStatus = 'opened';
+          break;
         case 'opened':
-          newStatus = 'solved'
-          break
+          newStatus = 'solved';
+          break;
         case 'solved':
-          newStatus = 'solved'
-          break
+          newStatus = 'solved';
+          break;
         default:
-          newStatus = 'closed'
+          newStatus = 'closed';
       }
-      return { ...prevQuest, QuestStatus: newStatus }
-    })
-  }
+      return { ...prevQuest, QuestStatus: newStatus };
+    });
+  };
+
+  // submit solution popup
+  const handleSubmit = () => {
+    setShowSubmitSolution(true);
+  };
+
+  const handleClose = () => {
+    setShowSubmitSolution(false);
+  };
+
+  const handleExpUpdate = (exp: number) => {
+    setCurrentExp(exp);
+  };
 
   const renderBubble = (status: string) => {
     if (status === 'solved') {
@@ -150,7 +171,7 @@ export function QuestDetails() {
             </h4>
           </div>
         </div>
-      )
+      );
     } else if (status === 'opened') {
       return (
         <div className={styles.bubble}>
@@ -178,17 +199,17 @@ export function QuestDetails() {
             </ol>
           </div>
         </div>
-      )
+      );
     }
-    return null
-  }
+    return null;
+  };
 
   const lipsum_sample_text_list = [
     'Lorem ipsum dolor sit amet consectetur',
     'Volutpat sit purus posuere laoreet dolor gravida curabitur',
     'Sapien tristique curabitur risus neque vulputate',
-    'Maecenas proin est nisi auctor vel eget tortor sagittis'
-  ]
+    'Maecenas proin est nisi auctor vel eget tortor sagittis',
+  ];
 
   function TextField() {
     return (
@@ -203,7 +224,7 @@ export function QuestDetails() {
           list={lipsum_sample_text_list}
         />
       </div>
-    )
+    );
   }
 
   const tabs = [
@@ -215,13 +236,13 @@ export function QuestDetails() {
         <section className={styles.tabSection}>
           <TextField />
         </section>
-      )
+      ),
     },
     {
       icon: <DiscussionIcon stroke="white" strokeOpacity="0.38" />,
       activeIcon: <DiscussionIcon stroke="#00C4B4" strokeOpacity="1" />,
       label: 'Discussion',
-      content: <Discussion />
+      content: <Discussion />,
     },
     {
       icon: <SolutionIcon stroke="white" strokeOpacity="0.38" />,
@@ -285,13 +306,21 @@ export function QuestDetails() {
             />
           </div>
         </section>
-      )
-    }
-  ]
+      ),
+    },
+  ];
 
   return (
     <div className={styles.background}>
       <Header />
+      {showSubmitSolution && (
+        <SubmitSolution
+          onClose={handleClose}
+          expGained={60}
+          currentExp={currentExp}
+          onExpUpdate={handleExpUpdate}
+        />
+      )}
       <main className={styles.main}>
         <header className={styles.projectHeader}>
           <section className={styles.projectHeaderInfo}>
@@ -429,7 +458,13 @@ export function QuestDetails() {
                     <Button
                       className={`${styles.Button} font-roboto-cta-small`}
                       variant="active"
-                      onClick={handleStatusChange}
+                      onClick={() => {
+                        if (quest.QuestStatus === 'opened') {
+                          setShowSubmitSolution(true);
+                        } else {
+                          handleStatusChange();
+                        }
+                      }}
                     >
                       {quest.QuestStatus === 'solved'
                         ? 'View Solution'
@@ -451,5 +486,5 @@ export function QuestDetails() {
       </main>
       <Footer />
     </div>
-  )
+  );
 }
