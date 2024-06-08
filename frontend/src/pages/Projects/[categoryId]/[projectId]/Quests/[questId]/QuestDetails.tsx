@@ -37,7 +37,6 @@ export function QuestDetails() {
   const itemsPerPage = 10;
 
   const [showSubmitSolution, setShowSubmitSolution] = useState(false); // submit 모달 오픈
-  const [currentExp, setCurrentExp] = useState(0);
 
   const handlePageChange = (page: number) => {
     setCurrentPage(page);
@@ -111,9 +110,8 @@ export function QuestDetails() {
     remaining_quests: Math.floor(Math.random() * 5),
     deadline: status === 'completed' ? 0 : Math.floor(Math.random() * 29) + 1,
     rewardCash: Math.floor(Math.random() * 1000000),
-    rewardExp: Math.floor(Math.random() * 1000000),
+    rewardExp: Math.floor(Math.random() * 20),
     status: status,
-    createdAt: randomDate.toISOString(),
     positionName: ['Front-end', 'Back-end', 'Full Stack', 'Designer'][
       Math.floor(Math.random() * 4)
     ],
@@ -149,16 +147,8 @@ export function QuestDetails() {
   };
 
   // submit solution popup
-  const handleSubmit = () => {
-    setShowSubmitSolution(true);
-  };
-
   const handleClose = () => {
     setShowSubmitSolution(false);
-  };
-
-  const handleExpUpdate = (exp: number) => {
-    setCurrentExp(exp);
   };
 
   const renderBubble = (status: string) => {
@@ -316,9 +306,7 @@ export function QuestDetails() {
       {showSubmitSolution && (
         <SubmitSolution
           onClose={handleClose}
-          expGained={60}
-          currentExp={currentExp}
-          onExpUpdate={handleExpUpdate}
+          questData={quest}
         />
       )}
       <main className={styles.main}>
