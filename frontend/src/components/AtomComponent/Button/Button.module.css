@@ -6,6 +6,7 @@
   width: fit-content;
   height: fit-content;
   display: flex;
+  background-color: transparent;
 }
 
 .small {
