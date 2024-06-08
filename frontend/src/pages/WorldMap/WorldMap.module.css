@@ -1,0 +1,79 @@
+.background {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--Color-background-00);
+    overflow: hidden;
+  }
+  
+  .mainContainer {
+    flex: 1;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+  }
+  
+  .main {
+    position: relative;
+    height: calc(100vh - 70px);
+    width: calc((100vh - 70px) / 1080 * 3840);
+    display: flex;
+    justify-content: flex-start; /* 왼쪽 정렬 */
+  }
+  
+  .backgroundImage {
+    position: absolute;
+    left: 0;
+    width: calc((100vh - 70px) / 1080 * 3840);
+    height: calc(100vh - 70px);
+    opacity: 0.5;
+    background-image: url('../../assets/images/background/background05.webp');
+    background-size: cover;
+  }
+  
+  .planetContainer {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+  
+  .planet {
+    width: 100%;
+    height: 100%;
+    transition: filter 0.3s ease-in-out;
+    filter: grayscale(100%);
+  }
+  
+  .planetHover {
+    filter: grayscale(0);
+  }
+  
+  .planetText {
+    position: absolute;
+    text-align: inherit;
+    color: var(--Color-text-default);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .planetText p {
+    color: var(--Color-text-default);
+    transition: color 0.3s ease-in-out;
+  }
+  
+  .planetHoverText,
+  .planetHoverText p {
+    color: var(--Color-text-lighten);
+  }
+
+  .gifContainer {
+  position: absolute;
+  /* 원하는 위치에 맞게 left와 top 값을 설정하세요 */
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
