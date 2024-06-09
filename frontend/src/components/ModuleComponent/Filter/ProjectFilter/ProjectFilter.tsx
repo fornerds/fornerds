@@ -12,11 +12,22 @@ interface Filter {
 }
 
 interface ProjectFilterProps {
-  filters: Filter
-  onFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  languageFilter: Filter
+  difficultyFilter: Filter
+  rewardFilter: Filter
+  onLanguageFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onDifficultyFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onRewardFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
-export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
+export function ProjectFilter({
+  languageFilter,
+  difficultyFilter,
+  rewardFilter,
+  onLanguageFilterChange,
+  onDifficultyFilterChange,
+  onRewardFilterChange
+}: ProjectFilterProps) {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
   const languageHandleDownClick = () => {
     setLanguageOpen(!isLanguageOpen)
@@ -61,24 +72,28 @@ export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
           {isLanguageOpen && (
             <>
               <CheckBox
+                name="JavaScript"
                 label="JavaScript"
-                onChange={onFilterChange}
-                checked={filters.JavaScript}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.JavaScript}
               />
               <CheckBox
+                name="Redux"
                 label="Redux"
-                onChange={onFilterChange}
-                checked={filters.Redux}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.Redux}
               />
               <CheckBox
+                name="HTML"
                 label="HTML"
-                onChange={onFilterChange}
-                checked={filters.HTML}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.HTML}
               />
               <CheckBox
+                name="CSS"
                 label="CSS"
-                onChange={onFilterChange}
-                checked={filters.CSS}
+                onChange={onLanguageFilterChange}
+                checked={languageFilter.CSS}
               />
             </>
           )}
@@ -102,19 +117,22 @@ export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
           {isDifficultyOpen && (
             <>
               <CheckBox
+                name="Hard"
                 label="Hard"
-                onChange={onFilterChange}
-                checked={filters.Hard}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Hard}
               />
               <CheckBox
+                name="Medium"
                 label="Medium"
-                onChange={onFilterChange}
-                checked={filters.Medium}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Medium}
               />
               <CheckBox
+                name="Easy"
                 label="Easy"
-                onChange={onFilterChange}
-                checked={filters.Easy}
+                onChange={onDifficultyFilterChange}
+                checked={difficultyFilter.Easy}
               />
             </>
           )}
@@ -137,8 +155,20 @@ export function ProjectFilter({ filters, onFilterChange }: ProjectFilterProps) {
         >
           {isRewardOpen && (
             <>
-              <CheckBox label="Only" iconImage={moneyImg} />
-              <CheckBox label="Only" iconImage={cupImg} />
+              <CheckBox
+                name="rewardCash"
+                label="Only"
+                iconImage={moneyImg}
+                onChange={onRewardFilterChange}
+                checked={rewardFilter.rewardCash}
+              />
+              <CheckBox
+                name="rewardExp"
+                label="Only"
+                iconImage={cupImg}
+                onChange={onRewardFilterChange}
+                checked={rewardFilter.rewardExp}
+              />
             </>
           )}
         </div>

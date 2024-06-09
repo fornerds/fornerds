@@ -9,6 +9,7 @@ interface ButtonProps {
   onClick?: (event: MouseEvent<HTMLButtonElement>) => void
   disabled?: boolean
   className?: string
+  itemID?: string
 }
 
 export function Button({
@@ -18,7 +19,8 @@ export function Button({
   disabled = false,
   size = '',
   variant = '',
-  className = ''
+  className = '',
+  itemID = ''
 }: ButtonProps) {
   const buttonClass = `${styles.button} ${styles[size]} ${styles[variant]} ${className}`
 
@@ -28,6 +30,7 @@ export function Button({
       onClick={onClick}
       disabled={disabled}
       className={buttonClass}
+      itemID={itemID}
     >
       {children}
     </button>
