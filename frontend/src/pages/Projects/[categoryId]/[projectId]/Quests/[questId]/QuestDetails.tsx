@@ -110,7 +110,7 @@ export function QuestDetails() {
     remaining_quests: Math.floor(Math.random() * 5),
     deadline: status === 'completed' ? 0 : Math.floor(Math.random() * 29) + 1,
     rewardCash: Math.floor(Math.random() * 1000000),
-    rewardExp: Math.floor(Math.random() * 20),
+    rewardExp: Math.floor(Math.random() * 30),
     status: status,
     positionName: ['Front-end', 'Back-end', 'Full Stack', 'Designer'][
       Math.floor(Math.random() * 4)

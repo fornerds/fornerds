@@ -16,8 +16,19 @@
 }
 
 .submitSolutionPopup h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
+    color: #FFF;
+
+    /* typo/sub header&CTA */
+    font-family: Pixellari;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 500;
+    line-height: 150%;
+    /* 30px */
+}
+
+.required {
+    color: red;
 }
 
 .submitSolutionPopup h3 {
@@ -34,6 +45,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-right: 10px;
 }
 
 .submitSolutionPopup label {
@@ -45,18 +57,24 @@
 }
 
 .submitSolutionPopup input {
-    padding: 8px;
+    padding-top: 10px;
+    padding-bottom: 10px;
     border-radius: 4px;
     border: none;
     width: 100%;
-    margin-top: 4px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: white;
+
+    border-radius: 4px;
+    background: var(--Color-background-08, rgba(255, 255, 255, 0.12));
 }
 
 .actions {
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     width: 100%;
-    margin-top: 24px;
+    margin-top: 15px;
 }
 
 .actions button {
@@ -64,6 +82,8 @@
     border-radius: 4px;
     border: none;
     cursor: pointer;
+    margin-left: 10px;
+    justify-self: right;
 }
 
 .actions button:first-child {
@@ -82,50 +102,72 @@
     align-items: center;
     width: 100%;
     margin-bottom: 16px;
-    padding: 8px;
     background-color: #2D2D2D;
     border-radius: 4px;
+    gap: 10px;
 }
 
 .result span {
     font-size: 16px;
+    margin-left: 10px;
 }
 
 .proficiency {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: flex-start;
     width: 100%;
     margin-bottom: 8px;
+    gap: 10px;
 }
 
 .proficiency span {
     font-size: 14px;
 }
 
+.proficiency .title {
+    width: 80px;
+    text-align: left;
+}
+
+.proficiencyExp {
+    margin-left: auto;
+    display: flex;
+    padding: 3px 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 6px;
+    border: 1px solid var(--Color-primary-300, #00C4B4);
+    background: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+}
+
 .expBar {
     width: 100%;
     height: 20px;
     background-color: #e0e0e0;
-    border-radius: 10px;
+    border-radius: 5px;
     position: relative;
+    margin-bottom: 10px;
 }
 
 .expBarFill {
     height: 100%;
     background-color: #00c4b4;
-    border-radius: 10px;
+    border-radius: 5px;
     transition: width 0.5s ease-in-out;
 }
 
 .expBarNew {
     height: 100%;
     background-color: #ff6b6b;
-    border-radius: 10px;
+    border-radius: 5px;
     position: absolute;
     top: 0;
-    left: 0;
+    left: -5px; /* 원하는 만큼 음수 값을 조정하세요 */
     animation: fillExp 1s ease-in-out;
+    
 }
 
 @keyframes fillExp {
@@ -136,4 +178,17 @@
     100% {
         width: attr(data-width);
     }
+}
+
+.levelupImg {
+    width: 60px;
+    height: 60px;
+    margin-right: auto;
+}
+
+.proficiencyImg {
+    width: 25px;
+    height: 25px;
+    margin-right: auto;
+    justify-content: flex-start;
 }
