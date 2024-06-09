@@ -58,6 +58,7 @@ export function Projects() {
       ] as 'inProgress' | 'completed'
       const randomDate = new Date()
       randomDate.setDate(randomDate.getDate() - Math.floor(Math.random() * 365))
+      const rewardType = Math.floor(Math.random() * 3) + 1
       return {
         projectId: i + 1,
         difficulty: ['Easy', 'Medium', 'Hard'][Math.floor(Math.random() * 3)],
@@ -71,7 +72,14 @@ export function Projects() {
         remaining_quests: Math.floor(Math.random() * 5),
         deadline:
           status === 'completed' ? 0 : Math.floor(Math.random() * 29) + 1,
-        rewardCash: Math.floor(Math.random() * 1000000),
+        rewardCash:
+          rewardType === 1 || rewardType === 3
+            ? Math.floor(Math.random() * 1000000)
+            : 0,
+        rewardExp:
+          rewardType === 2 || rewardType === 3
+            ? Math.floor(Math.random() * 1000000)
+            : 0,
         status: status,
         createdAt: randomDate.toISOString()
       }
@@ -93,6 +101,10 @@ export function Projects() {
     Hard: false,
     Medium: false,
     Easy: false
+  })
+  const [rewardFilter, setRewardFilter] = useState<Filter>({
+    rewardCash: false,
+    rewardExp: false
   })
 
   const isFilterAllNonCheck = (filter: Filter) => {
@@ -151,6 +163,14 @@ export function Projects() {
     })
   }
 
+  const handleRewardFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, checked } = e.target
+    setRewardFilter({
+      ...rewardFilter,
+      [name]: checked
+    })
+  }
+
   const filteredCards = cards
     .filter((card) =>
       card.title.toLowerCase().includes(searchTerm.toLowerCase())
@@ -166,6 +186,19 @@ export function Projects() {
         ? true
         : difficultyFilter[card.difficulty]
     )
+    .filter((card) => {
+      if (isFilterAllNonCheck(rewardFilter)) {
+        return true
+      } else {
+        if (rewardFilter.rewardCash && !rewardFilter.rewardExp) {
+          return card.rewardCash
+        } else if (!rewardFilter.rewardCash && rewardFilter.rewardExp) {
+          return card.rewardExp && !card.rewardCash
+        } else {
+          return true
+        }
+      }
+    })
 
   const sortedCards = filteredCards.sort((a, b) => {
     switch (sortType) {
@@ -234,8 +267,10 @@ export function Projects() {
                 <ProjectFilter
                   languageFilter={languageFilter}
                   difficultyFilter={difficultyFilter}
+                  rewardFilter={rewardFilter}
                   onLanguageFilterChange={handleLanguageFilterChange}
                   onDifficultyFilterChange={handleDifficultyFilterChange}
+                  onRewardFilterChange={handleRewardFilterChange}
                 />
               </div>
             </aside>

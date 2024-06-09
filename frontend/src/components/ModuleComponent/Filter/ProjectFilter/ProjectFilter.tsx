@@ -14,15 +14,19 @@ interface Filter {
 interface ProjectFilterProps {
   languageFilter: Filter
   difficultyFilter: Filter
+  rewardFilter: Filter
   onLanguageFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
   onDifficultyFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
+  onRewardFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void
 }
 
 export function ProjectFilter({
   languageFilter,
   difficultyFilter,
+  rewardFilter,
   onLanguageFilterChange,
-  onDifficultyFilterChange
+  onDifficultyFilterChange,
+  onRewardFilterChange
 }: ProjectFilterProps) {
   const [isLanguageOpen, setLanguageOpen] = useState(false)
   const languageHandleDownClick = () => {
@@ -68,21 +72,25 @@ export function ProjectFilter({
           {isLanguageOpen && (
             <>
               <CheckBox
+                name="JavaScript"
                 label="JavaScript"
                 onChange={onLanguageFilterChange}
                 checked={languageFilter.JavaScript}
               />
               <CheckBox
+                name="Redux"
                 label="Redux"
                 onChange={onLanguageFilterChange}
                 checked={languageFilter.Redux}
               />
               <CheckBox
+                name="HTML"
                 label="HTML"
                 onChange={onLanguageFilterChange}
                 checked={languageFilter.HTML}
               />
               <CheckBox
+                name="CSS"
                 label="CSS"
                 onChange={onLanguageFilterChange}
                 checked={languageFilter.CSS}
@@ -109,16 +117,19 @@ export function ProjectFilter({
           {isDifficultyOpen && (
             <>
               <CheckBox
+                name="Hard"
                 label="Hard"
                 onChange={onDifficultyFilterChange}
                 checked={difficultyFilter.Hard}
               />
               <CheckBox
+                name="Medium"
                 label="Medium"
                 onChange={onDifficultyFilterChange}
                 checked={difficultyFilter.Medium}
               />
               <CheckBox
+                name="Easy"
                 label="Easy"
                 onChange={onDifficultyFilterChange}
                 checked={difficultyFilter.Easy}
@@ -144,8 +155,20 @@ export function ProjectFilter({
         >
           {isRewardOpen && (
             <>
-              <CheckBox label="Only" iconImage={moneyImg} />
-              <CheckBox label="Only" iconImage={cupImg} />
+              <CheckBox
+                name="rewardCash"
+                label="Only"
+                iconImage={moneyImg}
+                onChange={onRewardFilterChange}
+                checked={rewardFilter.rewardCash}
+              />
+              <CheckBox
+                name="rewardExp"
+                label="Only"
+                iconImage={cupImg}
+                onChange={onRewardFilterChange}
+                checked={rewardFilter.rewardExp}
+              />
             </>
           )}
         </div>

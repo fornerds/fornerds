@@ -11,6 +11,7 @@ interface iconImageProps {
 }
 
 interface CheckBoxProps {
+  name: string
   label: string
   onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void
   checked?: boolean
@@ -18,6 +19,7 @@ interface CheckBoxProps {
 }
 
 export function CheckBox({
+  name,
   label,
   onChange,
   checked,
@@ -28,7 +30,7 @@ export function CheckBox({
       <Input
         type="checkbox"
         className={styles.checkBoxInput}
-        name={label}
+        name={name}
         onChange={onChange}
         checked={checked}
       />
