@@ -12,6 +12,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -47,7 +48,7 @@ public class Discussion {
     private User user;
 
     @OneToMany(mappedBy = "discussion", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<DiscussionComment> discussionComments;
+    private List<DiscussionComment> discussionComments = new ArrayList<>();
 
     public void update(DiscussionDto discussionDto) {
         this.content = discussionDto.getContent();

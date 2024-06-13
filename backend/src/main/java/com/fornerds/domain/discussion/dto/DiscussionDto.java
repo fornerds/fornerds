@@ -1,6 +1,8 @@
 package com.fornerds.domain.discussion.dto;
 
 import com.fornerds.domain.discussion.entity.Discussion;
+import com.fornerds.domain.quest.entity.Quest;
+import com.fornerds.domain.user.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -39,13 +41,15 @@ public class DiscussionDto {
                 .collect(Collectors.toList());
     }
 
-    public Discussion toEntity() {
+    public Discussion toEntity(Quest quest, User user) {
         Discussion discussion = new Discussion();
         discussion.setContent(this.content);
         discussion.setLikeCount(this.likeCount);
         discussion.setCreatedAt(this.createdAt);
         discussion.setUpdatedAt(this.updatedAt);
         discussion.setDeletedAt(this.deletedAt);
+        discussion.setQuest(quest);
+        discussion.setUser(user);
         return discussion;
     }
 }

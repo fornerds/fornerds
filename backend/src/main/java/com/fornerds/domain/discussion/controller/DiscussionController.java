@@ -8,6 +8,8 @@ import com.fornerds.domain.discussion.service.DiscussionService;
 import com.fornerds.domain.project.service.ProjectService;
 import com.fornerds.domain.quest.entity.Quest;
 import com.fornerds.domain.quest.service.QuestService;
+import com.fornerds.domain.user.entity.User;
+import com.fornerds.domain.user.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -21,16 +23,20 @@ public class DiscussionController {
     private final QuestService questService;
     private final ProjectService projectService;
     private final DiscussionService discussionService;
+    private final UserService userService;
 
-    public DiscussionController(QuestService questService, ProjectService projectService, DiscussionService discussionService) {
+    public DiscussionController(QuestService questService, ProjectService projectService, DiscussionService discussionService, UserService userService) {
         this.questService = questService;
         this.projectService = projectService;
         this.discussionService = discussionService;
+        this.userService = userService;
     }
 
     @PostMapping
     public ResponseEntity<DiscussionDto> createDiscussion(@RequestBody DiscussionDto discussionDto) {
-        Discussion discussion = discussionService.createDiscussion(discussionDto.toEntity());
+        User user = userService.getUserById(discussionDto.getUserId());
+        Quest quest = questService.getQuestById(discussionDto.getQuestId());
+        Discussion discussion = discussionService.createDiscussion(discussionDto.toEntity(quest, user));
         DiscussionDto responseDto = new DiscussionDto(discussion);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
@@ -69,7 +75,9 @@ public class DiscussionController {
 
     @PostMapping("/discussionComment")
     public ResponseEntity<DiscussionCommentDto> createDiscussionComment(@RequestBody DiscussionCommentDto discussionCommentDto) {
-        DiscussionComment discussionComment = discussionService.createDiscussionComment(discussionCommentDto.toEntity());
+        User user = userService.getUserById(discussionCommentDto.getUserId());
+        Discussion discussion = discussionService.getDiscussionById(discussionCommentDto.getDiscussionId());
+        DiscussionComment discussionComment = discussionService.createDiscussionComment(discussionCommentDto.toEntity(discussion, user));
         DiscussionCommentDto responseDto = new DiscussionCommentDto(discussionComment);
         return ResponseEntity.status(HttpStatus.CREATED).body(responseDto);
     }
