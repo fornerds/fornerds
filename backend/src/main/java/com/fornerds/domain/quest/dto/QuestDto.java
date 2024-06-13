@@ -1,12 +1,10 @@
 package com.fornerds.domain.quest.dto;
 
+import com.fornerds.domain.project.entity.Project;
 import com.fornerds.domain.quest.entity.Difficulty;
 import com.fornerds.domain.quest.entity.Quest;
 import com.fornerds.domain.quest.entity.QuestStatus;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
@@ -14,6 +12,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@ToString
 public class QuestDto {
     private Long id;
     private String title;
@@ -41,6 +40,7 @@ public class QuestDto {
     private Integer likeCount;
     private String keyLearnings;
     private Integer estimatedDuration;
+    private Long projectId; // Project ID만 포함
 
     public QuestDto(Quest quest) {
         this.id = quest.getId();
@@ -69,9 +69,10 @@ public class QuestDto {
         this.likeCount = quest.getLikeCount();
         this.keyLearnings = quest.getKeyLearnings();
         this.estimatedDuration = quest.getEstimatedDuration();
+        this.projectId = quest.getProject().getId();
     }
 
-    public Quest toEntity() {
+    public Quest toEntity(Project project) {
         Quest quest = new Quest();
         quest.setTitle(title);
         quest.setStatus(status);
@@ -98,6 +99,8 @@ public class QuestDto {
         quest.setLikeCount(likeCount);
         quest.setKeyLearnings(keyLearnings);
         quest.setEstimatedDuration(estimatedDuration);
+        quest.setProject(project);
         return quest;
     }
 }
+

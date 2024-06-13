@@ -92,6 +92,12 @@ public class Quest {
 
     private LocalDateTime deletedAt;
 
+    public void update(QuestDto questDto) {
+        this.title = questDto.getTitle();
+        this.status = questDto.getStatus();
+        // 필요한 필드 업데이트
+    }
+    // 기타 연관관계 매핑
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "project_id")
     private Project project;
@@ -99,10 +105,6 @@ public class Quest {
     @OneToMany(mappedBy = "quest", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Solution> solutions = new ArrayList<>();
 
-    public void update(QuestDto questDto) {
-        this.title = questDto.getTitle();
-        this.status = questDto.getStatus();
-        // 필요한 필드 업데이트
-    }
-    // 기타 연관관계 매핑
+    @Enumerated(EnumType.STRING)
+    private Position position;
 }

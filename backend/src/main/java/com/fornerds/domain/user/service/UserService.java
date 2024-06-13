@@ -1,6 +1,8 @@
 package com.fornerds.domain.user.service;
 
 import com.fornerds.domain.auth.dto.SignupRequestDto;
+import com.fornerds.domain.quest.entity.Reward;
+import com.fornerds.domain.quest.entity.RewardType;
 import com.fornerds.domain.user.dto.UserDto;
 import com.fornerds.domain.user.entity.Role;
 import com.fornerds.domain.user.entity.User;
@@ -29,11 +31,28 @@ public class UserService {
                 .orElseThrow(() -> new ApiException("USER_NOT_FOUND", "User not found with id: " + id, HttpStatus.NOT_FOUND));
     }
 
+    public User getUserByEmail(String email) {
+        return userRepository.findByEmail(email)
+                .orElseThrow(() -> new ApiException("USER_NOT_FOUND", "User not found with email: " + email, HttpStatus.NOT_FOUND));
+    }
+
     public User updateUser(User user) {
         return userRepository.save(user);
     }
 
     public void deleteUser(Long id) {
         userRepository.deleteById(id);
+    }
+
+    public User updateUserRewardByRewardType(User user, Reward reward) {
+        if(reward.getRewardType()== RewardType.valueOf("EXP")){
+            user.setExp(user.getExp() + reward.getRewardAmount());
+        } else if (reward.getRewardType()== RewardType.valueOf("CASH")) {
+            user.setCash(user.getCash() + reward.getRewardAmount());
+        } else if (reward.getRewardType()== RewardType.valueOf("POINT")) {
+            user.setPoint(user.getPoint() + reward.getRewardAmount());
+        }
+
+        return userRepository.save(user);
     }
 }
