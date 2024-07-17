@@ -1,40 +1,159 @@
 .background {
-  background: var(--Color-background-00, #121212);
+  position: relative;
+  background-color: var(--Color-background-00, #121212);
+  min-height: 100vh;
 }
 
-.title {
-  font-family: 'Pixellari';
-  font-size: 90px;
-  color: white;
+.backgroundImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: top center;
+  background-size: 100vw auto;
+  background-repeat: no-repeat;
+  opacity: 0.2;
+  z-index: 0;
 }
 
-.tag {
-  font-size:12px;
+.content {
+  position: relative;
+  z-index: 1;
+}
+
+.main {
+  width: 100%;
+  margin: 120px auto 340px;
+  justify-content: flex-start;
+  min-height: calc(100vh - 457px);
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 8px;
-  padding: 6px 14px;
+  text-align: center;
+  gap: 30px;
 }
 
-.button {
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 600;
-  line-height: 150%;
+.mainTitleWrap {
   display: flex;
-  padding: 6px 16px;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.mainTitle {
+  max-width: 955px;
+  width: 100%;
+}
+
+.mainCTAWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.CTAButton {
+  display: flex;
+  width: 160px;
+  padding: 10px 16px;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  border-radius: 6px;
+  background: var(--Color-primary-400, #00B3A6);
+  align-self: center;
 }
 
-.defaultButton:hover {
-  background: var(--Color-background-16, rgba(255, 255, 255, 0.15));
+.mainSection {
+  width: 100%;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.activeButton:hover svg {
-  fill: var(--Color-primary-400, #00B3A6);
+.section01Article {
+  position: relative;
+  width: 100%;
+  max-width: 1380px;
+  max-height: 1185px;
+  height: fit-content;
+  padding-top: 1185px;
+  overflow: hidden;
 }
-.activeButton:hover svg g path {
-  stroke: var(--Color-primary-400, #00B3A6);
+
+.section02Article {
+  position: relative;
+  width: 100%;
+  max-width: 1282px;
+  max-height: 1113px;
+  height: fit-content;
+  padding-top: 1113px;
+}
+
+.section03Article {
+  position: relative;
+  width: 100%;
+  max-width: 1281px;
+  max-height: 1125px;
+  height: fit-content;
+  padding-top: 1125px;
+  overflow: hidden;
+}
+
+.section01, .section02, .section03  {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: fit-content;
+  object-fit: contain;
+}
+
+.projectCardLottie {
+  position: absolute;
+  left: 660px;
+  top: 220px;
+  transform: translateX(-50%);
+  width: 35.72%;
+  height: 14.85%;
+}
+
+.questBoardTapLottie {
+  position: absolute;
+  left: 818px;
+  top: 645px;
+  width: 240px;
+  height: 218px;
+}
+
+.questDetailLottie {
+  position: absolute;
+  left: 185px;
+  top: 190px;
+  width: 1014px;
+  height: 447px;
+}
+
+.codingLottie {
+  position: absolute;
+  left: 364px; 
+  top: 426px;
+  width: 796px; 
+  height: 369px;
+}
+
+.userInfoTabLottie {
+  position: absolute;
+  left: 127px;
+  top: 221px;
+  width: 767px;
+  height: 512px;
+}
+
+.rankingLottie {
+  position: absolute;
+  left: 552px;
+  top: 548px;
+  width: 637px;
+  height: 374px;
 }

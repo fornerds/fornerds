@@ -13,3 +13,4 @@ export {
 export { Tab } from './Tab'
 export { Bookmark, BookmarkButton } from './Bookmark'
 export { TextContent } from './Details/Overview/TextContent'
+export { LottieWrapper } from './LottieWrapper'

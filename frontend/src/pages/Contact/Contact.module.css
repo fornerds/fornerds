@@ -26,7 +26,6 @@
 .main {
     max-width: 500px;
     margin: 100px auto 220px;
-    display: flex;
     justify-content: flex-start;
     min-height: calc(100vh - 457px);
     display: flex;
