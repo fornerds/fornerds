@@ -3,17 +3,19 @@ package com.fornerds.domain.solution.entity;
 import com.fornerds.domain.quest.entity.Quest;
 import com.fornerds.domain.solution.dto.SolutionDto;
 import com.fornerds.domain.user.entity.User;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-import jakarta.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "solution")
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Solution {
@@ -24,13 +26,10 @@ public class Solution {
     @Column(nullable = false)
     private String repositoryUrl;
 
-    @Lob
-    private byte[] file;
-
     @Enumerated(EnumType.STRING)
     private SolutionStatus status;
 
-    @Lob
+    @Column(name = "feedback", columnDefinition = "TEXT")
     private String feedback;
 
     private Integer memoryUsage;
@@ -57,9 +56,11 @@ public class Solution {
     @JoinColumn(name = "user_id")
     private User user;
 
+    @OneToMany(mappedBy = "solution", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<SolutionFile> files;
+
     public void update(SolutionDto solutionDto) {
         this.repositoryUrl = solutionDto.getRepositoryUrl();
-        this.file = solutionDto.getFile();
         // 필요한 필드 업데이트
     }
 }
