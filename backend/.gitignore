@@ -53,3 +53,5 @@ src/main/resources/*.yml
 
 # Ignore code_extractor.exe file in any folder
 **/code_extractor.exe
+
+**/fornerds-key.pem

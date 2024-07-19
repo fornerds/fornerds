@@ -28,16 +28,15 @@ public class Project {
     @Enumerated(EnumType.STRING)
     private ProjectStatus status;
 
-    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Lob
+    @Column(name = "introduction", columnDefinition = "TEXT")
     private String introduction;
 
-    @Lob
     private String keyLearnings;
 
-    @Lob
+    @Column(name = "requirements", columnDefinition = "TEXT")
     private String requirements;
 
     private LocalDateTime deadline;

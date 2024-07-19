@@ -29,25 +29,25 @@ public class Quest {
     @Enumerated(EnumType.STRING)
     private QuestStatus status;
 
-    @Lob
+    @Column(name = "description", columnDefinition = "TEXT")
     private String description;
 
-    @Lob
+    @Column(name = "convention", columnDefinition = "TEXT")
     private String convention;
 
-    @Lob
+    @Column(name = "requirements", columnDefinition = "TEXT")
     private String requirements;
 
-    @Lob
+    @Column(name = "goal", columnDefinition = "TEXT")
     private String goal;
 
-    @Lob
+    @Column(name = "inputExample", columnDefinition = "TEXT")
     private String inputExample;
 
-    @Lob
+    @Column(name = "outputExample", columnDefinition = "TEXT")
     private String outputExample;
 
-    @Lob
+    @Column(name = "exampleExplanation", columnDefinition = "TEXT")
     private String exampleExplanation;
 
     private String apiUrl;
@@ -79,7 +79,6 @@ public class Quest {
 
     private Integer likeCount;
 
-    @Lob
     private String keyLearnings;
 
     private Integer estimatedDuration;

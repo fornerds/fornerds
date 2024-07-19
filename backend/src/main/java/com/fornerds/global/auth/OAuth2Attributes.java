@@ -73,7 +73,7 @@ public class OAuth2Attributes {
     public User toEntity() {
         String nickname = extractNicknameFromEmail(email);
         String password = generateRandomPassword();
-        return new User(email, password, name, nickname, profileImage, Role.USER);
+        return new User(email, password, name, nickname, profileImage, Role.USER, true);
     }
 
     private String generateRandomPassword() {
