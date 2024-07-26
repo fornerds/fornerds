@@ -9,6 +9,9 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,6 +34,10 @@ public class ProjectDto {
     private boolean isPublic;
     private Integer viewCount;
     private Integer remainingQuests;
+    private Integer questCount; // 퀘스트 수
+    private Integer totalRewardExp; // 통합 경험치
+    private Integer bookmarkCount; // 북마크 수
+    private List<String> techStackNames; // 기술 스택 리스트
 
     public ProjectDto(Project project) {
         this.id = project.getId();
@@ -51,6 +58,34 @@ public class ProjectDto {
         this.remainingQuests = project.getRemainingQuests();
     }
 
+    public ProjectDto(Object[] objects) {
+        this.id = (Long) objects[0];
+        this.title = (String) objects[1];
+        this.status = ProjectStatus.valueOf((String) objects[2]);
+        this.description = (String) objects[3];
+        this.introduction = (String) objects[4];
+        this.keyLearnings = (String) objects[5];
+        this.requirements = (String) objects[6];
+        this.deadline = (LocalDateTime) objects[7];
+        this.estimatedDuration = (String) objects[8];
+        this.difficulty = Difficulty.valueOf((String) objects[9]);
+        this.scale = (String) objects[10];
+        this.budget = (Integer) objects[11];
+        this.developerCount = (Integer) objects[12];
+        this.isPublic = (boolean) objects[13];
+        this.viewCount = (Integer) objects[14];
+        this.remainingQuests = (Integer) objects[15];
+        this.questCount = (Integer) objects[16];
+        this.totalRewardExp = (Integer) objects[17];
+        this.bookmarkCount = (Integer) objects[18];
+        // 기술 스택 이름 목록을 처리하는 부분
+        if (objects[19] instanceof String) {
+            this.techStackNames = Arrays.asList(((String) objects[19]).split(","));
+        } else {
+            this.techStackNames = new ArrayList<>();
+        }
+    }
+
     public Project toEntity() {
         Project project = new Project();
         project.setTitle(title);
@@ -68,6 +103,7 @@ public class ProjectDto {
         project.setPublic(isPublic);
         project.setViewCount(viewCount);
         project.setRemainingQuests(remainingQuests);
+
         return project;
     }
 }

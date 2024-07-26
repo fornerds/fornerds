@@ -104,6 +104,10 @@ public class User implements OAuth2User {
         this(email, password, name, "", "", role, false); // isPublic을 false로 초기화
     }
 
+    public User(Long id) {
+        this.id = id;
+    }
+
     public String getProfileImage() {
         return profileImage;
     }

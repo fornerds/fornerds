@@ -9,7 +9,9 @@ import org.hibernate.annotations.UpdateTimestamp;
 import jakarta.persistence.*;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "project")
@@ -69,11 +71,21 @@ public class Project {
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Quest> quests = new ArrayList<>();
 
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private Set<ProjectTechStack> projectTechStacks = new HashSet<>();
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private Set<ProjectCategory> projectCategories = new HashSet<>();
+
+    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    private Set<ProjectDevLanguage> projectDevLanguages = new HashSet<>();
+
+    public Project(Long id) {
+        this.id = id;
+    }
+
     public void update(ProjectDto projectDto) {
         this.title = projectDto.getTitle();
         this.status = projectDto.getStatus();
-        // 필요한 필드 업데이트
     }
-
-    // 기타 연관관계 매핑
 }
